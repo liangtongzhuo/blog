@@ -1,0 +1,47 @@
+body, h1 {
+    margin: 0;
+}
+
+body, header, h1, div, span, a {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    color: #1f2f3d;
+    word-break: break-all;
+}
+
+a:link, a:visited {
+    color: #1f2f3d;
+}
+
+.layout {
+    min-width: 300px;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    /*照顾ie6*/
+    zoom: 1;
+}

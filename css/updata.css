@@ -1,0 +1,69 @@
+.layout-updata {
+    min-width: 700px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.show, .write {
+    width: 50%;
+    padding-left: 30px
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    border-color: #f0f0f0;
+    resize: none;
+}
+
+header {
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+header>h1, textarea {
+    font-size: 50px;
+    font-weight: 300;
+}
+
+
+/*写样式*/
+
+.write>textarea {
+    /*border-width: 0;*/
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 28px;
+    /*background-color: red;*/
+}
+
+.writr {
+    margin-bottom: 100px;
+}
+
+
+/*展示样式 /适配markedowm字体样式*/
+
+.show #content {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 33px;
+}
+
+.show #content pre {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    overflow-x: auto;
+}
+
+.show #content pre code {
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.show #content h1, .show #content h2, .show #content h3, .show #content h4, .show #content h5, .show #content h6 {
+    font-weight: 300;
+}

@@ -1,0 +1,48 @@
+var APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';
+var APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';
+window.AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+});
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true, //开启github的markdown
+    tables: true, //支持Github表格，必须打开gfm选项
+    breaks: false, //支持Github换行符，必须打开gfm选项
+    pedantic: false, //只解析符合markdown.pl定义的，不修正markdown的错误
+    sanitize: false, //原始输出，忽略HTML标签
+    smartLists: true,
+    smartypants: false
+});
+
+
+//获取url，剪切出id
+var url = location.search;
+var id = url.split('?')[1];
+
+
+var query = new AV.Query('Atricle');
+query.descending('createdAt');
+query.get(id).then(function(result) {
+      var title = result.get('title');
+      var content = marked(result.get('content'));
+      var time = result.createdAt.toLocaleString();
+
+
+      atricleContentHTML(title,content,time)
+}, function(error) {
+    console.error(error);
+});
+
+function atricleContentHTML(title,content,time) {
+  document.title = title
+  document.getElementById('title').innerText = title
+  document.getElementById('content').innerHTML = content
+  document.getElementById('time').innerText = time
+}
+
+//跳转网页
+document.getElementById('title').addEventListener("click", function() {
+    window.location.href='updata.html?'+id;
+}, false);

@@ -1,0 +1,45 @@
+header {
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+header>h1 {
+    font-weight: 300;
+    font-size: 60px;
+}
+
+.content {
+    margin-left: -10px;
+}
+
+.content .item {
+    margin-bottom: 50px;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.content .item:hover {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.content .item .title {
+    font-weight: 200;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.content .item .atricle-content {
+    font-weight: 200;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.content .item .time {
+    margin-right: 30px;
+    font-weight: 100;
+    font-size: 15px;
+    text-align: right;
+}
