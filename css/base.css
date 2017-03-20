@@ -32,6 +32,10 @@ a:link, a:visited {
     float: right;
 }
 
+.float-left {
+    float: left;
+}
+
 .clearfix:before, .clearfix:after {
     content: "";
     display: table;
@@ -44,4 +48,23 @@ a:link, a:visited {
 .clearfix {
     /*照顾ie6*/
     zoom: 1;
+}
+
+
+/*提示框*/
+
+.notification {
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    right: 30px;
+    background-color: #f9f9f9;
+    width: 330px;
+    height: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500px;
+    visibility: hidden;
 }

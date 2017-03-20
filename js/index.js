@@ -5,24 +5,34 @@ window.AV.init({
     appKey: APP_KEY
 });
 
-var query = new AV.Query('Atricle');
-query.descending('createdAt');
-query.find().then(function(results) {
 
-    var html = '';
-    for (var i = 0; i < results.length; i++) {
-      var id = results[i].id;
-      var title = results[i].get('title');
-      if (title.length>40) title = title.substring(0,40)+'......';
-      var content = results[i].get('content').substring(0,110)+'......';
-      var time = results[i].createdAt.toLocaleString();
-      html += atricleHTML(id,title,content,time);
-    }
-    document.getElementById('content').innerHTML=html;
-}, function(error) {
-    console.error(error);
-});
 
+//开始查询
+var count=0;
+
+query()
+function query (){
+    var query = new AV.Query('Atricle');
+    query.limit(5);
+    query.skip(count*5);
+    query.descending('createdAt');
+    query.find().then(function(results) {
+
+        var html = '';
+        for (var i = 0; i < results.length; i++) {
+          var id = results[i].id;
+          var title = results[i].get('title');
+          if (title.length>40) title = title.substring(0,40)+'......';
+          var content = results[i].get('content').substring(0,110)+'......';
+          var time = results[i].createdAt.toLocaleString();
+          html += atricleHTML(id,title,content,time);
+        }
+        document.getElementById('content').innerHTML=html;
+        document.getElementById('count').innerText = count+1;
+    }, function(error) {
+        console.error(error);
+    });
+}
 
 function atricleHTML(id,title,content,time){
 
@@ -35,3 +45,14 @@ function atricleHTML(id,title,content,time){
 document.getElementById('title').addEventListener('click', function(){
    window.location.href = "updata.html"
 },false);
+
+//翻页
+document.getElementById('pageup').onclick = function(){
+  if (count==0)return;
+  count--;
+  query()
+};
+document.getElementById('pagebottom').onclick = function(){
+  count++;
+  query()
+ji};

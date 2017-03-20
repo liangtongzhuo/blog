@@ -72,12 +72,12 @@ var contentCount = 0;
 //更新内容
 function updataAricle (){
 
-      console.log(input_title.value)
-      // alter()
-
       if (input_title.value.length == titleCount
         && write_content.value.length == contentCount)
         return;
+
+      document.getElementById('notification').style.visibility = 'visible';
+
       //发送到服务器
       if (!atricleObject) {
          var Atricle = AV.Object.extend('Atricle');
@@ -93,6 +93,10 @@ function updataAricle (){
       },function(error){
 
       });
+
+      setTimeout(function(){
+        document.getElementById('notification').style.visibility='hidden';
+      },3000);
 }
 //10秒保存一次
 setInterval(updataAricle,10000);
