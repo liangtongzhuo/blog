@@ -17,86 +17,124 @@ marked.setOptions({
 });
 
 var input_title = document.getElementById('input_title');
-var write_content = document.getElementById('write_content');
+var input_tag = document.getElementById('input_tag');
+var input_content = document.getElementById('input_content');
+
 
 //如果有id，发送请求获取id
 var id = location.search.split('?')[1];
 var atricleObject
-if (id){
+if (id) {
     var query = new AV.Query('Atricle');
-    query.get(id).then(function (atricle) {
-      atricleObject = atricle
-      input_title.value = atricle.get('title');
-      write_content.value = atricle.get('content');
-      //调用更新界面
-      updataTitle.apply(input_title);
-      updataContent.apply(write_content);
-    }, function (error) {
-      console.log('失败');
+    query.get(id).then(function(atricle) {
+        atricleObject = atricle
+        input_title.value = atricle.get('title');
+        input_tag.value = atricle.get('tag');
+        input_content.value = atricle.get('content');
+
+        //调用更新界面
+        updataTitle.apply(input_title);
+        updataTag.apply(input_tag);
+        updataContent.apply(input_content);
+
+    }, function(error) {
+        console.log('失败');
     });
 }
 
 //标题
 input_title.oninput = updataTitle;
+
 function updataTitle() {
-        var titleDOM = document.getElementById('title');
-        titleDOM.innerText=this.value;
+    var titleDOM = document.getElementById('title');
+    titleDOM.innerText = this.value || '标题';
 
-        // 获取这次输入是否是换行
-        var isbr = 0
-        if (this.value.substr(this.value.length-1,this.value.length) == '\n'){
-            isbr = 60;
-        }
+    // 获取这次输入是否是换行
+    var isbr = 0
+    if (this.value.substr(this.value.length - 1, this.value.length) == '\n') {
+        isbr = 60;
+    }
 
-        //计算标题高度
-        if (titleDOM.clientHeight <=60) {
-            this.style.height= 60+isbr+'px';
-            return;
-        }
-        this.style.height=titleDOM.clientHeight+isbr+'px';
+    //计算标题高度
+    if (titleDOM.clientHeight <= 60) {
+        this.style.height = 60 + isbr + 'px';
+        return;
+    }
+
+    this.style.height = titleDOM.clientHeight + isbr + 'px';
 };
-//文章内容
-write_content.oninput = updataContent;
-function updataContent() {
-      var contentDOM = document.getElementById('content');
-      contentDOM.innerHTML = marked(this.value);
 
-      //计算内容高度
-      this.style.height = contentDOM.clientHeight+ 100 + 'px';
+//标签
+input_tag.oninput = updataTag;
+
+function updataTag() {
+    var tagDOM = document.getElementById('tag');
+    tagDOM.innerText = this.value || '标签用英文「 , 」分割';
+
+    // 获取这次输入是否是换行
+    var isbr = 0
+    if (this.value.substr(this.value.length - 1, this.value.length) == '\n') {
+        isbr = 30;
+    }
+
+    //计算标题高度
+    if (tagDOM.clientHeight <= 30) {
+        this.style.height = 30 + isbr + 'px';
+        return;
+    }
+    this.style.height = tagDOM.clientHeight + isbr + 'px';
+};
+
+//文章内容
+input_content.oninput = updataContent;
+
+function updataContent() {
+    var contentDOM = document.getElementById('content');
+    contentDOM.innerHTML = marked(this.value || '内容');
+
+    //计算内容高度
+    this.style.height = contentDOM.clientHeight + 100 + 'px';
 };
 
 
 //记录当前标题和内容
 var titleCount = 0;
+var tagCount = 0;
 var contentCount = 0;
-//更新内容
-function updataAricle (){
 
-      if (input_title.value.length == titleCount
-        && write_content.value.length == contentCount)
+//更新内容
+function updataAricle() {
+
+    if (input_title.value.length == titleCount &&
+        input_content.value.length == contentCount &&
+        input_tag.value.length == tagCount)
         return;
 
-      document.getElementById('notification').style.visibility = 'visible';
+    document.getElementById('notification').style.visibility = 'visible';
 
-      //发送到服务器
-      if (!atricleObject) {
-         var Atricle = AV.Object.extend('Atricle');
-         atricleObject = new Atricle()
-      }
+    //发送到服务器
+    if (!atricleObject) {
+        var Atricle = AV.Object.extend('Atricle');
+        atricleObject = new Atricle()
+    }
 
-      atricleObject.set('title', input_title.value);
-      atricleObject.set('content', write_content.value);
+    atricleObject.set('title', input_title.value);
+    atricleObject.set('tag', input_tag.value);
+    atricleObject.set('content', input_content.value);
 
-      atricleObject.save().then(function(atricle){
-          titleCount = input_title.value.length;
-          contentCount = write_content.value.length;
-      },function(error){
 
-      });
+    atricleObject.save().then(function(atricle) {
+        titleCount = input_title.value.length;
+        tagCount = input_tag.value.length;
+        contentCount = input_content.value.length;
 
-      setTimeout(function(){
-        document.getElementById('notification').style.visibility='hidden';
-      },3000);
+    }, function(error) {
+
+    });
+
+    setTimeout(function() {
+        document.getElementById('notification').style.visibility = 'hidden';
+    }, 3000);
 }
 //10秒保存一次
-setInterval(updataAricle,10000);
+setInterval(updataAricle, 10000);

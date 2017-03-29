@@ -9,6 +9,10 @@
     padding-left: 30px
 }
 
+h1 {
+    margin-bottom: 10px;
+}
+
 textarea:focus {
     outline: none;
 }
@@ -24,9 +28,14 @@ header {
     margin-bottom: 50px;
 }
 
-header>h1, textarea {
-    font-size: 50px;
+#title, #input_title {
+    font-size: 55px;
     font-weight: 300;
+}
+
+#tag, #input_tag {
+    font-size: 25px;
+    font-weight: 200;
 }
 
 
@@ -66,4 +75,23 @@ header>h1, textarea {
 
 .show #content h1, .show #content h2, .show #content h3, .show #content h4, .show #content h5, .show #content h6 {
     font-weight: 300;
+}
+
+
+/*提示框*/
+
+.notification {
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    right: 30px;
+    background-color: #f9f9f9;
+    width: 330px;
+    height: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500px;
+    visibility: hidden;
 }

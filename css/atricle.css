@@ -3,12 +3,19 @@ header {
     margin-bottom: 50px;
 }
 
-header>h1 {
+#title {
     font-size: 50px;
     font-weight: 300;
+    margin-bottom: 15px;
 }
 
-.time {
+#tag {
+    font-size: 25px;
+    font-weight: 200;
+    margin-bottom: 50px;
+}
+
+#time {
     font-weight: 100;
     font-size: 15px;
     text-align: right;

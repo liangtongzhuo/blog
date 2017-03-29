@@ -25,24 +25,33 @@ var id = url.split('?')[1];
 var query = new AV.Query('Atricle');
 query.descending('createdAt');
 query.get(id).then(function(result) {
-      var title = result.get('title');
-      var content = marked(result.get('content'));
-      var time = result.createdAt.toLocaleString();
+    var title = result.get('title');
+    var content = marked(result.get('content'));
+    var time = result.createdAt.toLocaleString();
+    var tag = result.get('tag');
 
 
-      atricleContentHTML(title,content,time)
+    atricleContentHTML(title, content, time, tag)
 }, function(error) {
     console.error(error);
 });
 
-function atricleContentHTML(title,content,time) {
-  document.title = title
-  document.getElementById('title').innerText = title
-  document.getElementById('content').innerHTML = content
-  document.getElementById('time').innerText = time
+function atricleContentHTML(title, content, time, tag) {
+    document.title = title
+    document.getElementById('title').innerText = title
+    document.getElementById('content').innerHTML = content
+    document.getElementById('time').innerText = time
+
+    var tagHTML = '标签：'
+    var tagArr = tag.split(',')
+    for (var i = 0; i < tagArr.length; i++) {
+        tagHTML += ' <a href="index.html?' + tagArr[i] + '">' + tagArr[i] + '</a>';
+    }
+    document.getElementById('tag').innerHTML = tagHTML;
+
 }
 
 //跳转网页
 document.getElementById('title').addEventListener("click", function() {
-    window.location.href='updata.html?'+id;
+    window.location.href = 'updata.html?' + id;
 }, false);
