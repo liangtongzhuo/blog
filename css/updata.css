@@ -77,6 +77,36 @@ header {
     font-weight: 300;
 }
 
+#content {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 33px;
+}
+
+#content pre {
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+}
+
+#content pre code {
+    font-size: 15px;
+    line-height: 15px;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    font-weight: 200;
+}
+
+#content th, #content td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 4px;
+}
+
+#content table {
+    border-collapse: collapse;
+}
+
 
 /*提示框*/
 

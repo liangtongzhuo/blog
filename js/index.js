@@ -20,6 +20,7 @@ function query() {
     query.limit(5);
     query.skip(count * 5);
     query.descending('createdAt');
+    console.log(decodeURI(tag));
     query.contains('tag', decodeURI(tag)); //注意转码
     query.find().then(function(results) {
 
@@ -64,9 +65,9 @@ document.getElementById('pagebottom').onclick = function() {
 };
 
 //标签
-var tag = '首页,简历,Node,iOS,算法,简历,Node,iOS,数据结构';
+var tagStr = '首页,简历,Node,Web,iOS,开源,翻译,算法,MongoDB,Vue,js,Swift';
 var tagHTML = '标签：'
-var tagArr = tag.split(',')
+var tagArr = tagStr.split(',')
 for (var i = 0; i < tagArr.length; i++) {
     tagHTML += ' <a href="index.html?' + tagArr[i] + '">' + tagArr[i] + '</a>';
 }
