@@ -17,8 +17,8 @@ query()
 
 function query() {
     var query = new AV.Query('Atricle');
-    query.limit(5);
-    query.skip(count * 5);
+    query.limit(1000);
+    query.skip(count * 1000);
     query.descending('createdAt');
     console.log(decodeURI(tag));
     query.contains('tag', decodeURI(tag)); //注意转码
