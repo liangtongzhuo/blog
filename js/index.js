@@ -28,8 +28,8 @@ function query() {
         for (var i = 0; i < results.length; i++) {
             var id = results[i].id;
             var title = results[i].get('title');
-            if (title.length > 40) title = title.substring(0, 40) + '......';
-            var content = results[i].get('content').substring(0, 110) + '......';
+            if (title.length > 70) title = title.substring(0, 70) + '......';
+            var content = results[i].get('content').substring(0, 100) + '......';
             var time = results[i].createdAt.toLocaleString();
             html += atricleHTML(id, title, content, time);
         }
