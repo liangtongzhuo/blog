@@ -12,13 +12,12 @@ if (decodeURI(tag) == '首页') {
     tag = '';
 }
 //开始查询
-var count = 0;
 query()
 
 function query() {
     var query = new AV.Query('Atricle');
     query.limit(1000);
-    query.skip(count * 1000);
+
     query.descending('createdAt');
     console.log(decodeURI(tag));
     query.contains('tag', decodeURI(tag)); //注意转码
@@ -34,7 +33,6 @@ function query() {
             html += atricleHTML(id, title, content, time);
         }
         document.getElementById('content').innerHTML = html;
-        document.getElementById('count').innerText = count + 1;
     }, function(error) {
         console.error(error);
     });
@@ -52,17 +50,6 @@ document.getElementById('title').addEventListener('click', function() {
     window.location.href = "updata.html"
 }, false);
 
-//翻页
-document.getElementById('pageup').onclick = function() {
-    if (count == 0) return;
-    count--;
-    query();
-};
-document.getElementById('pagebottom').onclick = function() {
-    count++;
-    query();
-
-};
 
 //标签
 var tagStr = '首页,简历,Node,Web,iOS,开源,翻译,算法,MongoDB,Vue,js,Swift';
