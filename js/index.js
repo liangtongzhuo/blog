@@ -6,6 +6,11 @@ window.AV.init({
 });
 
 
+
+//标签
+var tagStr = '首页,简历,Node,Web,iOS,开源,动漫,翻译,算法,Swift,MongoDB,Vue,js';
+
+
 //tag
 var tag = location.search.split('?')[1] || '';
 if (decodeURI(tag) == '首页') {
@@ -51,8 +56,7 @@ document.getElementById('title').addEventListener('click', function() {
 }, false);
 
 
-//标签
-var tagStr = '首页,简历,Node,Web,iOS,开源,翻译,算法,MongoDB,Vue,js,Swift';
+
 var tagHTML = '标签：'
 var tagArr = tagStr.split(',')
 for (var i = 0; i < tagArr.length; i++) {
@@ -63,7 +67,6 @@ document.getElementById('tag').innerHTML = tagHTML;
 
 //标签按钮
 document.getElementById('btn').onclick = function() {
-
     if (this.innerText == "标签") {
         this.innerText = "取消";
         document.getElementById('tag').style.visibility = 'visible';
