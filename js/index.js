@@ -8,7 +8,7 @@ window.AV.init({
 
 
 //标签
-var tagStr = '首页,简历,Node,Web,iOS,开源,动漫,翻译,算法,Swift,MongoDB,Vue,js';
+var tagStr = '首页,简历,Node,Web,iOS,开源,动漫,游戏,翻译,算法,Swift,MongoDB,Vue,js';
 
 
 //tag
