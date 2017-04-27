@@ -22,9 +22,7 @@ query()
 function query() {
     var query = new AV.Query('Atricle');
     query.limit(1000);
-
     query.descending('createdAt');
-    console.log(decodeURI(tag));
     query.contains('tag', decodeURI(tag)); //注意转码
     query.find().then(function(results) {
 
@@ -51,8 +49,9 @@ function atricleHTML(id, title, content, time) {
         '<div class="time">' + time + '</div></a>';
 }
 
+//发布文章
 document.getElementById('title').addEventListener('click', function() {
-    window.location.href = "updata.html"
+        window.location.href = "updata.html";
 }, false);
 
 
@@ -77,3 +76,4 @@ document.getElementById('btn').onclick = function() {
     }
 
 }
+

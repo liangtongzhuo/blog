@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="梁同桌的博客，在这里我会分享我个人心得，以及我在编程方面的知识，与大家共同成长。">
+    <meta name="keywords" content="梁同桌,梁同桌的博客,vscode-china,vscode,liangtongzhuo">
+    <title>梁同桌的博客</title>
+</head>
+
+<body>
+    <!-- 大盒子 -->
+    <div class="layout">
+        <input id="password" type="password"  />
+        <input id="login" type="submit" value="登陆" />
+    </div>
+    <!-- /大盒子 -->
+    <script src="http://ac-2my9ah1h.clouddn.com/5ef238b7b1c05a5890b6.js"></script>
+    <script>
+        var APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';
+        var APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';
+        window.AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+        var password = document.getElementById('password');
+        document.getElementById('login').addEventListener('click', function () {
+            var user = new AV.User();
+            // 设置用户名
+            user.setUsername('admin');
+            user.setPassword(password.value);
+            user.signUp().then(function (loginedUser) {
+                window.location.href = "index.html";
+            }, function (error) {
+                console.log(error);
+                //注册过就登陆
+                AV.User.logIn('admin', password.value).then(function (loginedUser) {
+                    window.location.href = "index.html";
+                }, function (error) {
+                });
+
+            });
+
+        }, false);
+    </script>
+
+</body>
+
+</html>
