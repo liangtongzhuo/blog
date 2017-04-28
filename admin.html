@@ -13,8 +13,10 @@
 <body>
     <!-- 大盒子 -->
     <div class="layout">
-        <input id="password" type="password"  />
+        <input id="password" type="password" />
         <input id="login" type="submit" value="登陆" />
+        <input id="zhuce" type="submit" value="注册" />
+
     </div>
     <!-- /大盒子 -->
     <script src="http://ac-2my9ah1h.clouddn.com/5ef238b7b1c05a5890b6.js"></script>
@@ -26,23 +28,34 @@
             appKey: APP_KEY
         });
         var password = document.getElementById('password');
-        document.getElementById('login').addEventListener('click', function () {
+        document.getElementById('login').addEventListener('click', function() {
+            if (AV.User.current()){
+                window.location.href = "index.html";
+                return;
+            }
+            //注册过就登陆
+            AV.User.logIn('admin', password.value).then(function(loginedUser) {
+                window.location.href = "index.html";
+            }, function(error) {
+                console.log(error);
+                alert('登陆失败');
+            });
+        }, false);
+        document.getElementById('zhuce').addEventListener('click', function() {
+            if (AV.User.current()){
+                window.location.href = "index.html";
+                return;
+            }
             var user = new AV.User();
             // 设置用户名
             user.setUsername('admin');
             user.setPassword(password.value);
-            user.signUp().then(function (loginedUser) {
+            user.signUp().then(function(loginedUser) {
                 window.location.href = "index.html";
-            }, function (error) {
+            }, function(error) {
                 console.log(error);
-                //注册过就登陆
-                AV.User.logIn('admin', password.value).then(function (loginedUser) {
-                    window.location.href = "index.html";
-                }, function (error) {
-                });
-
+                alert('注册失败');
             });
-
         }, false);
     </script>
 
