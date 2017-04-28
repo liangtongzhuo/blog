@@ -19,7 +19,6 @@ body {
     top: 0;
     left: 0;
     display: table;
-    vertical-align: middle;
     height: 100vh;
 }
 
