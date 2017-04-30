@@ -8,8 +8,7 @@ window.AV.init({
 
 
 //标签
-var tagStr = '首页,简历,Node,Web,iOS,开源,动漫,游戏,翻译,算法,Swift,MongoDB,Vue,js';
-
+var tagStr = '首页,非技术文章,Node,Web,iOS,开源,动漫,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,js,简历';
 
 //tag
 var tag = location.search.split('?')[1] || '';
@@ -51,7 +50,7 @@ function atricleHTML(id, title, content, time) {
 
 //发布文章
 document.getElementById('title').addEventListener('click', function() {
-        window.location.href = "updata.html";
+    window.location.href = "updata.html";
 }, false);
 
 
@@ -76,4 +75,3 @@ document.getElementById('btn').onclick = function() {
     }
 
 }
-
