@@ -15,7 +15,8 @@ var tag = location.search.split('?')[1] || '';
 if (decodeURI(tag) == '首页') {
     tag = '';
 }
-//开始查询
+
+// 开始查询
 query()
 
 function query() {
