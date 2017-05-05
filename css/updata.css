@@ -64,14 +64,12 @@ header {
 
 .show #content pre {
     padding: 10px 20px;
-    background-color: #f9f9f9;
+    background-color: #e9e9e9; 
     overflow-x: auto;
+    font-size: 15px;
+    line-height: 22px;
 }
 
-.show #content pre code {
-    font-size: 15px;
-    line-height: 15px;
-}
 
 .show #content h1, .show #content h2, .show #content h3, .show #content h4, .show #content h5, .show #content h6 {
     font-weight: 300;
@@ -85,14 +83,13 @@ header {
 
 #content pre {
     padding: 10px 20px;
-    background-color: #f9f9f9;
+    background-color: #e9e9e9;
     overflow-x: auto;
+    font-size: 15px;
+    line-height: 22px;
 }
 
-#content pre code {
-    font-size: 15px;
-    line-height: 15px;
-}
+
 
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-weight: 300;
