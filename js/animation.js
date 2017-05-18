@@ -1,6 +1,3 @@
-document.addEventListener('touchmove', function(e) {
-    e.preventDefault()
-})
 var c = document.getElementsByTagName('canvas')[0],
     x = c.getContext('2d'),
     pr = window.devicePixelRatio || 1,
@@ -52,6 +49,4 @@ function y(p) {
     var t = p + (z() * 2 - 1.1) * f
     return (t > h || t < 0) ? y(p) : t
 }
-document.onclick = i
-document.ontouchstart = i
 i()
