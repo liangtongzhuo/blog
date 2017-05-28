@@ -39,8 +39,6 @@ header {
     line-height: 22px;
 }
 
-
-
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-weight: 200;
 }
@@ -52,4 +50,9 @@ header {
 
 #content table {
     border-collapse: collapse;
+}
+
+#content img {
+    min-width: 300px;
+    max-width: 800px;
 }

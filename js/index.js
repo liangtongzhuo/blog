@@ -51,7 +51,10 @@ function atricleHTML(id, title, content, time) {
 
 //发布文章
 document.getElementById('title').addEventListener('click', function() {
-    window.location.href = "updata.html";
+    if (AV.User.current()) {
+        window.location.href = "updata.html";
+    }
+
 }, false);
 
 

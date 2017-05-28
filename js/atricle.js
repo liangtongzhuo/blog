@@ -53,5 +53,7 @@ function atricleContentHTML(title, content, time, tag) {
 
 //跳转网页
 document.getElementById('title').addEventListener("click", function() {
-    window.location.href = 'updata.html?' + id;
+    if (AV.User.current()) {
+        window.location.href = 'updata.html?' + id;
+    }
 }, false);
