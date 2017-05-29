@@ -19,7 +19,7 @@
 
     </div>
     <!-- /大盒子 -->
-    <script src="http://ac-2my9ah1h.clouddn.com/5ef238b7b1c05a5890b6.js"></script>
+    <script src="lib/av-min.js"></script>
     <script>
         var APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';
         var APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';
@@ -29,7 +29,7 @@
         });
         var password = document.getElementById('password');
         document.getElementById('login').addEventListener('click', function() {
-            if (AV.User.current()){
+            if (AV.User.current()) {
                 window.location.href = "index.html";
                 return;
             }
@@ -42,7 +42,7 @@
             });
         }, false);
         document.getElementById('zhuce').addEventListener('click', function() {
-            if (AV.User.current()){
+            if (AV.User.current()) {
                 window.location.href = "index.html";
                 return;
             }
