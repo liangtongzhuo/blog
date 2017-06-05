@@ -1,9 +1,3 @@
-var APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';
-var APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';
-window.AV.init({
-    appId: APP_ID,
-    appKey: APP_KEY
-});
 
 marked.setOptions({
     renderer: new marked.Renderer(),

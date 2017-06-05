@@ -20,13 +20,8 @@
     </div>
     <!-- /大盒子 -->
     <script src="lib/av-min.js"></script>
+    <script src="js/config.js"></script>
     <script>
-        var APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';
-        var APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';
-        window.AV.init({
-            appId: APP_ID,
-            appKey: APP_KEY
-        });
         var password = document.getElementById('password');
         document.getElementById('login').addEventListener('click', function() {
             if (AV.User.current()) {
