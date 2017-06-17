@@ -11,9 +11,10 @@ marked.setOptions({
 
 
 //获取url，剪切出id
-var url = location.search;
-var id = url.split('?')[1];
 
+var url = location.search;
+var id = url.split('?')[1].split('=')[0];
+console.log(id);
 
 var query = new AV.Query('Atricle');
 query.descending('createdAt');
