@@ -11,6 +11,7 @@ function query() {
     var query = new AV.Query('Atricle');
     query.limit(1000);
     query.descending('createdAt');
+    query.equalTo('hidden', 0); //hidden 为 0 的，也就是不隐藏的。
     query.contains('tag', decodeURI(tag)); //注意转码
     query.find().then(function(results) {
 
