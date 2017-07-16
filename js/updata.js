@@ -80,15 +80,25 @@ function updataTag() {
 };
 
 //文章内容
-input_content.oninput = updataContent;
 
-function updataContent() {
+//优化，200毫秒秒钟后才渲染图
+var input_contentText
+setInterval(function() {
     var contentDOM = document.getElementById('content');
-    contentDOM.innerHTML = marked(this.value || '内容');
+    var text = (input_content.value || '内容');
+    
+    if (input_contentText != text){
+        input_contentText = text;
 
-    //计算内容高度
-    this.style.height = contentDOM.clientHeight + 100 + 'px';
-};
+        contentDOM.innerHTML = marked(input_content.value || '内容');    
+        //计算内容高度
+        input_content.style.height = contentDOM.clientHeight + 100 + 'px';
+    }
+   
+},200);
+
+
+
 
 
 //记录当前标题和内容
