@@ -1,5 +1,9 @@
-img {
+/* img {
     width: 300px;
+} */
+img {
+    display: inline-block;
+    max-width: 100%;
 }
 
 header {
