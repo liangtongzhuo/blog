@@ -1,5 +1,6 @@
 body, h1 {
     margin: 0;
+    word-break: break-word;
 }
 
 body, header, h1, div, span, a {
@@ -13,7 +14,6 @@ body, header, h1, div, span, a {
 body {
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
     color: #1f2f3d;
-    word-break: break-all;
 }
 
 a:link, a:visited {
