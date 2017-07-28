@@ -5,4 +5,4 @@ window.AV.init({
     appKey: APP_KEY
 });
 //标签
-var tagStr = '首页,非技术文章,Node,Web,iOS,GitHub,动漫,工具,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,js,书,简历';
+var tagStr = '首页,非技术文章,Node,Web,iOS,GitHub,动漫,工具,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,js,书,我';
