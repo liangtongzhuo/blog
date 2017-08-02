@@ -14,7 +14,6 @@ marked.setOptions({
 
 var url = location.search;
 var id = url.split('?')[1].split('=')[0];
-console.log(id);
 
 var query = new AV.Query('Atricle');
 query.descending('createdAt');
