@@ -106,7 +106,13 @@ header {
     max-width: 100%;
 }
 
-
+#content blockquote{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 16px;
+    color: #6a737d;
+    border-left: 4px solid #dfe2e5;
+}
 /*提示框*/
 
 .notification {
