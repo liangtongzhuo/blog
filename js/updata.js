@@ -7,7 +7,7 @@ marked.setOptions({
     pedantic: false, //只解析符合markdown.pl定义的，不修正markdown的错误
     sanitize: false, //原始输出，忽略HTML标签
     smartLists: true,
-    smartypants: false
+    smartypants: false,
     highlight: function (code) { //插件代码高亮
         return hljs.highlightAuto(code).value;
     }
