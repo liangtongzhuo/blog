@@ -4,9 +4,9 @@ marked.setOptions({
     tables: true, //支持Github表格，必须打开gfm选项
     breaks: true, //支持Github换行符，必须打开gfm选项
     pedantic: false, //只解析符合markdown.pl定义的，不修正markdown的错误
-    sanitize: false, //原始输出，忽略HTML标签
-    smartLists: true,
-    smartypants: false
+    sanitize: false, //忽略HTML标签
+    smartLists: true,//使用新语法
+    smartypants: false//使用新语法，比如在引用语法中加入破折号。
 });
 
 
