@@ -1,6 +1,6 @@
 /*
 
-XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
+vue style (c) liangtongzhuo <liangtongzhuo@gmail.com>
 
 */
 
@@ -14,17 +14,17 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 .hljs-comment,
 .hljs-quote {
-  color: #006a00;
+  color: #717171;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal {
-  color: #aa0d91;
+  color: #e96900;
 }
 
 .hljs-name {
-  color: #008;
+  color: #2973b7;
 }
 
 .hljs-variable,
@@ -33,7 +33,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-string {
-  color: #c41a16;
+  color: #42b983;
 }
 
 .hljs-regexp,
@@ -47,7 +47,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-bullet,
 .hljs-number,
 .hljs-meta {
-  color: #1c00cf;
+  color: #2973b7;
 }
 
 .hljs-section,
@@ -57,7 +57,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-built_in,
 .hljs-builtin-name,
 .hljs-params {
-  color: #5c2699;
+  color: #2973b7;
 }
 
 .hljs-attribute,
