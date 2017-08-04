@@ -6,7 +6,10 @@ marked.setOptions({
     pedantic: false, //只解析符合markdown.pl定义的，不修正markdown的错误
     sanitize: false, //忽略HTML标签
     smartLists: true,//使用新语法
-    smartypants: false//使用新语法，比如在引用语法中加入破折号。
+    smartypants: false,//使用新语法，比如在引用语法中加入破折号。
+    highlight: function (code) { //插件代码高亮
+        return hljs.highlightAuto(code).value;
+    }
 });
 
 

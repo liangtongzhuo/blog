@@ -8,6 +8,9 @@ marked.setOptions({
     sanitize: false, //原始输出，忽略HTML标签
     smartLists: true,
     smartypants: false
+    highlight: function (code) { //插件代码高亮
+        return hljs.highlightAuto(code).value;
+    }
 });
 
 var input_title = document.getElementById('input_title');
