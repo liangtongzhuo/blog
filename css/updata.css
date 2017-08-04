@@ -113,6 +113,10 @@ header {
     color: #6a737d;
     border-left: 4px solid #dfe2e5;
 }
+
+#content code {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
 /*提示框*/
 
 .notification {
