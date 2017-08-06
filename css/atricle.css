@@ -41,6 +41,8 @@ header {
 
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-weight: 200;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 #content th, #content td {
@@ -57,7 +59,7 @@ header {
     max-width: 100%;
 }
 
-#content blockquote{
+#content blockquote {
     margin-left: 10px;
     margin-right: 10px;
     padding: 0 16px;
