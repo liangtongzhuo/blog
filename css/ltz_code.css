@@ -5,8 +5,8 @@ ltz_code style (c) liangtongzhuo <liangtongzhuo@gmail.com>
 */
 
 .hljs {
-  //display: block;
-  //overflow-x: auto;
+  display: block;
+  overflow-x: auto;
   padding: 0.5em;
   background: #fff;
   color: black;
