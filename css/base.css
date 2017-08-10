@@ -4,9 +4,9 @@ body, h1 {
 }
 
 body, header, h1, div, span, a {
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
 }
