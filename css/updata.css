@@ -120,6 +120,7 @@ header {
 
 #content code {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    word-break: normal;
 }
 
 
