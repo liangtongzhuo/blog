@@ -69,5 +69,5 @@ header {
 
 #content code {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    white-space: pre;
+    word-break: normal;
 }
