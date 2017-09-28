@@ -1,2 +1,2 @@
 - 极致简约 Web Blog 🍉🍉🍉，基于 Leancloud 
-- 地址：www.liangtongzhuo.com
+- 地址：www.liangtongzhuo.com 
