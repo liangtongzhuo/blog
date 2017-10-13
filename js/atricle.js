@@ -14,18 +14,16 @@ marked.setOptions({
 
 
 //获取url，剪切出id
+const url = location.search;
+const id = url.split('?')[1].split('=')[0];
 
-var url = location.search;
-var id = url.split('?')[1].split('=')[0];
-
-var query = new AV.Query('Atricle');
+const query = new AV.Query('Atricle');
 query.descending('createdAt');
 query.get(id).then(function(result) {
-    var title = result.get('title');
-    var content = marked(result.get('content'));
-    var time = result.createdAt.toLocaleString();
-    var tag = result.get('tag');
-
+    const title = result.get('title');
+    const content = marked(result.get('content'));
+    const time = result.createdAt.toLocaleString();
+    const tag = result.get('tag');
 
     atricleContentHTML(title, content, time, tag)
 }, function(error) {
@@ -38,9 +36,9 @@ function atricleContentHTML(title, content, time, tag) {
     document.getElementById('content').innerHTML = content
     document.getElementById('time').innerText = time
 
-    var tagHTML = '标签：'
+    let tagHTML = '标签：'
     var tagArr = tag.split(',')
-    for (var i = 0; i < tagArr.length; i++) {
+    for (let i = 0; i < tagArr.length; i++) {
         tagHTML += ' <a href="index.html?' + tagArr[i] + '">' + tagArr[i] + '</a>';
     }
     document.getElementById('tag').innerHTML = tagHTML;
