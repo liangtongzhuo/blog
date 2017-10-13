@@ -15,6 +15,11 @@ body {
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
     color: #1f2f3d;
 }
+footer {
+    font-size:15px;
+    margin-top:100px;text-align:right;
+    padding: 10px 10px 100px 10px;
+}
 
 a:link, a:visited {
     color: #1f2f3d;
