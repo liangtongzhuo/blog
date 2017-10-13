@@ -13,16 +13,16 @@ marked.setOptions({
     }
 });
 
-var input_title = document.getElementById('input_title');
-var input_tag = document.getElementById('input_tag');
-var input_content = document.getElementById('input_content');
+const input_title = document.getElementById('input_title');
+const input_tag = document.getElementById('input_tag');
+const input_content = document.getElementById('input_content');
 
 
 //如果有id，发送请求获取id
-var id = location.search.split('?')[1];
-var atricleObject
+const id = location.search.split('?')[1];
+let atricleObject
 if (id) {
-    var query = new AV.Query('Atricle');
+    const query = new AV.Query('Atricle');
     query.get(id).then(function(atricle) {
         atricleObject = atricle
         input_title.value = atricle.get('title');
@@ -43,11 +43,11 @@ if (id) {
 input_title.oninput = updataTitle;
 
 function updataTitle() {
-    var titleDOM = document.getElementById('title');
+    const titleDOM = document.getElementById('title');
     titleDOM.innerText = this.value || '标题';
 
     // 获取这次输入是否是换行
-    var isbr = 0
+    let isbr = 0
     if (this.value.substr(this.value.length - 1, this.value.length) == '\n') {
         isbr = 60;
     }
@@ -65,11 +65,11 @@ function updataTitle() {
 input_tag.oninput = updataTag;
 
 function updataTag() {
-    var tagDOM = document.getElementById('tag');
+    const tagDOM = document.getElementById('tag');
     tagDOM.innerText = this.value || '标签用英文「 , 」分割';
 
     // 获取这次输入是否是换行
-    var isbr = 0
+    let isbr = 0
     if (this.value.substr(this.value.length - 1, this.value.length) == '\n') {
         isbr = 30;
     }
@@ -85,10 +85,10 @@ function updataTag() {
 //文章内容
 
 //优化，200毫秒秒钟后才渲染图
-var input_contentText
+let input_contentText
 setInterval(function() {
-    var contentDOM = document.getElementById('content');
-    var text = (input_content.value || '内容');
+    const contentDOM = document.getElementById('content');
+    const text = (input_content.value || '内容');
     
     if (input_contentText != text){
         input_contentText = text;
@@ -101,13 +101,10 @@ setInterval(function() {
 },200);
 
 
-
-
-
 //记录当前标题和内容
-var titleCount = 0;
-var tagCount = 0;
-var contentCount = 0;
+let titleCount = 0;
+let tagCount = 0;
+let contentCount = 0;
 
 //更新内容
 function updataAricle() {
@@ -121,7 +118,7 @@ function updataAricle() {
 
     //发送到服务器
     if (!atricleObject) {
-        var Atricle = AV.Object.extend('Atricle');
+        const Atricle = AV.Object.extend('Atricle');
         atricleObject = new Atricle()
     }
 
@@ -129,14 +126,13 @@ function updataAricle() {
     atricleObject.set('tag', input_tag.value);
     atricleObject.set('content', input_content.value);
 
-
     atricleObject.save().then(function(atricle) {
         titleCount = input_title.value.length;
         tagCount = input_tag.value.length;
         contentCount = input_content.value.length;
 
     }, function(error) {
-
+        console.log('有错误：',error);
     });
 
     setTimeout(function() {

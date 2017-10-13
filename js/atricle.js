@@ -42,7 +42,6 @@ function atricleContentHTML(title, content, time, tag) {
         tagHTML += ' <a href="index.html?' + tagArr[i] + '">' + tagArr[i] + '</a>';
     }
     document.getElementById('tag').innerHTML = tagHTML;
-
 }
 
 //跳转网页
