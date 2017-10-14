@@ -20,7 +20,7 @@ const input_content = document.getElementById('input_content');
 
 //如果有id，发送请求获取id
 const id = location.search.split('?')[1];
-let atricleObject
+let atricleObject;
 if (id) {
     const query = new AV.Query('Atricle');
     query.get(id).then(function(atricle) {
@@ -120,6 +120,12 @@ function updataAricle() {
     if (!atricleObject) {
         const Atricle = AV.Object.extend('Atricle');
         atricleObject = new Atricle()
+        // 新建一个 ACL 实例
+        var acl = new AV.ACL();
+        acl.setPublicReadAccess(true);
+        acl.setWriteAccess(AV.User.current(), true);
+        // 将 ACL 实例赋予 Post 对象
+        atricleObject.setACL(acl);
     }
 
     atricleObject.set('title', input_title.value);
