@@ -20,9 +20,9 @@
 # __技术依赖__
 - 原生 JavaScript ，ES6 语法
 - 第三方框架
- - LeanCloud 储存框架
- - marked 转换 Markdown
- - highlight 代码块高亮
+  - LeanCloud 储存框架
+  - marked 转换 Markdown
+  - highlight 代码块高亮
 
 
 # __技术原理__
