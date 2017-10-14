@@ -36,7 +36,7 @@ https://github.com/liangtongzhuo/blog 进去点击 Fork ，然后再自己仓库
 ```
 git clone 仓库地址
 ```
-## __2.注册 LeanCloud __
+## __2.注册 LeanCloud__
  - 地址：https://leancloud.cn/
  - 注册成功后，创建应用- > 点击设置 -> 点击应用 Key -> 把 App ID 与 App Key 填写到刚刚克隆的 blog文件 内 js/config.js 。
 ```
