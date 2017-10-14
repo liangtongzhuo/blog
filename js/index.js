@@ -37,6 +37,8 @@ function atricleHTML(id, title, content, time) {
 document.getElementById('title').addEventListener('click', function() {
     if (AV.User.current()) {
         window.location.href = "updata.html";
+    }else{
+        window.location.href = "admin.html";
     }
 
 }, false);
