@@ -16,33 +16,52 @@
 
 <body>
 
-	<div id="mapid" style="height: 500px; position: relative;" >
+	<div id="mapid" style="height: 500px; position: relative;">
 	</div>
 	<script>
 
 		var mymap = L.map('mapid').setView([34.82081, 113.66786], 13);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 18,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			// attribution: '',
 			id: 'mapbox.streets'
 		}).addTo(mymap);
-
+		//小圆点
 		L.marker([34.82081, 113.66786]).addTo(mymap)
-			.bindPopup("<b>你好!</b><br />这里是我家").openPopup();
+			.bindPopup('<b>你好!</b><br />这里是我家 ').openPopup().on('click', () => {
+				console.log('点击了我家', );
+			});
+
+		//放图片，树叶
+		var greenIcon = L.icon({
+			iconUrl: 'leaf-green.png',
+			shadowUrl: 'leaf-shadow.png',
+
+			iconSize: [38, 95], // size of the icon
+			shadowSize: [50, 64], // size of the shadow
+			iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+			shadowAnchor: [4, 62],  // the same for the shadow
+			popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+		});
+		L.marker([34.82081, 113.6], { icon: greenIcon }).addTo(mymap).on('click', () => {
+			console.log('点击了树叶', );
+		});
+
 
 		L.circle([34.82081, 113.69], 500, {
 			color: 'red',
 			fillColor: '#f03',
 			fillOpacity: 0.5
-		}).addTo(mymap).bindPopup("点击了 绘制的圆形");
+		}).addTo(mymap).bindPopup('点击了 绘制的圆形 ')
 
 		L.polygon([
 			[34.84081, 113.69],
 			[34.84081, 113.64],
 			[34.87081, 113.68]
-		]).addTo(mymap).bindPopup("点击了三角形");
+		], {
+				color: 'blue', fillOpacity: 0
+			})
+			.addTo(mymap).bindPopup("点击了三角形");
 
 
 		var popup = L.popup();
@@ -55,4 +74,19 @@
 		}
 		mymap.on('click', onMapClick);
 
+
+		setTimeout(function () {
+			mymap.setZoom(11);
+		}, 2000);
+
+		setTimeout(function () {
+			mymap.setZoom(13);
+		}, 4000);
+
+
 	</script>
+
+
+</body>
+
+</html>
