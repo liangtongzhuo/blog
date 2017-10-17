@@ -27,7 +27,7 @@
 
 # __技术原理__
 静态页面托管到 GitHub 并生成 Pages ，然后通过 LeanCloud 封装好的 REST 接口访问访问数据库，一般博客访问量不大，30,000 / 天 API 免费额度够用。 <br>
-原来创业重度使用 LeanCloud，非常推荐有大家使用 LeanCloud，REST API 简介易懂。 <br>
+原来创业重度使用 LeanCloud，非常推荐有大家使用 LeanCloud，REST API 简洁易懂。 <br>
 我的一款模仿 LeanCloud REST 的框架 https://github.com/liangtongzhuo/ltz-rest
 
 # __如何使用？__
