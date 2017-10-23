@@ -82,14 +82,6 @@ header {
     line-height: 33px;
 }
 
-#content pre {
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-    overflow-x: auto;
-    font-size: 15px;
-    line-height: 22px;
-}
-
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-weight: 300;
     margin-top: 50px;
