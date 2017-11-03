@@ -51,3 +51,63 @@ a:link, a:visited {
     /*照顾ie6*/
     zoom: 1;
 }
+/* 等待动画 */
+.loading {
+    height: 50px;
+    width: 100%;    
+    text-align: center;
+}
+
+.circle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .30);
+    display: inline-block
+}
+
+.circular {
+    animation: rotate 2s linear infinite;
+    height: 90%;
+    transform-origin: center center;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke:black;
+  }
+  
+  @keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
