@@ -70,9 +70,9 @@ a:link, a:visited {
 
 .circular {
     animation: rotate 2s linear infinite;
-    height: 90%;
     transform-origin: center center;
-    width: 90%;
+    height: 80%;    
+    width: 80%;
     position: absolute;
     top: 0;
     bottom: 0;
