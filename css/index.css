@@ -27,7 +27,7 @@ header {
 }
 
 .content .item:hover {
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, .20);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .20);
 }
 
 .content .item .title {

@@ -84,7 +84,6 @@ a:link, a:visited {
   .path {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
-    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     stroke-linecap: round;
     stroke:black;
@@ -92,7 +91,6 @@ a:link, a:visited {
   
   @keyframes rotate {
     100% {
-      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
   }
