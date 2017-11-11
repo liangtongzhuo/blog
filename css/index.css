@@ -13,10 +13,6 @@ header {
     font-size: 60px;
 }
 
-.content {
-    margin-left: -10px;
-}
-
 .content .item {
     margin-bottom: 50px;
     cursor: pointer;
@@ -54,7 +50,7 @@ header {
     position: fixed;
     width: 100%;
     bottom: 20px;
-    z-index: 1;
+    z-index: 1;    
 }
 
 #tag {
@@ -66,6 +62,7 @@ header {
     box-shadow: 0 0 50px rgba(0, 0, 0, .3);
     padding: 20px;
     opacity: 0;
+    visibility: hidden;
     transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;         
 }
 

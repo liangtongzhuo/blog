@@ -114,7 +114,7 @@ function updataAricle() {
         input_tag.value.length == tagCount)
         return;
 
-    document.getElementById('notification').style.visibility = 'visible';
+    document.getElementById('notification').style.opacity = '1';
 
     //发送到服务器
     if (!atricleObject) {
@@ -124,7 +124,7 @@ function updataAricle() {
         var acl = new AV.ACL();
         acl.setPublicReadAccess(true);
         acl.setWriteAccess(AV.User.current(), true);
-        // 将 ACL 实例赋予 Post 对象
+        // 将 ACL 实例赋予对象
         atricleObject.setACL(acl);
     }
 
@@ -142,7 +142,7 @@ function updataAricle() {
     });
 
     setTimeout(function() {
-        document.getElementById('notification').style.visibility = 'hidden';
+        document.getElementById('notification').style.opacity = '0';
     }, 3000);
 }
 //10秒保存一次
