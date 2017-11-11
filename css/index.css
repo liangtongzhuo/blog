@@ -23,7 +23,8 @@ header {
     display: block;
     padding: 10px;
     text-decoration: none;
-    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;     
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;   
+    animation: op 2s;  
 }
 
 .content .item:hover {
@@ -83,3 +84,4 @@ header {
     font-weight: 200px;
     cursor: pointer;
 }
+

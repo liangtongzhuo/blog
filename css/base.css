@@ -51,6 +51,15 @@ a:link, a:visited {
     /*照顾ie6*/
     zoom: 1;
 }
+/* 隐藏到显示 */
+@keyframes op {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 /* 等待动画 */
 .loading {
     height: 50px;

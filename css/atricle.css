@@ -53,6 +53,7 @@ header {
     font-weight: 200;
     font-size: 18px;
     line-height: 33px;
+    animation: op 2s;      
 }
 
 #content pre {
