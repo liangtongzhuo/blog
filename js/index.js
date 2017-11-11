@@ -55,9 +55,9 @@ document.getElementById('tag').innerHTML = tagHTML;
 document.getElementById('btn').onclick = function() {
     if (this.innerText == "标签") {
         this.innerText = "取消";
-        document.getElementById('tag').style.visibility = 'visible';
+        document.getElementById('tag').style.opacity = '1';
     } else {
         this.innerText = "标签";
-        document.getElementById('tag').style.visibility = 'hidden';
+        document.getElementById('tag').style.opacity = '0';
     }
 }
