@@ -10,11 +10,14 @@ body, header, h1, div, span, a {
 body {
     font-family: 'Helvetica Neue', Helvetica;
     color: #1f2f3d;
+    /* 解决侧边滑动引起界面抖动 */
+    overflow-y:scroll;
 }
 
 footer {
-    font-size:15px;
-    margin-top:100px;text-align:right;
+    font-size: 15px;
+    margin-top: 100px;
+    text-align: right;
     padding: 10px 10px 100px 10px;
 }
 
