@@ -63,6 +63,7 @@ a:link, a:visited {
         opacity: 1;
     }
 }
+
 /* 等待动画 */
 .loading {
     height: 50px;
