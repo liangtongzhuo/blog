@@ -56,11 +56,9 @@ document.getElementById('btn').onclick = function() {
     const tag = document.getElementById('tag');
     if (this.innerText == "标签") {
         this.innerText = "取消";
-        tag.style.opacity = '1';
         tag.style.visibility = 'visible';
     } else {
         this.innerText = "标签";
-        tag.style.opacity = '0';
         tag.style.visibility = 'hidden';
     }
 }
