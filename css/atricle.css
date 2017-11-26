@@ -21,32 +21,6 @@ header {
     text-align: right;
     padding-right: 15px;
 }
-
-/*按钮 position*/
-.layoutfixed {
-    position: fixed;
-    width: 100%;
-    bottom: 20px;
-    z-index: 1;
-}
-
-#btn {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    right: 20px;
-    bottom: 0;
-    border-radius: 30px;
-    background-color: #f9f9f9;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, .30);
-    line-height: 60px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 200px;
-    text-decoration: none;
-}
-
-
 /*适配markedowm字体样式*/
 
 #content {
