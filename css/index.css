@@ -1,6 +1,6 @@
 img {
     display: inline-block;
-    max-width: 100%;
+    max-width: 50px;
 }
 
 header {
@@ -19,7 +19,6 @@ header {
 .content .item {
     margin-bottom: 50px;
     padding: 10px;
-    /* display: block; */
 }
 
 .content .item .title {

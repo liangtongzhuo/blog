@@ -17,8 +17,9 @@ if (decodeURI(tag) == '首页') {
             const id = results[i].id
             let title = results[i].get('title')
             title = title.length < 70 ? title : title.substring(0, 70) + '......' 
+            const imgArr = results[i].get('content').match(/http.*?(gif|GIF|png|PNG|jpg|JPG|jpeg|JPEG)/gi) || []            
             const time = results[i].createdAt.toLocaleString()
-            html += atricleHTML(id, title, time)
+            html += atricleHTML(id, title, imgArr, time)
         }
         document.getElementById('content').innerHTML = html
     }, function(error) {
@@ -26,9 +27,15 @@ if (decodeURI(tag) == '首页') {
     })
 })()
 
-function atricleHTML(id, title, time) {
+function atricleHTML(id, title, imgArr, time) {
+
+    let imgHtml = '<br>'
+    for (let i = 0; i < imgArr.length; i++) {
+        imgHtml += '<img src="'+ imgArr[i] +'">'
+    }
     return '<div class="item" >' +
-        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
+        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' + 
+        imgHtml +
         '<div class="time">' + time + '</div></div>'
 }
 
