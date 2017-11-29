@@ -7,7 +7,7 @@ if (decodeURI(tag) == '首页') {
 // 开始查询
 (function () {
     const query = new AV.Query('Atricle')
-    // query.select(['title'])    
+    query.select(['title'])  
     query.limit(1000)
     query.descending('createdAt')
     query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
@@ -18,9 +18,8 @@ if (decodeURI(tag) == '首页') {
             const id = results[i].id
             let title = results[i].get('title')
             title = title.length < 70 ? title : title.substring(0, 70) + '......' 
-            // const imgArr = results[i].get('content').match(/http.*?(gif|GIF|png|PNG|jpg|JPG|jpeg|JPEG)/gi) || []            
             const time = results[i].createdAt.toLocaleString()
-            html += atricleHTML(id, title, imgArr, time)
+            html += atricleHTML(id, title, time)
         }
         document.getElementById('content').innerHTML = html
     }, function(error) {
@@ -28,7 +27,7 @@ if (decodeURI(tag) == '首页') {
     })
 })()
 
-function atricleHTML(id, title, imgArr, time) {
+function atricleHTML(id, title, time) {
     return '<div class="item" >' +
         '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' + 
         '<div class="time">' + time + '</div></div>'
@@ -63,3 +62,5 @@ document.getElementById('btn').onclick = function() {
         tag.style.visibility = 'hidden'
     }
 }
+
+

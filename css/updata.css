@@ -2,6 +2,7 @@
     min-width: 700px;
     max-width: 1440px;
     margin: 0 auto;
+    display: flex;
 }
 
 .show, .write {
