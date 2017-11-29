@@ -32,27 +32,6 @@ a:link, a:visited {
     position: relative;
 }
 
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
-}
-
-.clearfix:before, .clearfix:after {
-    content: "";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    /*照顾ie6*/
-    zoom: 1;
-}
 /* 隐藏到显示 */
 @keyframes op {
     0% {
