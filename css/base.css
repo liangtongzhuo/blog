@@ -10,7 +10,6 @@ body, header, h1, div, span, a {
 body {
     font-family: 'Helvetica Neue', Helvetica;
     color: #1f2f3d;
-    /* 解决侧边滑动引起界面抖动 */
     overflow-y:scroll;
 }
 

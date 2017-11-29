@@ -4,8 +4,7 @@ img {
 }
 
 header {
-    padding-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 #title {
@@ -13,35 +12,33 @@ header {
     font-size: 60px;
 }
 
+.content{
+    margin-top: 30px;
+}
+
 .content .item {
     margin-bottom: 50px;
+    padding: 10px;
     cursor: pointer;
     display: block;
-    padding: 10px;
     text-decoration: none;
+    
 }
 
 .content .item:hover {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, .20);
+    text-decoration: underline;
 }
 
 .content .item .title {
     font-weight: 200;
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.content .item .atricle-content {
-    font-weight: 200;
-    font-size: 15px;
-    margin-bottom: 15px;
+    font-size: 25px;
 }
 
 .content .item .time {
+    margin-top: 15px;    
     margin-right: 30px;
     font-weight: 100;
     font-size: 15px;
-    text-align: right;
 }
 /*按钮 position*/
 .layoutfixed {
