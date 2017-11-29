@@ -27,9 +27,9 @@ if (decodeURI(tag) == '首页') {
 })()
 
 function atricleHTML(id, title, time) {
-    return '<a class="item" href="atricle.html?' + id + '">' +
-        '<h1 class="title">' + title + '</h1>' +
-        '<div class="time">' + time + '</div></a>'
+    return '<div class="item" >' +
+        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
+        '<div class="time">' + time + '</div></div>'
 }
 
 //发布文章
