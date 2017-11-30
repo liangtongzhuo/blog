@@ -7,37 +7,37 @@ if (decodeURI(tag) == '首页') {
 // 开始查询
 (function () {
     const query = new AV.Query('Atricle')
-    query.select(['title'])  
+    query.select(['title'])
     query.limit(1000)
     query.descending('createdAt')
     query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
     query.contains('tag', decodeURI(tag)) //注意转码
-    query.find().then(function(results) {
+    query.find().then(function (results) {
         let html = ''
         for (let i = 0; i < results.length; i++) {
             const id = results[i].id
             let title = results[i].get('title')
-            title = title.length < 70 ? title : title.substring(0, 70) + '......' 
+            title = title.length < 70 ? title : title.substring(0, 70) + '......'
             const time = results[i].createdAt.toLocaleString()
             html += atricleHTML(id, title, time)
         }
         document.getElementById('content').innerHTML = html
-    }, function(error) {
+    }, function (error) {
         console.error(error)
     })
 })()
 
 function atricleHTML(id, title, time) {
     return '<div class="item" >' +
-        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' + 
+        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
         '<div class="time">' + time + '</div></div>'
 }
 
 //发布文章
-document.getElementById('title').addEventListener('click', function() {
+document.getElementById('title').addEventListener('click', function () {
     if (AV.User.current()) {
         window.location.href = "updata.html"
-    }else{
+    } else {
         window.location.href = "admin.html"
     }
 
@@ -54,31 +54,23 @@ document.getElementById('tag').innerHTML = tagHTML
 
 //标签按钮
 const btn = document.getElementById('btn')
-btn.addEventListener("touchstart", e =>{  
-     e.preventDefault()
-     
-     const tag = document.getElementById('tag');
-     if (this.innerText == "标签") {
-         this.innerText = "取消";
-         tag.style.visibility = 'visible';
-     } else {
-         this.innerText = "标签";
-         tag.style.visibility = 'hidden';
-     }
+btn.addEventListener("touchstart", e => {
+    // 判断是否是移动端
+    if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+        click(e)
+    }
 })
-
-btn.addEventListener("click", e =>{  
+btn.addEventListener("click", e => {
+    click(e)
+})
+const click = e => {
     e.preventDefault()
-    
     const tag = document.getElementById('tag');
-    if (this.innerText == "标签") {
-        this.innerText = "取消";
+    if (btn.innerText == "标签") {
+        btn.innerText = "取消";
         tag.style.visibility = 'visible';
     } else {
-        this.innerText = "标签";
+        btn.innerText = "标签";
         tag.style.visibility = 'hidden';
     }
-}) 
-
-
-
+}
