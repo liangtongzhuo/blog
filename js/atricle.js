@@ -44,7 +44,7 @@ function atricleContentHTML(title, content, time, tag) {
     document.getElementById('tag').innerHTML = tagHTML
 }
 
-//跳转网页
+//跳转编辑网页
 document.getElementById('title').addEventListener("click", function() {
     if (AV.User.current()) {
         window.location.href = 'updata.html?' + id

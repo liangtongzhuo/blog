@@ -55,10 +55,7 @@ document.getElementById('tag').innerHTML = tagHTML
 //标签按钮
 const btn = document.getElementById('btn')
 btn.addEventListener("touchstart", e => {
-    // 判断是否是移动端
-    if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
-        click(e)
-    }
+    click(e)
 })
 btn.addEventListener("click", e => {
     click(e)
