@@ -51,8 +51,22 @@ for (let i = 0; i < tagArr.length; i++) {
 }
 document.getElementById('tag').innerHTML = tagHTML;
 
+
 //标签按钮
-document.getElementById('btn').onclick = function() {
+const btn = document.getElementById('btn')
+content.addEventListener("touchstart", e=>{  
+     e.preventDefault()
+     
+     const tag = document.getElementById('tag');
+     if (this.innerText == "标签") {
+         this.innerText = "取消";
+         tag.style.visibility = 'visible';
+     } else {
+         this.innerText = "标签";
+         tag.style.visibility = 'hidden';
+     }
+})  
+btn.onclick = ()=> {
     const tag = document.getElementById('tag');
     if (this.innerText == "标签") {
         this.innerText = "取消";
