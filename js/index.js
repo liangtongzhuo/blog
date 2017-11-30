@@ -54,7 +54,7 @@ document.getElementById('tag').innerHTML = tagHTML
 
 //标签按钮
 const btn = document.getElementById('btn')
-content.addEventListener("touchstart", e =>{  
+btn.addEventListener("touchstart", e =>{  
      e.preventDefault()
      
      const tag = document.getElementById('tag');
@@ -65,16 +65,20 @@ content.addEventListener("touchstart", e =>{
          this.innerText = "标签";
          tag.style.visibility = 'hidden';
      }
-})  
-btn.onclick = ()=> {
+})
+
+btn.addEventListener("click", e =>{  
+    e.preventDefault()
+    
     const tag = document.getElementById('tag');
     if (this.innerText == "标签") {
-        this.innerText = "取消"
-        tag.style.visibility = 'visible'
+        this.innerText = "取消";
+        tag.style.visibility = 'visible';
     } else {
-        this.innerText = "标签"
-        tag.style.visibility = 'hidden'
+        this.innerText = "标签";
+        tag.style.visibility = 'hidden';
     }
-}
+}) 
+
 
 
