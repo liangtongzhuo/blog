@@ -1,11 +1,5 @@
-img {
-    display: inline-block;
-    max-width: 100%;
-}
-
 header {
-    padding-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 #title {
@@ -13,35 +7,28 @@ header {
     font-size: 60px;
 }
 
-.content .item {
-    margin-bottom: 50px;
-    cursor: pointer;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
+.content{
+    margin-top: 40px;
 }
 
-.content .item:hover {
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, .20);
+.content .item {
+    margin-bottom: 40px;
 }
 
 .content .item .title {
     font-weight: 200;
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 25px;
+    text-decoration: none;
 }
 
-.content .item .atricle-content {
-    font-weight: 200;
-    font-size: 15px;
-    margin-bottom: 15px;
+.content .item .title:hover {
+    text-decoration: underline;
 }
 
 .content .item .time {
-    margin-right: 30px;
+    margin-top: 5px;
     font-weight: 100;
     font-size: 15px;
-    text-align: right;
 }
 /*按钮 position*/
 .layoutfixed {

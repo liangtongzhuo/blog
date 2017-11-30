@@ -11,9 +11,21 @@
 </head>
 
 <body>
-    <div class="clearfix layout-updata">
+    <div class="layout-updata">
+        <!-- 写 -->
+        <div class="write " id="write">
+            <!-- head -->
+            <header>
+                <!-- <input type="text" id="input_title"> -->
+                <textarea id="input_title" rows="1" placeholder="标题"></textarea>
+                <textarea id="input_tag" rows="1" placeholder="标签用英文「 , 」分割"></textarea>
+            </header>
+            <!-- content -->
+            <textarea id="input_content" placeholder="内容"></textarea>
+        </div>
+        <!-- /写 -->
         <!-- 看 -->
-        <div class="show float-right ">
+        <div class="show">
             <!-- head -->
             <header>
                 <h1 id="title">标题</h1>
@@ -26,19 +38,6 @@
             </div>
         </div>
         <!-- /看 -->
-        <!-- 写 -->
-        <div class="write float-right " id="write">
-            <!-- head -->
-            <header>
-                <!-- <input type="text" id="input_title"> -->
-                <textarea id="input_title" rows="1" placeholder="标题"></textarea>
-                <textarea id="input_tag" rows="1" placeholder="标签用英文「 , 」分割"></textarea>
-            </header>
-            <!-- content -->
-            <textarea id="input_content" placeholder="内容"></textarea>
-
-        </div>
-        <!-- /写 -->
     </div>
     <!-- 提示框 -->
     <div class="notification" id="notification">

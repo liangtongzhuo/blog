@@ -2,6 +2,7 @@
     min-width: 700px;
     max-width: 1440px;
     margin: 0 auto;
+    display: flex;
 }
 
 .show, .write {
@@ -38,9 +39,7 @@ header {
     font-weight: 200;
 }
 
-
 /*写样式*/
-
 .write>textarea {
     font-weight: 200;
     font-size: 18px;
@@ -51,9 +50,7 @@ header {
     margin-bottom: 100px;
 }
 
-
 /*展示样式 /适配markedowm字体样式*/
-
 .show #content {
     font-weight: 200;
     font-size: 18px;
@@ -114,9 +111,7 @@ header {
     background-color: #f8f8f8;
 }
 
-
 /*提示框*/
-
 .notification {
     position: fixed;
     z-index: 1;
