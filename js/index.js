@@ -5,7 +5,7 @@ if (decodeURI(tag) == '首页') {
 }
 
 // 开始查询
-(function () {
+(()=> {
     const query = new AV.Query('Atricle')
     query.select(['title'])
     query.limit(1000)
@@ -13,20 +13,26 @@ if (decodeURI(tag) == '首页') {
     query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
     query.contains('tag', decodeURI(tag)) //注意转码
     query.find().then(function (results) {
-        let html = ''
-        for (let i = 0; i < results.length; i++) {
-            const id = results[i].id
-            let title = results[i].get('title')
-            title = title.length < 70 ? title : title.substring(0, 70) + '......'
-            const time = results[i].createdAt.toLocaleString()
-            html += atricleHTML(id, title, time)
-        }
-        document.getElementById('content').innerHTML = html
+      update(results)
     }, function (error) {
         console.error(error)
     })
 })()
 
+//更新数据
+function update(results){
+  let html = ''
+  for (let i = 0; i < results.length; i++) {
+      const id = results[i].id
+      let title = results[i].get('title')
+      title = title.length < 70 ? title : title.substring(0, 70) + '......'
+      const time = results[i].createdAt.toLocaleString()
+      html += atricleHTML(id, title, time)
+  }
+  document.getElementById('content').innerHTML = html
+}
+
+//拼接 html
 function atricleHTML(id, title, time) {
     return '<div class="item" >' +
         '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
