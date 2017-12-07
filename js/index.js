@@ -4,7 +4,7 @@ if (decodeURI(tag) == '首页') {
     tag = ''
 }
 
-// 先从缓存
+// 先从缓存里面取
 update();
 
 // 开始查询
@@ -22,10 +22,10 @@ update();
     })
 })()
 
-//更新数据
+// 更新数据
 function update(results){
   let html = ''
-  //如果没有结果从缓存里面取
+  // 如果没有结果从缓存里面取
   if (!results){
     html = JSON.parse(localStorage.getItem(tag))
     document.getElementById('content').innerHTML = html
@@ -41,19 +41,19 @@ function update(results){
   }
   document.getElementById('content').innerHTML = html
 
-  //缓存数据
+  // 缓存数据
   const str = JSON.stringify(html)
   localStorage.setItem(tag, str)
 }
 
-//拼接 html
+// 拼接 html
 function atricleHTML(id, title, time) {
     return '<div class="item" >' +
         '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
         '<div class="time">' + time + '</div></div>'
 }
 
-//发布文章
+// 发布文章
 document.getElementById('title').addEventListener('click', function () {
     if (AV.User.current()) {
         window.location.href = "updata.html"
@@ -72,7 +72,7 @@ for (let i = 0; i < tagArr.length; i++) {
 document.getElementById('tag').innerHTML = tagHTML
 
 
-//标签按钮
+// 标签按钮
 const btn = document.getElementById('btn')
 btn.addEventListener("touchstart", e => {
     click(e)
