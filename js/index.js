@@ -4,6 +4,9 @@ if (decodeURI(tag) == '首页') {
     tag = ''
 }
 
+// 先从缓存
+update();
+
 // 开始查询
 (()=> {
     const query = new AV.Query('Atricle')
@@ -22,6 +25,13 @@ if (decodeURI(tag) == '首页') {
 //更新数据
 function update(results){
   let html = ''
+  //如果没有结果从缓存里面取
+  if (!results){
+    html = JSON.parse(localStorage.getItem(tag))
+    document.getElementById('content').innerHTML = html
+    return
+  }
+
   for (let i = 0; i < results.length; i++) {
       const id = results[i].id
       let title = results[i].get('title')
@@ -30,6 +40,10 @@ function update(results){
       html += atricleHTML(id, title, time)
   }
   document.getElementById('content').innerHTML = html
+
+  //缓存数据
+  const str = JSON.stringify(html)
+  localStorage.setItem(tag, str)
 }
 
 //拼接 html
