@@ -27,7 +27,7 @@ function update(results){
   let html = ''
   // 如果没有结果从缓存里面取
   if (!results){
-    html = JSON.parse(localStorage.getItem(tag))
+    html = localStorage.getItem(tag)
     document.getElementById('content').innerHTML = html
     return
   }
@@ -42,8 +42,7 @@ function update(results){
   document.getElementById('content').innerHTML = html
 
   // 缓存数据
-  const str = JSON.stringify(html)
-  localStorage.setItem(tag, str)
+  localStorage.setItem(tag, html)
 }
 
 // 拼接 html
