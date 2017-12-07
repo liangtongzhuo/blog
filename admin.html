@@ -13,7 +13,6 @@
         <input id="password" type="password" />
         <input id="login" type="submit" value="登陆" />
         <input id="zhuce" type="submit" value="注册" />
-
     </div>
     <!-- /大盒子 -->
     <script src="lib/av-min.js"></script>
@@ -25,7 +24,7 @@
                 window.location.href = "index.html";
                 return;
             }
-            //注册过就登陆
+            //注册过登陆
             AV.User.logIn('admin', password.value).then(function(loginedUser) {
                 window.location.href = "index.html";
             }, function(error) {
