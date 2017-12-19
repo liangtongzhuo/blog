@@ -81,12 +81,12 @@ btn.addEventListener("click", e => {
 })
 const click = e => {
     e.preventDefault()
-    const tag = document.getElementById('tag');
+    const tag = document.getElementById('tag')
     if (btn.innerText == "标签") {
-        btn.innerText = "取消";
-        tag.style.visibility = 'visible';
+        btn.innerText = "取消"
+        tag.style.visibility = 'visible'
     } else {
-        btn.innerText = "标签";
-        tag.style.visibility = 'hidden';
+        btn.innerText = "标签"
+        tag.style.visibility = 'hidden'
     }
 }
