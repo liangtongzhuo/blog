@@ -18,7 +18,6 @@ const url = location.search
 const id = url.split('?')[1].split('=')[0]
 
 const query = new AV.Query('Atricle')
-query.descending('createdAt')
 query.get(id).then(function(result) {
     const title = result.get('title')
     const content = marked(result.get('content'))
