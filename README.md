@@ -50,7 +50,7 @@ window.AV.init({
 //标签
 const tagStr = '首页,非技术文章,Node,Web,iOS,GitHub,动漫,工具,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,JavaScript,书,我';
 ```
-
+- 进入 GitHub 仓库 -> Settings -> GitHub Page 
 - 这时你完成了配置。
 
 ## __3.写文章__
