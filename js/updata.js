@@ -3,7 +3,7 @@ marked.setOptions({
     renderer: new marked.Renderer(),
     gfm: true, //开启github的markdown
     tables: true, //支持Github表格，必须打开gfm选项
-    breaks: true, //支持Github换行符，必须打开gfm选项
+    breaks: false, //支持Github换行符，必须打开gfm选项
     pedantic: false, //只解析符合markdown.pl定义的，不修正markdown的错误
     sanitize: false, //原始输出，忽略HTML标签
     smartLists: true,
