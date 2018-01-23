@@ -21,11 +21,6 @@ header {
     text-decoration: none;
 }
 
-a:visited { 
-    color: #ffb5e7;
-    text-decoration:none; 
-} 
-
 .content .item .title:hover {
     text-decoration: underline;
 }
