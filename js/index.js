@@ -10,7 +10,7 @@ update();
 // 开始查询
 (() => {
     const query = new AV.Query('Atricle')
-    query.select(['title'])
+    query.select(['title','time'])
     query.limit(1000)
     query.descending('createdAt')
     query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
