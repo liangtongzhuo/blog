@@ -18,14 +18,14 @@ const url = location.search
 const id = url.split('?')[1].split('=')[0]
 
 const query = new AV.Query('Atricle')
-query.get(id).then(function(result) {
+query.get(id).then(function (result) {
     const title = result.get('title')
     const content = marked(result.get('content'))
-    const time = results[i].get('time')? results[i].get('time').toLocaleString() :  results[i].createdAt.toLocaleString()
+    const time = results[i].get('time') ? results[i].get('time').toLocaleString() : results[i].createdAt.toLocaleString()
     const tag = result.get('tag')
 
     atricleContentHTML(title, content, time, tag)
-}, function(error) {
+}, function (error) {
     console.error(error)
 })
 
@@ -44,7 +44,7 @@ function atricleContentHTML(title, content, time, tag) {
 }
 
 //跳转编辑网页
-document.getElementById('title').addEventListener("click", function() {
+document.getElementById('title').addEventListener("click", function () {
     if (AV.User.current()) {
         window.location.href = 'updata.html?' + id
     }
