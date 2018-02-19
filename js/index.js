@@ -36,7 +36,7 @@ function update(results){
       const id = results[i].id
       let title = results[i].get('title')
       title = title.length < 70 ? title : title.substring(0, 70) + '......'
-      const time = results[i].createdAt.toLocaleString()
+      const time = results[i].get('time')? results[i].get('time').toLocaleString() :  results[i].createdAt.toLocaleString()
       html += atricleHTML(id, title, time)
   }
   document.getElementById('content').innerHTML = html
