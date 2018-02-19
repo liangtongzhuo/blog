@@ -12,8 +12,8 @@ update();
     const query = new AV.Query('Atricle')
     query.select(['title','time'])
     query.limit(1000)
-    query.addDescending('time')
-    query.addDescending('createdAt')
+    query.addAscending('time');
+    query.addAscending('createdAt');
     query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
     query.contains('tag', decodeURI(tag)) //注意转码
     query.find().then(function (results) {
