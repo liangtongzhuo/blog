@@ -5,4 +5,4 @@ window.AV.init({
     appKey: APP_KEY
 });
 //标签
-const tagStr = '首页,非技术文章,GitHub,Node.js,Web,iOS,ReactNative,日常踩坑,动漫,工具,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,JavaScript,书,我'
+const tagStr = '首页,GitHub,Node.js,Web,iOS,ReactNative,Swift,MongoDB,Vue,HTML,JavaScript,日常踩坑,动漫,工具,编程疑问,游戏,翻译,算法,书,非技术文章,我'
