@@ -1,92 +1,109 @@
-//tag
-let tag = location.search.split('?')[1] || ''
-if (decodeURI(tag) == '首页') {
-    tag = ''
-}
-
-// 先从缓存里面取
-update();
-
-// 开始查询
-(() => {
-    const query = new AV.Query('Atricle')
-    query.select(['title','time'])
-    query.limit(1000)
-    query.addDescending('createdAt')
-    query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
-    query.contains('tag', decodeURI(tag)) //注意转码
-    query.find().then(function (results) {
-        update(results)
-    }, function (error) {
-        console.error(error)
-    })
-})()
-
-// 更新数据
-function update(results) {
-    let html = ''
-    // 如果没有结果从缓存里面取
-    if (!results) {
-        html = localStorage.getItem(tag)
-        document.getElementById('content').innerHTML = html
-        return
-    }
-
-    for (let i = 0; i < results.length; i++) {
-        const id = results[i].id
-        let title = results[i].get('title')
-        title = title.length < 70 ? title : title.substring(0, 70) + '......'
-        const time = results[i].get('time') ? results[i].get('time').toLocaleString() : results[i].createdAt.toLocaleString()
-        html += atricleHTML(id, title, time)
-    }
-    document.getElementById('content').innerHTML = html
-
-    // 缓存数据
-    localStorage.setItem(tag, html)
-}
-
-// 拼接 html
-function atricleHTML(id, title, time) {
-    return '<div class="item" >' +
-        '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
-        '<div class="time">' + time + '</div></div>'
-}
-
-// 发布文章
-document.getElementById('title').addEventListener('click', function () {
-    if (AV.User.current()) {
-        window.location.href = "updata.html"
-    } else {
-        window.location.href = "admin.html"
-    }
-
+document.getElementById('body').addEventListener('click', function () {
+    window.location.href = "list.html"
 }, false)
 
-
-let tagHTML = '标签：'
-const tagArr = tagStr.split(',')
-for (let i = 0; i < tagArr.length; i++) {
-    tagHTML += ' <a href="index.html?' + tagArr[i] + '">' + tagArr[i] + '</a>'
-}
-document.getElementById('tag').innerHTML = tagHTML
-
-
-// 标签按钮
-const btn = document.getElementById('btn')
-btn.addEventListener("touchstart", e => {
-    click(e)
-})
-btn.addEventListener("click", e => {
-    click(e)
-})
-const click = e => {
-    e.preventDefault()
-    const tag = document.getElementById('tag')
-    if (btn.innerText == "标签") {
-        btn.innerText = "取消"
-        tag.style.visibility = 'visible'
-    } else {
-        btn.innerText = "标签"
-        tag.style.visibility = 'hidden'
-    }
-}
+particlesJS("particles-js", {
+    "particles": {
+        "number": {
+            "value": 100,
+            "density": {
+                "enable": true,
+                "value_area": 800
+            }
+        },
+        "color": {
+            "value": "#ffffff"
+        },
+        "shape": {
+            "type": "circle",
+            "stroke": {
+                "width": 0,
+                "color": "#000000"
+            },
+            "polygon": {
+                "nb_sides": 5
+            }
+        },
+        "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+            }
+        },
+        "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+            }
+        },
+        "line_linked": {
+            "enable": 0,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+        },
+        "move": {
+            "enable": true,
+            "speed": 3,
+            "direction": "bottom",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+            }
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": {
+                "enable": true,
+                "mode": "grab"
+            },
+            "onclick": {
+                "enable": false,
+                "mode": "repulse"
+            },
+            "resize": true
+        },
+        "modes": {
+            "grab": {
+                "distance": 100,
+                "line_linked": {
+                    "opacity": 1
+                }
+            },
+            "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+            },
+            "repulse": {
+                "distance": 200,
+                "duration": 0.4
+            },
+            "push": {
+                "particles_nb": 4
+            },
+            "remove": {
+                "particles_nb": 2
+            }
+        }
+    },
+    "retina_detect": true
+});
