@@ -26,8 +26,12 @@ body {
 
 .content {
     position: fixed;
+    top: 15vh;
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+    color: #fff;
 }
 
 .title {
@@ -45,16 +49,6 @@ body {
     cursor: pointer;
 }
 
-footer {
-    box-sizing: border-box;
-    position: fixed;
-    width: 100%;
-    top: 400px;
-    padding: 0 20px 0 20px;
-    color: #fff;
-    text-align: center;
-}
-
-footer a {
+a {
     color: #fff;
 }
