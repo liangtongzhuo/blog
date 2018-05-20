@@ -1,11 +1,9 @@
 html {
     position: fixed;
-    height: 100vh;
-    width: 100vw;
 }
 
 body {
-    background-image: url(http://file.liangtongzhuo.com/98fa375a32a9a5c113d9.jpg);
+    background-image: url(./a.jpg);
     background-size: cover;
     background-position: center;
     margin: 0;
