@@ -6,6 +6,8 @@ body {
     background-repeat:no-repeat;
     height: 100vh;
     text-align: center;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 #particles-js {
@@ -28,9 +30,21 @@ body {
     width: 300px;
     height: 300px;
     text-align: center;
-    padding-top: 110px;
+    padding-top: 100px;
     font-size: 35px;
     color: #fff;
 }
 
+footer {
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    bottom: 20%;
+    padding: 0 20px 0 20px;
+    color: #fff;
+    text-align: center;
+}
 
+footer a {
+    color: #fff;
+}

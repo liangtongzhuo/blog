@@ -8,7 +8,7 @@ body, header, h1, div, span, a {
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #1f2f3d;
     overflow-y: scroll;
 }

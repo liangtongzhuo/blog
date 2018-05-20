@@ -1,4 +1,6 @@
-document.getElementById('body').addEventListener('click', function () {
+document.body.addEventListener('click', function (e) {
+    // e.stopPropagation()
+    console.log(e);
     window.location.href = "list.html"
 }, false)
 
