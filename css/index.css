@@ -6,6 +6,11 @@ body {
     margin: 0;
 }
 
+.description {
+    width: 0;
+    height: 0;
+}
+
 #particles-js {
     position: fixed;
     background-image: url(http://file.liangtongzhuo.com/98fa375a32a9a5c113d9.jpg);
@@ -33,7 +38,7 @@ body {
     width: 300px;
     height: 300px;
     text-align: center;
-    padding-top: 130px;
+    padding-top: 95px;
     font-size: 35px;
     color: #fff;
 }
