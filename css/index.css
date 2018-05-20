@@ -42,13 +42,14 @@ body {
     padding-top: 100px;
     font-size: 35px;
     color: #fff;
+    cursor: pointer;
 }
 
 footer {
     box-sizing: border-box;
     position: fixed;
     width: 100%;
-    bottom: 20%;
+    top: 400px;
     padding: 0 20px 0 20px;
     color: #fff;
     text-align: center;
