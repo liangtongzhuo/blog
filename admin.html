@@ -28,7 +28,6 @@
             AV.User.logIn('admin', password.value).then(function(loginedUser) {
                 window.location.href = "index.html";
             }, function(error) {
-                console.log(error);
                 alert('登陆失败');
             });
         }, false);
@@ -44,7 +43,6 @@
             user.signUp().then(function(loginedUser) {
                 window.location.href = "index.html";
             }, function(error) {
-                console.log(error);
                 alert('注册失败');
             });
         }, false);
