@@ -1,10 +1,10 @@
-// document.body.addEventListener('click', function (e) {
-//     window.location.href = "list.html"
-// }, false)
+document.body.addEventListener('click', function (e) {
+    window.location.href = "list.html"
+}, false)
 
-// document.getElementById('content').addEventListener('click', function () {
-//     window.location.href = "list.html"
-// }, false)
+document.getElementById('content').addEventListener('click', function () {
+    window.location.href = "list.html"
+}, false)
 
 particlesJS("particles-js", {
     "particles": {
