@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
@@ -37,10 +37,9 @@
     <script type="text/javascript" src="https://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101482279" data-redirecturi="https://www.liangtongzhuo.com/index.html"
         charset="utf-8"></script>
     <script type="text/javascript">
-        QC.Login({
-            btnId: "qqLoginBtn"    //插入按钮的节点id
-        }, function (reqData, opts) {
-            console.log(reqData, opts);
+        QC.Login.showPopup({
+            appId: "101482279",
+            redirectURI: "https://www.liangtongzhuo.com/index.html"
         });
 
     </script>
@@ -75,6 +74,7 @@
                 //完成请求回调
                 alert("获取用户信息完成！");
             });
+
     </script>
 </body>
 
