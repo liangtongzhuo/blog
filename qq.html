@@ -30,7 +30,7 @@
             });
 
             localStorage.setItem('id', res.id);
-            
+
             // 跳转登陆
             QC.Login.showPopup({
                 appId: "101482279",
@@ -47,30 +47,33 @@
         if (QC.Login.check()) {//如果已登录
             QC.Login.getMe(function (openId, accessToken) {
                 alert(["当前登录用户的", "openId为：" + openId, "accessToken为：" + accessToken].join("\n"));
+
+
+                //用JS SDK调用OpenAPI
+                QC.api("get_user_info", {})
+                    //指定接口访问成功的接收函数，s为成功返回Response对象
+                    .success(async function (s) {
+                        //成功回调，通过s.data获取OpenAPI的返回数据
+                        alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+                        console.log(s.data);
+
+                        const res = await axios.post(`/qqUpdatePlatformID`, {
+                            id: localStorage.getItem('id'),
+                            OpenID: openId,
+                            Status: 0,
+                            QQName: '你好',
+                            QQAvatarUrl: "www.baidu.com"
+                        });
+
+                    })
+                    //指定接口访问失败的接收函数，f为失败返回Response对象
+                    .error(function (f) {
+                        //失败回调
+                        alert("获取用户信息失败！");
+                    })
             });
 
-            //用JS SDK调用OpenAPI
-            QC.api("get_user_info", {})
-                //指定接口访问成功的接收函数，s为成功返回Response对象
-                .success(async function (s) {
-                    //成功回调，通过s.data获取OpenAPI的返回数据
-                    alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
-                    console.log(s.data);
 
-                    const res = await axios.post(`/qqUpdatePlatformID`, {
-                        id: localStorage.getItem('id'),
-                        OpenID: openId,
-                        Status: 0,
-                        QQName: '你好',
-                        QQAvatarUrl: "www.baidu.com"
-                    });
-
-                })
-                //指定接口访问失败的接收函数，f为失败返回Response对象
-                .error(function (f) {
-                    //失败回调
-                    alert("获取用户信息失败！");
-                })
         }
     </script>
 
