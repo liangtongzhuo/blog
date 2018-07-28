@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="梁同桌的博客">
+    <meta name="description" content="大三创业拿到投资创办 ASMR 失败的程序员,有志改变世界,想成为 cool 的人,想让人生精彩一些而努力 ing ">
+    <meta name="keywords" content="梁同桌,梁同桌的博客,ltz,vscode-china,vscode,liangtongzhuo,tongrenyinsheng">
+    <title>梁同桌的博客</title>
+</head>
+
+<body>
+    <div>
+        测试qq登陆
+    </div>
+
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.js"></script>
+    <script src="https://cdn.staticfile.org/URI.js/1.19.1/IPv6.js"></script>
+    <script type="text/javascript" src="https://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101482279" data-redirecturi="https://www.liangtongzhuo.com/qq.html"
+        charset="utf-8"></script>
+    <script type="text/javascript">
+        axios.defaults.baseURL = 'http://localhost:8081';
+        (async function aaa() {
+            const res = await axios.post(`/qqUpdatePlatformID`, {
+                "UserID": "12312312",
+                "PlatformID": 2,
+                "Redirect": "www.baidu.com"
+            });
+
+            localStorage.setItem('id', res.id);
+
+            // 跳转登陆
+            QC.Login.showPopup({
+                appId: "101482279",
+                redirectURI: "https://www.liangtongzhuo.com/qq.html"
+            });
+
+        })()
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        if (QC.Login.check()) {//如果已登录
+            QC.Login.getMe(function (openId, accessToken) {
+                alert(["当前登录用户的", "openId为：" + openId, "accessToken为：" + accessToken].join("\n"));
+
+
+                //用JS SDK调用OpenAPI
+                QC.api("get_user_info", {})
+                    //指定接口访问成功的接收函数，s为成功返回Response对象
+                    .success(async function (s) {
+                        //成功回调，通过s.data获取OpenAPI的返回数据
+                        alert("获取用户信息成功！当前用户昵称为：" + s.data.nickname);
+                        console.log(s.data);
+
+                        const res = await axios.post(`/qqUpdatePlatformID`, {
+                            id: localStorage.getItem('id'),
+                            OpenID: openId,
+                            Status: 0,
+                            QQName: '你好',
+                            QQAvatarUrl: "www.baidu.com"
+                        });
+
+                    })
+                    //指定接口访问失败的接收函数，f为失败返回Response对象
+                    .error(function (f) {
+                        //失败回调
+                        alert("获取用户信息失败！");
+                    })
+            });
+
+
+        }
+    </script>
+
+    <script type="text/javascript">
+
+
+    </script>
+</body>
+
+</html>
