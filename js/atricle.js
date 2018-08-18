@@ -35,7 +35,7 @@ function atricleContentHTML(title, content, time, tag) {
     document.getElementById('content').innerHTML = content
     document.getElementById('time').innerText = time
 
-    let tagHTML = '标签：'
+    let tagHTML = ''
     var tagArr = tag.split(',')
     for (let i = 0; i < tagArr.length; i++) {
         tagHTML += ' <a href="list.html?' + tagArr[i] + '">' + tagArr[i] + '</a>'
