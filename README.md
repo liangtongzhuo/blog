@@ -6,7 +6,6 @@
 <img src="http://file.liangtongzhuo.com/114e78b1130fd13f2d5d.png">
 （上图展示 pc 与 mobile ） 
 
-
 #  __前言__ 
 「梁同桌 Blog」 是一款追求「极致简约」的产品，用简约的方法展现文字的美感。
 
