@@ -1,7 +1,7 @@
 # __预览__
 <img src="http://file.liangtongzhuo.com/bf5c4f9e268264800e99.gif"> 
 
-（上图展示文章编辑）
+（上图展示文章编辑） 
                                                                                                                              
 <img src="http://file.liangtongzhuo.com/114e78b1130fd13f2d5d.png">
 （上图展示 pc 与 mobile ） 
