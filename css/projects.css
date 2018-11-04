@@ -1,0 +1,47 @@
+header {
+  margin-top: 100px;
+}
+
+#title {
+  font-weight: 300;
+  font-size: 60px;
+}
+
+.content {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .item {
+  width: 30%;
+  box-sizing: border-box;
+  padding: 0 0 0 0;
+  margin-left: 2%;
+  margin-top: 2%;
+  transition: 0.8s;
+  /* border: solid rgba(0, 0, 0, 0.1) 1px; */
+  text-decoration: none;
+  /* height: 330px; */
+  /* overflow: hidden; */
+}
+
+.content .item:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+/* .content .item img {
+  width: 100%;
+  height: 200px;
+} */
+
+.content .item h2 {
+  font-weight: 300;
+  padding: 0 10px 0 10px;
+}
+.content .item p {
+  font-weight: 300;
+  padding: 0 10px 0 10px;
+  /* height: 48px; */
+  /* overflow: hidden; */
+}
