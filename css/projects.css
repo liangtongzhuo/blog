@@ -26,6 +26,12 @@ header {
   /* overflow: hidden; */
 }
 
+@media screen and (max-width: 400px) {
+  .content .item {
+    width: 100% !important;
+  }
+}
+
 .content .item:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }
