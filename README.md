@@ -9,7 +9,7 @@
 #  __前言__ 
 「梁同桌 Blog」 是一款追求「极致简约」的产品，用简约的方法展现文字的美感。
 
-   __「地址： http://www.liangtongzhuo.com 」__ 
+   __「地址： http://www.liangtongzhuo.com 」__
 
 # __功能__
 - 在线实抒写 Markdowm
