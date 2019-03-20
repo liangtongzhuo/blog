@@ -71,12 +71,16 @@
       </form>
     </section>
     <script src="../lib/av.js"></script>
-    <script src="../js/config.js"></script>
+	<script src="../js/config.js"></script>
+	<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
     <script>
       document.querySelector('#send').addEventListener('click', () => {
 		const content = document.querySelector('#message').value
-        if (!message) return alert('请输入愿望')
-		// 判断
+        if (!content) return alert('请输入愿望')
+		// 判断验证码
+		const pws = md5(prompt('预留暗号'))
+		if (pws != '8480148de5b48034ff83a9d7689add85') return alert('暗号错误')
+		// 判断时间
 
 
         const Loves = AV.Object.extend('Loves')
