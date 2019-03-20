@@ -37,8 +37,7 @@
                   郝欣欢小公主，我们认识已经
                   <span class="color" id="time"></span
                   >，这是许愿箱，你每周都可以在这里许一个愿望。
-				  <a href="./list.html">查看更多详情</a>
-				  
+                  <a href="./list.html">查看更多详情</a>
                 </div>
               </div>
             </div>
@@ -48,7 +47,7 @@
               name="message"
               placeholder="Your Wishing"
             ></textarea>
-			<input type="button" class="submit" id="send" value="Send" />
+            <input type="button" class="submit" id="send" value="Send" />
           </div>
           <div id="top">
             <a id="flip" href="#contact">Flip</a>
@@ -71,30 +70,44 @@
       </form>
     </section>
     <script src="../lib/av.js"></script>
-	<script src="../js/config.js"></script>
-	<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
     <script>
       document.querySelector('#send').addEventListener('click', () => {
-		const content = document.querySelector('#message').value
+        const content = document.querySelector('#message').value
         if (!content) return alert('请输入愿望')
-		// 判断验证码
-		const pws = md5(prompt('预留暗号'))
-		if (pws != '8480148de5b48034ff83a9d7689add85') return alert('暗号错误')
-		// 判断时间
-
-
-        const Loves = AV.Object.extend('Loves')
-        const love = new Loves()
-		love.set('content', content)
-		window.location.hash = ''
-        love.save().then(
-          function() {
-			  alert('已经发送成功')
-		  },
-          function(error) {
-            console.log('有错误：', error)
-          }
-        )
+        // 判断验证码
+        const pws = md5(prompt('预留暗号'))
+        if (pws != '8480148de5b48034ff83a9d7689add85') return alert('暗号错误')
+        // 判断许愿时间是否是本星期
+        const query = new AV.Query('Loves')
+        query
+          .find()
+          .then(function(results) {
+			const count = (Date.now() - 1552838400000) / 1000 / 60 / 60 / 24 / 7
+			console.log(count , results.length);
+			
+            if (count > results.length) {
+              // 执行动画
+              window.location.hash = ''
+              const Loves = AV.Object.extend('Loves')
+              const love = new Loves()
+              love.set('content', content)
+              return love.save()
+            } else {
+              alert('本周已经许过啦!')
+              window.location.href = 'list.html'
+            }
+          })
+          .then(function() {
+            setTimeout(() => {
+              window.location.href = 'list.html'
+              alert('成功许愿了')
+            }, 1200)
+          })
+          .catch(error => {
+            alert('未发送成功，网络错误')
+          })
       })
     </script>
 
