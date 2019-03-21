@@ -97,7 +97,7 @@
       function setString(results) {
         const str = `
       <h3>郝欣欢小公主愿望还剩余 ${50 -
-        results.length} 次，上一次许愿时间：${results[0].createdAt.toLocaleString()}</h3>
+        results.length} 次，上一次许愿时间：${results[0] && results[0].createdAt.toLocaleString()}</h3>
       <h3>许愿箱规则:</h3>
       规则如下:<br />
         1.小公主在这里留言许愿，由梁同桌负责实现愿望。<br />
