@@ -82,21 +82,22 @@
     <script src="../lib/av.js"></script>
     <script src="../js/config.js"></script>
     <script>
-      const query = new AV.Query('Loves')
-      query.limit(1000)
-      query.addDescending('createdAt')
+      const query = new AV.Query('Loves');
+      query.limit(1000);
+      query.addDescending('createdAt');
       query
         .find()
         .then(function(results) {
-          update(results)
+          setString(results);
         })
-        .then(e => {
-          alert('网络错误')
-        })
+        .catch(e => {
+          alert('网络错误');
+        });
 
-      function name(data) {
+      function setString(results) {
         const str = `
-      <h3>郝欣欢小公主愿望还剩余 ${a} 次，上一次许愿时间：${a}</h3>
+      <h3>郝欣欢小公主愿望还剩余 ${50 -
+        results.length} 次，上一次许愿时间：${results[0].createdAt.toLocaleString()}</h3>
       <h3>许愿箱规则:</h3>
       规则如下:<br />
         1.小公主在这里留言许愿，由梁同桌负责实现愿望。<br />
@@ -106,16 +107,16 @@
         5.如果本周的愿望忘记许并选择不转化红包，可存储为愿望池中，愿望池最多存储
         5 条，多余 5 条则无效。<br />
         <br />
-        `
-        const content = document.getElementById('content')
-        let i = 0
+        `;
+        const content = document.getElementById('content');
+        let i = 0;
         const time = setInterval(() => {
-          i++
-          content.innerHTML = str.substring(0, i)
+          i++;
+          content.innerHTML = str.substring(0, i);
           if (i == str.length) {
-            clearInterval(time)
+            clearInterval(time);
           }
-        }, 60)
+        }, 60);
       }
     </script>
   </body>
