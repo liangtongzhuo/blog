@@ -54,13 +54,16 @@
     }
     // 点击转成canvas，最后用于生成图片
     $('.picture').click(function (e) {
-
         // 调用html2canvas插件
         html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
             // 这里的判断用于区分移动端和pc端
             if (getOS() == "Others") {
                 // 调用Canvas2Image插件
-                Canvas2Image.saveAsImage(canvas,$('.bg-img').width(),$('.bg-img').height(),'png','DNF');
+                Canvas2Image.saveAsImage(canvas, $('.bg-img').width(), $('.bg-img').height(), 'png', 'DNF');
+            } else {
+                const img = Canvas2Image.convertToImage(canvas, canvasWidth, canvasHeight);
+                // 渲染图片，并且加到页面中查看效果
+                $(".need").after(img);
             }
         });
     });
