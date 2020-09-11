@@ -93,7 +93,9 @@
         console.log('点击了');
         // 调用html2canvas插件
         console.log(html2canvas);
-        html2canvas(document.querySelector('.need')).then(function (canvas) {
+
+        try {
+            html2canvas(document.querySelector('.need')).then(function (canvas) {
             console.log(canvas);
             try {
                 const w = $('.bg-img').width()
@@ -113,9 +115,11 @@
 
             }
 
-        }).catch((e) => {
-            alert(JSON.stringify(e))
-        });
+        })
+        } catch (error) {
+            console.log(error);
+        }
+       
     });
 
 
