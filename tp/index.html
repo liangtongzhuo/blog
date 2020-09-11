@@ -74,9 +74,7 @@
         }
 
         body {
-
             font-family: "Microsoft Yahei";
-
         }
     </style>
 </head>
@@ -86,15 +84,18 @@
         <div class="need">
             <div class="content">
                 <p> <span class="clinetNmae">_______</span> 您好：</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是您的生活顾问 <span class="adviserName">_______</span> ，“大普罗理想生活七天乐第3季”特邀您的家人和朋友艺起过节。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是您的生活顾问 <span class="adviserName">_______</span>
+                    ，“大普罗理想生活七天乐第3季”特邀您的家人和朋友艺起过节。</p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;十一假期我们准备了好看的艺术展，好玩的音乐节，还有网红兔来打卡；同时联合郑州艺术名家为孩子们特别呈现了一场美学启蒙的盛宴。
                 </p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每天都有新花样，快来理想国过个不一样的十一假期吧！</p>
                 <p style="text-align: right;">2020年9月11日</p>
             </div>
 
-            <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
+
+            <div class="div-img"></div>
             <img class="bg-img" src="./background.jpeg">
+            <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
         </div>
         <div class="button-list"><button type="button" class="picture">生成<br />海报</button></div>
     </div>
@@ -117,12 +118,13 @@
         }
         return os;
     }
+
+
     // 点击转成canvas，最后用于生成图片
     $('.picture').click(function (e) {
-
         // 输入名字
-        const clinetNmae = prompt('大普罗理想生活','请输入客户的名字');
-        const adviserName = prompt('大普罗理想生活','请输入置业顾问名字');
+        const clinetNmae = prompt('请输入客户名字');
+        const adviserName = prompt('请输入置业顾问名字');
         // 修改名字
         document.querySelector('.clinetNmae').innerHTML = clinetNmae
         document.querySelector('.adviserName').innerHTML = adviserName
@@ -139,11 +141,15 @@
             } else {
                 const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
                 // 渲染图片，并且加到页面中查看效果
-                $(".need").after(img);
+                document.querySelector('.div-img').innerHTML = ''
+                $(".div-img").after(img);
             }
+            alert('温馨提示，长按保存至相册')
+            // 隐藏图片
+            $('.bg-img').hide();
+            document.querySelector('.picture').innerHTML = '重新<br />生成';
         })
 
-        alert('温馨提示，长按保存至相册')
     });
 
 
