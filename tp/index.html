@@ -10,9 +10,8 @@
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8" async
-        defer></script>
-    <script src="canvas2image.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="canvas2image.js" type="text/javascript" charset="utf-8"></script>
 
 
     <style type="text/css" media="screen">
@@ -63,7 +62,7 @@
             <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
             <img class="bg-img" src="./background.jpeg">
         </div>
-        <div class="button-list"><button type="button" class="picture">生成<br />图片</button></div>
+        <div class="button-list"><button type="button" class="picture">生成<br />海报</button></div>
     </div>
 </body>
 
@@ -94,7 +93,7 @@
             // 这里的判断用于区分移动端和pc端
             if (getOS() == "Others") {
                 // 调用Canvas2Image插件
-                Canvas2Image.saveAsImage(canvas, w, h, 'png', 'DNF');
+                Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
             } else {
                 const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
                 // 渲染图片，并且加到页面中查看效果
