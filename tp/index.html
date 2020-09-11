@@ -11,7 +11,7 @@
 
     <script src="./jquery-3.1.1.min.js"></script>
     <script src="./html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="canvas2image.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./canvas2image.js" type="text/javascript" charset="utf-8"></script>
 
 
     <style type="text/css" media="screen">
@@ -86,6 +86,7 @@
     }
     // 点击转成canvas，最后用于生成图片
     $('.picture').click(function (e) {
+        alert('点击了')
         // 调用html2canvas插件
         html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
             const w = $('.bg-img').width()
