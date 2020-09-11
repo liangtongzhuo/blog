@@ -92,6 +92,7 @@
         alert('点击了')
         // 调用html2canvas插件
         html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
+            console.log(canvas);
             try {
                 const w = $('.bg-img').width()
                 const h = $('.bg-img').height()
@@ -102,6 +103,7 @@
                 } else {
                     const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
                     // 渲染图片，并且加到页面中查看效果
+                    console.log(img);
                     $(".need").after(img);
                 }
             } catch (e) {
