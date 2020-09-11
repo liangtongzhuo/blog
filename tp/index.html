@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>实现HTML转图片</title>
+    <title>大普罗理想生活</title>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -17,11 +17,15 @@
 
     <style type="text/css" media="screen">
         .need {
-            /* background: linear-gradient(#3793b6, #c993d3); */
+            position: relative;
         }
 
         img {
             width: 100%;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            display: inherit;
         }
 
         .button-list {
@@ -43,19 +47,23 @@
             cursor: pointer;
             border: 0px;
             color: white;
+            outline: none;
+        }
+        p {
+            position: absolute;
+            top: 0;
         }
     </style>
 </head>
 
 <body style="padding: 0;margin: 0;">
     <div class="bg">
-
         <div class="need">
+            <p>你好我好大家好</p>
             <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
             <img class="bg-img" src="./background.jpeg">
         </div>
-
-        <div class="button-list"><button type="button" class="picture">生成<br/>图片</button></div>
+        <div class="button-list"><button type="button" class="picture">生成<br />图片</button></div>
     </div>
 </body>
 
@@ -88,7 +96,7 @@
                 // 调用Canvas2Image插件
                 Canvas2Image.saveAsImage(canvas, w, h, 'png', 'DNF');
             } else {
-                const img = Canvas2Image.convertToImage(canvas, w*2, h*2);
+                const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
                 // 渲染图片，并且加到页面中查看效果
                 $(".need").after(img);
             }
