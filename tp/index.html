@@ -50,6 +50,7 @@
             color: white;
             outline: none;
         }
+
         p {
             position: absolute;
             top: 0;
@@ -91,24 +92,30 @@
         alert('点击了')
         // 调用html2canvas插件
         html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
-            const w = $('.bg-img').width()
-            const h = $('.bg-img').height()
-            // 这里的判断用于区分移动端和pc端
-            if (getOS() == "Others") {
-                // 调用Canvas2Image插件
-                Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
-            } else {
-                const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
-                // 渲染图片，并且加到页面中查看效果
-                $(".need").after(img);
+            try {
+                const w = $('.bg-img').width()
+                const h = $('.bg-img').height()
+                // 这里的判断用于区分移动端和pc端
+                if (getOS() == "Others") {
+                    // 调用Canvas2Image插件
+                    Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
+                } else {
+                    const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
+                    // 渲染图片，并且加到页面中查看效果
+                    $(".need").after(img);
+                }
+            } catch (e) {
+                alert(JSON.stringify(e))
+
             }
-        }).catch((e)=>{
+
+        }).catch((e) => {
             alert(JSON.stringify(e))
         });
     });
 
 
-  var vConsole = new VConsole();
+    var vConsole = new VConsole();
 </script>
 
 </html>
