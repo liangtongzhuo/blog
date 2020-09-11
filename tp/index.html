@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>实现HTML转图片</title>
+    <style type="text/css" media="screen">
+        .need {
+            /* background: linear-gradient(#3793b6, #c993d3); */
+        }
+
+        img {
+            width: 100%;
+
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8" async
+        defer></script>
+    <script src="canvas2image.js" type="text/javascript" charset="utf-8" async defer></script>
+
+</head>
+
+<body style="padding: 0;margin: 0;">
+    <div class="bg">
+        <button type="button" class="picture">生成图片</button>
+        <div class="need" >
+            <img src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg">
+            <div>12312</div>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+  
+ 
+    function getOS() { // 获取当前操作系统
+        var os;
+        if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1) {
+            os = 'Android';
+        } else if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
+            os = 'iOS';
+        } else if (navigator.userAgent.indexOf('Windows Phone') > -1) {
+            os = 'WP';
+        } else {
+            os = 'Others';
+        }
+        return os;
+    }
+    // 点击转成canvas，最后用于生成图片
+    $('.picture').click(function (e) {
+
+        // 调用html2canvas插件
+        html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
+           
+            // 这里的判断用于区分移动端和pc端
+            if (getOS() == "Others") {
+                // 调用Canvas2Image插件
+                Canvas2Image.saveAsImage(canvas);
+            }
+        });
+    });
+
+
+</script>
+
+</html>
+
