@@ -100,6 +100,8 @@
                 // 渲染图片，并且加到页面中查看效果
                 $(".need").after(img);
             }
+        }).catch((e)=>{
+            alert(JSON.stringify(e))
         });
     });
 
