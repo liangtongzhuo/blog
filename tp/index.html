@@ -14,12 +14,11 @@
 
         img {
             width: 100%;
-
         }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8" async
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" type="text/javascript" charset="utf-8" async
         defer></script>
     <script src="canvas2image.js" type="text/javascript" charset="utf-8" async defer></script>
 
@@ -28,9 +27,8 @@
 <body style="padding: 0;margin: 0;">
     <div class="bg">
         <button type="button" class="picture">生成图片</button>
-        <div class="need" >
-            <img src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg">
-            <div>12312</div>
+        <div class="need">
+            <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg">
         </div>
     </div>
 </body>
@@ -38,8 +36,8 @@
 
 
 <script>
-  
- 
+
+
     function getOS() { // 获取当前操作系统
         var os;
         if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1) {
@@ -58,11 +56,10 @@
 
         // 调用html2canvas插件
         html2canvas(document.querySelector('.need'), { useCORS: true }).then(function (canvas) {
-           
             // 这里的判断用于区分移动端和pc端
             if (getOS() == "Others") {
                 // 调用Canvas2Image插件
-                Canvas2Image.saveAsImage(canvas);
+                Canvas2Image.saveAsImage(canvas,$('.bg-img').width(),$('.bg-img').height(),'png','DNF');
             }
         });
     });
@@ -71,4 +68,3 @@
 </script>
 
 </html>
-
