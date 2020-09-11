@@ -96,8 +96,8 @@
             <div class="div-img">
 
             </div>
-            <!-- <img class="bg-img" src="./background.jpeg"> -->
-            <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg">
+            <img class="bg-img" src="./background.jpeg">
+            <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
         </div>
         <div class="button-list"><button type="button" class="picture">生成<br />海报</button></div>
     </div>
@@ -131,6 +131,9 @@
         document.querySelector('.clinetNmae').innerHTML = clinetNmae
         document.querySelector('.adviserName').innerHTML = adviserName
 
+        // 渲染图片，并且加到页面中查看效果
+        document.querySelector('.div-img').innerHTML = ''
+        $('.bg-img').show();
 
         // 调用html2canvas插件
         html2canvas(document.querySelector(".need")).then(function (canvas) {
@@ -142,10 +145,7 @@
                 Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
             } else {
                 const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
-                // 渲染图片，并且加到页面中查看效果
-                document.querySelector('.div-img').innerHTML = ''
                 $(".div-img").append(img);
-                console.log();
             }
             alert('温馨提示，长按保存至相册')
             // 隐藏图片
