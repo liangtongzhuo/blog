@@ -51,9 +51,32 @@
             outline: none;
         }
 
-        p {
+        .content {
             position: absolute;
-            top: 0;
+            top: 140px;
+            width: 85%;
+            margin-left: 7.5%;
+            background-color: #3f5294;
+            border-radius: 8px;
+            color: white;
+            min-height: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            line-height: 24px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        body {
+
+            font-family: "Microsoft Yahei";
+
         }
     </style>
 </head>
@@ -61,7 +84,16 @@
 <body style="padding: 0;margin: 0;">
     <div class="bg">
         <div class="need">
-            <p>你好我好大家好</p>
+            <div class="content">
+                <p> <span class="clinetNmae">_______</span> 您好：</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是您的生活顾问 <span class="adviserName">_______</span>
+                    ，“大普罗理想生活七天乐第3季”特邀您的家人和朋友艺起过节。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;十一假期我们准备了好看的艺术展，好玩的音乐节，还有网红兔来打卡；同时联合郑州艺术名家为孩子们特别呈现了一场美学启蒙的盛宴。
+                </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每天都有新花样，快来理想国过个不一样的十一假期吧！</p>
+                <p style="text-align: right;">2020年9月11日</p>
+            </div>
+
             <!-- <img class="bg-img" src="http://file.liangtongzhuo.com/094ed1fe7bd2dc758828.jpeg/background.jpeg"> -->
             <img class="bg-img" src="./background.jpeg">
         </div>
@@ -72,7 +104,6 @@
 
 
 <script>
-
 
     function getOS() { // 获取当前操作系统
         var os;
@@ -89,37 +120,35 @@
     }
     // 点击转成canvas，最后用于生成图片
     $('.picture').click(function (e) {
-        alert('点击了')
+
+        // 输入名字
+        const clinetNmae = prompt('请输入客户的名字');
+        const adviserName = prompt('请输入置业顾问名字');
+        // 修改名字
+        document.querySelector('.clinetNmae').innerHTML = clinetNmae
+        document.querySelector('.adviserName').innerHTML = adviserName
+
+
         // 调用html2canvas插件
-        console.log(html2canvas);
-
         html2canvas(document.querySelector(".need")).then(function (canvas) {
-            console.log(canvas);
-            try {
-                const w = $('.bg-img').width()
-                const h = $('.bg-img').height()
-                // 这里的判断用于区分移动端和pc端
-                if (getOS() == "Others") {
-                    // 调用Canvas2Image插件
-                    Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
-                } else {
-                    const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
-                    // 渲染图片，并且加到页面中查看效果
-                    console.log(img);
-                    $(".need").after(img);
-                }
-            } catch (e) {
-                alert(JSON.stringify(e))
-
+            const w = $('.bg-img').width()
+            const h = $('.bg-img').height()
+            // 这里的判断用于区分移动端和pc端
+            if (getOS() == "Others") {
+                // 调用Canvas2Image插件
+                Canvas2Image.saveAsImage(canvas, w, h, 'png', 'img');
+            } else {
+                const img = Canvas2Image.convertToImage(canvas, w * 2, h * 2);
+                // 渲染图片，并且加到页面中查看效果
+                $(".need").after(img);
             }
-
         })
 
-
+        alert('温馨提示，长按保存至相册')
     });
 
 
-    var vConsole = new VConsole();
+    const vConsole = new VConsole();
 </script>
 
 </html>
