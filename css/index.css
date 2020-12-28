@@ -14,7 +14,7 @@ body {
 
 #particles-js {
     position: fixed;
-/*     background-image: url(http://file.liangtongzhuo.com/98fa375a32a9a5c113d9.jpg); */
+    background-image: url(http://file.liangtongzhuo.com/98fa375a32a9a5c113d9.jpg);
     background-size: cover;
     background-position: center;
     background-repeat:no-repeat;
