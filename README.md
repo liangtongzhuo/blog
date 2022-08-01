@@ -61,5 +61,5 @@ const tagStr = '首页,非技术文章,Node,Web,iOS,GitHub,动漫,工具,编程�
 
  
 # __结尾__
-好了，确实有稍微麻烦。
+好了，简单吗？
 GitHub 地址：https://github.com/liangtongzhuo/blog 
