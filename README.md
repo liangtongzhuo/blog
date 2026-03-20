@@ -28,115 +28,44 @@
 ## __从 LeanCloud 迁移到本地文件存储__
 
 ### __迁移原因__
-- 减少对第三方服务的依赖
-- 提高网站加载速度
-- 便于本地开发和调试
-- 数据完全可控，避免服务端限制
+- **时代变迁**：AI技术发展改变了后端基础设施需求
+- **减少依赖**：摆脱第三方服务限制
+- **提高性能**：本地存储加快加载速度
+- **开发便捷**：本地调试无需网络
+- **数据可控**：完全掌握数据所有权
 
 ### __迁移内容__
-
-#### 1. 数据存储迁移
-- **原来**：使用 LeanCloud 的 AV.Query 和 AV.User API
-- **现在**：使用本地 JSON 文件存储
-  - 每个文章一个 JSON 文件，存放在 `data/articles/` 目录
-  - 文件名使用文章 ID 命名，如 `58c9340144d9040069eb2294.json`
-  - 文章结构保持不变，包含 title、content、createdAt、tag 等字段
-
-#### 2. 图片存储迁移
-- **原来**：图片存储在 LeanCloud 的 _File 对象中
-- **现在**：图片下载到本地 `data/files/` 目录
-  - 保持原有目录结构
-  - 图片路径修改为本地相对路径
-
-#### 3. 代码修改
-- **config.js**：移除了 AV.init 配置，只保留 tagStr 变量
-- **list.js**：修改为从 `data/articles/` 目录获取文章列表
-- **atricle.js**：修改为从 `data/articles/{id}.json` 获取文章内容
-- **updata.js**：修改为从本地文件获取文章内容
-- **移除**：所有关于 av.js 的代码和依赖
-
-#### 4. 路径修复
-- 修复了图片路径的 404 错误
-- 确保图片路径在不同页面中正确解析
+- **数据存储**：从 LeanCloud API 迁移到本地 JSON 文件（`data/articles/` 目录）
+- **图片存储**：从 LeanCloud _File 迁移到本地文件（`data/files/` 目录）
+- **代码简化**：移除 av.js 依赖，使用纯前端 fetch API 获取数据
+- **路径修复**：确保图片路径正确解析
 
 ### __本地开发__
+1. **克隆仓库**：`git clone https://github.com/liangtongzhuo/blog.git && cd blog`
+2. **启动服务器**：
+   - Python: `python3 -m http.server 8000`
+   - Node.js: `npx http-server -p 8000`
+3. **访问**：`http://localhost:8000`
 
-#### 1. 克隆仓库
-```bash
-git clone https://github.com/liangtongzhuo/blog.git
-cd blog
-```
-
-#### 2. 启动本地服务器
-由于使用本地文件存储，需要启动一个 HTTP 服务器来避免 CORS 错误：
-
-```bash
-# 使用 Python 3
-python3 -m http.server 8000
-
-# 或使用 Node.js
-npx http-server -p 8000
-```
-
-然后访问 `http://localhost:8000` 即可查看网站。
-
-#### 3. 目录结构
-```
-blog/
-├── css/             # 样式文件
-├── data/            # 数据存储
-│   ├── articles/    # 文章 JSON 文件
-│   └── files/       # 图片和其他文件
-├── js/              # JavaScript 文件
-├── lib/             # 第三方库
-├── index.html       # 首页
-├── list.html        # 文章列表页
-├── atricle.html     # 文章详情页
-└── updata.html      # 文章编辑页
-```
-
-### __如何写文章__
-
-1. **创建文章文件**：在 `data/articles/` 目录中创建一个新的 JSON 文件
-2. **文件命名**：使用唯一 ID 作为文件名，如 `new-article-id.json`
-3. **文章结构**：
+### __写文章__
+1. 在 `data/articles/` 创建 JSON 文件（如 `new-article.json`）
+2. 基本结构：
    ```json
    {
-     "updatedAt": "2026-03-20T00:00:00.000Z",
-     "ACL": {
-       "*": {
-         "read": true
-       }
-     },
-     "content": "文章内容（支持 Markdown）",
-     "createdAt": "2026-03-20T00:00:00.000Z",
      "title": "文章标题",
+     "content": "Markdown 内容",
+     "createdAt": "2026-03-20T00:00:00.000Z",
      "tag": "标签1,标签2"
    }
    ```
-4. **添加图片**：将图片放入 `data/files/` 目录，然后在文章中使用相对路径引用
-   ```markdown
-   <img src="data/files/example.jpg" style="width:200px" />
-   ```
+3. 图片放入 `data/files/` 目录，使用相对路径引用
 
-### __部署到 GitHub Pages__
-
-1. **提交代码**：
-   ```bash
-   git add .
-   git commit -m "Add new article"
-   git push
-   ```
-
-2. **启用 GitHub Pages**：
-   - 进入 GitHub 仓库 -> Settings -> Pages
-   - 选择 main 分支作为源
-   - 点击 Save
-
-3. **访问网站**：
-   - 部署完成后，访问 `https://yourusername.github.io/blog`
+### __部署__
+1. **提交代码**：`git add . && git commit -m "Add new article" && git push`
+2. **启用 GitHub Pages**：仓库 Settings -> Pages -> 选择 main 分支
+3. **访问**：`https://yourusername.github.io/blog`
 
 # __结尾__
-通过从 LeanCloud 迁移到本地文件存储，博客系统变得更加独立和高效。现在你可以完全控制自己的数据，无需依赖第三方服务，同时保持了原有的功能和界面。
+迁移到本地文件存储后，博客系统更加独立高效，数据完全可控，同时保持了原有功能和界面。
 
 GitHub 地址：https://github.com/liangtongzhuo/blog
