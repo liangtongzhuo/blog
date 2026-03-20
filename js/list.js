@@ -8,7 +8,7 @@ if (decodeURI(tag) == '首页') {
 let articles = [];
 
 // 从 data/articles/index.json 加载文章数据
-fetch('/data/articles/index.json')
+fetch('../data/articles/index.json')
     .then(response => response.json())
     .then(data => {
         articles = data;
