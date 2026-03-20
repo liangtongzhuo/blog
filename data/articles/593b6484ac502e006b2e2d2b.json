@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:46:42.510Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "终端：defaults write com.apple.finder CreateDesktop -bool TRUE;killall Finder\n\n当然把true 改为false 文件会全部消失",
   "createdAt": "2017-06-10T03:16:20.691Z",
   "title": "Mac 分屏桌面文件消失",

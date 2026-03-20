@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:41:35.749Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "为了更好的理解 Node.js 的 require 实现机制，我实现了一个简易的版本。我们node index.js的时候就是require('./index.js')，话不多说我们直接上代码：\n - 目录\n  - index.js\n  - a.js\n  - b.js\n  - c.js\n\n# index.js\n```\n'use strict'\n\nfunction $require(filepath) {\n    const fs = require('fs');\n    const filename = __dirname + '/' + filepath; //引入的路径\n    let code = fs.readFileSync(filename, 'utf8');\n    //定义容器\n    let module = {\n        exports: {}\n    };\n    let exports = module.exports;\n    //代码拼接\n    code = '(function($require, module, exports, __dirname, filename) {' +\n        code +\n        '})($require, module, exports, __dirname, filename);'\n    //执行代码\n    eval(code);\n    //返回模块\n    return module.exports;\n}\n\nconst log = $require('a.js')\nlog.loga();\nlog.logb();\n$require('c.js').logc();\n```\n# a.js\n```\n'use strict'\nconst b = $require('b.js');\nmodule.exports.loga = function() {\n    console.log('我是a');\n}\nmodule.exports.logb = b;\n\n```\n# b.js\n```\n'use strict'\n\nmodule.exports = function() {\n    console.log('我是a->b');\n}\n\n```\n# c.js\n```\n'use strict'\nmodule.exports.logc = function() {\n    console.log('我是c');\n}\n\n```\n\n我们运行：试一下 node index,js 输出如下：\n\n```\n我是a\n我是a->b\n我是c\n```\n---\n现在我们的require 不带缓存，每一次都会读取文件，所以我们key value 形式缓存。\n\nindex.js修改如下：\n\n```\n'use strict'\n\nfunction $require(filepath) {\n    const fs = require('fs');\n    const filename = __dirname + '/' + filepath; //引入的路径\n\n    //缓存\n    $require.cache = $require.cache || {};\n    if ($require.cache[filename]) {\n        console.log(filepath + '：缓存了')\n        return $require.cache[filename].exports;\n    }\n    let code = fs.readFileSync(filename, 'utf8');\n    //定义容器\n    let module = {\n        exports: {}\n    };\n    let exports = module.exports;\n    //代码拼接\n    code = '(function($require, module, exports, __dirname, __filename) {' +\n        code +\n        '})($require, module, exports, __dirname, filename);'\n    //执行代码\n    eval(code);\n    //缓存\n    $require.cache[filename] = module;\n\n    //返回模块\n    return module.exports;\n}\n$require('c.js').logc();\n$require('c.js').logc();\n\n```\n输出如下：\n\n```\n我是c\nc.js：缓存了\n我是c\n```\n\n//具体源码分析\nalinode：https://alinode.aliyun.com/blog/35\n\n",
   "createdAt": "2017-03-28T14:09:52.484Z",
   "title": "node 模块化 require expores，简易实现原理。",

@@ -32,7 +32,6 @@ update();
                                 id: id,
                                 get: function(key) {
                                     if (key === 'title') return article.title
-                                    if (key === 'time') return null // 不再有 time 字段
                                     return null
                                 },
                                 createdAt: new Date(article.createdAt)

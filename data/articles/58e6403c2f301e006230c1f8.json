@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:41:40.104Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "JWT 是一个方便的一种实现服务器与客服端安全通讯的一种规范方案，当然基于 JWT 的概念自\n己可以实现安全的加密方案，另外也可以重复造一些轮子。\n\n1.安装\n```\n$ npm install jsonwebtoken --save\n``` \n\n---\n\n2.我们先来看加密与解密方法：\n```\nconst jwt = require('jsonwebtoken');\nconst secret = 'aaa'; //撒盐：加密的时候混淆\n\n   //jwt生成token\n const token = jwt.sign({\n     name: 123\n  }, secret, {\n     expiresIn:  60 //秒到期时间\n  });\nconsole.log(token);\n//解密token\njwt.verify(token, secret, function (err, decoded) {\n    if (!err){\n          console.log(decoded.name);  //会输出123，如果过了60秒，则有错误。\n     }\n})\n```\n---\n\n我们看看jwt.sign 生成的token: \n【eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoxMjMsImlhdCI6MTQ5MTQ3NTQyNCwiZXhwIjoxNDkxNDc1NDg0fQ.hYNC4qFAyhZClmPaLixfN137d41R2CFk1xPlfLK10JU】\n\n我们仔细看这字符串，分为三段。分别被 \".\" 隔开。\n我们对：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 由 base64 解密得到\n{\"alg\":\"HS256\",\"typ\":\"JWT\"}   alg 是加密算法名字，typ 是类型\n\n这段: eyJuYW1lIjoxMjMsImlhdCI6MTQ5MTQ3NTQyNCwiZXhwIjoxNDkxNDc1NDg0fQ 由base64解密得到： {\"name\":123,\"iat\":1491475424,\"exp\":1491475484}  name 是我们储存的内容，但是多了 iat（创建的时间戳），exp（到期时间戳）。\n\n最后一段是hYNC4qFAyhZClmPaLixfN137d41R2CFk1xPlfLK10JU，是由前面俩段字符串\n HS256 加密后得到。  所以前面的任何一个字段修改，都会导致加密后的字符串不匹配。\n\n我们只有在登陆的时候下发 token，浏览器在 cookie 里存储 token 任何人修改，都会导致服务器匹配不上。",
   "createdAt": "2017-04-06T13:18:52.712Z",
   "title": "Node JWT/jsonwebtoken 使用与原理分析",

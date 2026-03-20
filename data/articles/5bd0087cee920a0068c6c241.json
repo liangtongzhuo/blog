@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:09:08.877Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "Good morning:\n\nMy name is LIANG YABIN (bill), I am 23 (twenty three) years old and born in Henan Luoyang. \nI Graduated from Zhengzhou University, My major is computer science. \nI University has had startup experience, a music platform. \nObtain investment.\nLearn a lot form business startups, design, recruit, financing, Code to product change.\n\nTechnical aspects: \nThree years experience in Node.js development.\nbe familiar with Vue and React.\nDatabase MongoDB Mysql Redis.\n\nCurrently in X company as a full stack development.\n\nAll the above is my introduction, thanks.\n\n\n\n\n",
   "createdAt": "2018-10-24T05:51:56.911Z",
   "title": "To introduce myself  ",

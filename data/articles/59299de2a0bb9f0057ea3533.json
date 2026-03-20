@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:41:46.920Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "MongoDB 服务起来了，终端可以使用 shell 可以查询，但是 Node 始终连结不上？\n\nNode代码如下\n\n```\n\nconst mongoose = require('mongoose');\nconst db = mongoose.connect('mongodb://localhost:27017/test');\ndb.Promise = global.Promise;\n\ndb.connection.on('error', function(error) {\n    console.log('___db：error');\n    console.log(error);\n});\n\ndb.connection.on('open', function() {\n    console.log('___db:open');\n});\n\n```\n\n打印的错误堆栈信息\n\n```\n\n___db：error\n{ MongoError: failed to connect to server [localhost:27017] on first connect [MongoError: getaddrinfo ENOTFOUND localhost localhost:27017]\n    at Pool.eventHandler (/Users/liangyabin/Desktop/写一些小demo/node_modules/mongodb-core/lib/topologies/server.js:328:35)\n    at emitOne (events.js:96:13)\n    at Pool.emit (events.js:191:7)\n    at Connection.<anonymous> (/Users/liangyabin/Desktop/写一些小demo/node_modules/mongodb-core/lib/connection/pool.js:274:12)\n    at Object.onceWrapper (events.js:293:19)\n    at emitTwo (events.js:106:13)\n    at Connection.emit (events.js:194:7)\n    at Socket.errorHandler (/Users/liangyabin/Desktop/写一些小demo/node_modules/mongodb-core/lib/connection/connection.js:177:49)\n    at Object.onceWrapper (events.js:293:19)\n    at emitOne (events.js:96:13)\n    at Socket.emit (events.js:191:7)\n    at connectErrorNT (net.js:1034:8)\n\t\n```\n\n浏览器访问：http://localhost:27017\n\n显示：It looks like you are trying to access MongoDB over HTTP on the native driver port.\n哪里出问题了？\n说出来大家可能不信\n\n```\nconst db = mongoose.connect('mongodb://localhost:27017/test');\n改成\nconst db = mongoose.connect('mongodb://127.0.0.1:27017/test');\n这样就不会报错了，我的天啊\n```\n最后确定是 hosts 文件的问题",
   "createdAt": "2017-05-27T15:40:18.687Z",
   "title": "MongoDB 服务起来了，终端可以使用 shell 可以查询，但是 Node 始终连结不上？",

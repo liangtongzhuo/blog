@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:41:21.864Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "```\n<div id=\"app\">\n  {{ message }}\n</div>\nvar app = new Vue({\n  el: '#app',\n  data: {\n    message: 'Hello Vue!'\n  }\n})\n\n```\n\n利用：[marked](https://github.com/chjj/marked) 把 markdown 文本转换成 HTML。\n利用：[highlight.js](https://highlightjs.org/download/) 解析代码块添加相应 class 名，然后用相应的 CSS 可以为代码着色了。\n\n\n找了半天，想找一个 Vue 官方代码的颜色，没有找到，就自己写了一个。\n地址：[CSS 样式](https://github.com/liangtongzhuo/highlight_code)",
   "createdAt": "2017-08-05T12:09:25.517Z",
   "title": "highlight.js 为博客增加代码着色",

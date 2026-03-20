@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:45:35.786Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "ES6 新增加了一些方法，执行在浏览器业务上很少用到，也不支持啊，只能用Babel编译， Node可能会用到。 原来看了老忘，确实用的场景不多，刚刚看见面试题中，写除去数组中相同的数字发现Set可以办到。\n### “set”单词有“一套”意思\n```\nvar arr = [1,2,3,4,5,6,7,7]\nvar set = new Set(arr)//由arr转换成set\narr = [...set] //由set用...解构赋值为arr\nconsole.log(arr)\n//输出 [1,2,3,4,5,6,7]\n//所以Set和数组没什么区别， 就是有特殊功能：除去重复成员\n//注意点 set.size 是获取长度，arr.length不一样。\n```\n#### “Map”翻译 映射 😢\n```\nvar map = new Map([\n  ['name', '张三'],\n  ['title', 'Author']\n]);\n\nmap.size ;// 2\nmap.get('name'); // \"张三\"\nmap.get('title') ;// \"Author\"\nmap.set('name', '李四');//会覆盖掉张三\nmap.get('name') ;//李四\n//相当于一个key不会重复的字典，\n```\n#### “in” 翻译 “表示位置，在...内”， “of”翻译 “属于” \n```\n//(for in) (for of)  in的遍历key，of遍历value\nvar arr = ['a', 'b', 'c', 'd'];\nfor (let a in arr) {\n  console.log(a); // 0 1 2 3\n}\nfor (let a of arr) {\n  console.log(a); // a b c d\n}\n```\n自己学习总结，如有错误，请提议。\n参考阮一峰：http://es6.ruanyifeng.com/",
   "createdAt": "2017-03-19T12:09:11.075Z",
   "title": "ES6(简易版): Set，Map 数据结构，(for in) (for of) 区别",

@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:10:35.849Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "<img src=\"data/files/8960adecae796b2d471b.gif\" width=\"300\" height=\"300\">\n\n\n雪花飘落的背景图\n\n访问地址： https://liangtongzhuo.github.io/background/ <br>\ngithub:https://github.com/liangtongzhuo/background\n\n\n\n",
   "createdAt": "2017-04-29T07:32:57.732Z",
   "title": "雪花飘落的背景图",

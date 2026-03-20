@@ -1,13 +1,5 @@
 {
   "updatedAt": "2020-12-28T07:31:24.047Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "<img src=\"data/files/59f9cf6c2706e026e0e3.png\">\n# 前言 \n29 行代码实现定时自动  GitHub commit push 提交，保持连击数。\n# 代码\n```\n'use strict'\n\nconst fs = require('fs')\nconst simpleGit = require('simple-git')\n\n// 定时器\nsetInterval(function () {\n  upDataFile()\n}, 1000 * 60 * 60) //时间不易太短\n\n// 修改 README 文件\nupDataFile()\nfunction upDataFile() {\n  const time = Date()\n  fs.appendFile(__dirname + '/README.md', '#### 自动 commit，时间:' + time + '\\r\\n', err => {\n    err ? console.error('缺少 README.md ') : console.log('README 文件追加成功，时间: ' + time)\n    gitCommit(time)\n  })\n}\n\n// commit 提交\nfunction gitCommit(time){\n  simpleGit()\n       .add('./*')\n       .commit('自动 commit，时间' + time)\n       .push(['-u', 'origin', 'master'], (e) => {\n          console.log('commit 成功，时间：' + time)\n       })\n}\n```\n\n# 注意事项\n- 部署到项目的时候，注意 PM2 启动的时候，需要配置 SSH 配置，以免 push 时候需要账号密码。 \n- 上面 3D GitHub 图片需要下载 Chrome 插件，Isometric Contributions\n\n#  开源地址\nGitHub :https://github.com/liangtongzhuo/node_git_commit\n",
   "createdAt": "2017-12-19T11:28:26.198Z",
   "title": "使用 Node 操作 GitHub commit 保持连击数不断",

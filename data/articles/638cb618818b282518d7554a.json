@@ -1,13 +1,5 @@
 {
   "updatedAt": "2024-09-18T07:20:59.711Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "<img src=\"https://file.liangtongzhuo.com/3fzOymCzvWyPrqCqFECx8mWvHqXLeaja/1500x500.jpeg\" style=\"opacity:0.2\"/>\n\n「acme.sh」自动更新 SSL 证书的脚本。\n\n方式一\n```\n# 安装\ncurl https://get.acme.sh | sh -s email=liangtongzhuo@gmail.com\n\n# 申请证书\nacme.sh --issue -d liangtongzhuo.com -d www.liangtongzhuo.com -d asmr.liangtongzhuo.com -d planes.liangtongzhuo.com  -d planes-api.liangtongzhuo.com -d vscode.liangtongzhuo.com --webroot /home/ubuntu/code/blog/\n\n# 证书替换 Docker Nginx，并重启 Nginx\nacme.sh --install-cert -d liangtongzhuo.com \\\n--key-file       /home/ubuntu/nginx_conf/ssl/Nginx/key.pem  \\\n--fullchain-file /home/ubuntu/nginx_conf/ssl/Nginx/cert.pem \\\n--reloadcmd     \"sudo docker exec -it mynginx service nginx reload\"\n\n# 大概每 90 天自动申请证书更新，重启 Nginx。\n```\n\n方式二 DNS 配置\n```\n# 安装\ncurl https://get.acme.sh | sh -s email=liangtongzhuo@gmail.com\n\n# 阿里云 AccessKey\nexport Ali_Key=\"---\"\nexport Ali_Secret=\"---\"\n\n# 申请证书\nacme.sh --issue --dns dns_ali -d liangtongzhuo.com -d *.liangtongzhuo.com\n\n# 证书替换 Docker Nginx，并重启 Nginx\nacme.sh --install-cert -d liangtongzhuo.com \\\n--key-file       /home/ubuntu/nginx_conf/ssl/Nginx/key.pem  \\\n--fullchain-file /home/ubuntu/nginx_conf/ssl/Nginx/cert.pem \\\n--reloadcmd     \"sudo docker exec -it mynginx service nginx reload\"\n\n# 大概每 90 天自动申请证书更新，重启 Nginx。\n```\n\n方式一缺点必须每一个二级域名都要访问到根目录文件。\n方式二可以用 \\* 代替所有二级域名。比如：\\*.liangtongzhuo.com，只需申请一个所有二级域名都可用。\n\n\n引用：\n[知乎免费申请HTTPS证书六大方法](https://zhuanlan.zhihu.com/p/138792764)\n[acme.sh GitHub 文档](https://github.com/acmesh-official/acme.sh)\n\n\n",
   "createdAt": "2022-12-04T15:00:40.251Z",
   "title": "acme.sh 自动部署 SSL ",

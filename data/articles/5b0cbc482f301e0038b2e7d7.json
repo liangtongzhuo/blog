@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:09:24.766Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "```\nlet transaction;    \n\ntry {\n  // get transaction\n  transaction = await sequelize.transaction();\n\n  // step 1\n  await Model.destroy({where: {id}, transaction});\n\n  // step 2\n  await Model.create({}, {transaction});\n\n  // commit\n  await transaction.commit();\n\n} catch (err) {\n  // Rollback transaction if any errors were encountered\n  await transaction.rollback();\n}\n```\n\n 参考地址：https://stackoverflow.com/questions/42870374/node-js-7-how-to-use-sequelize-transaction-with-async-await/43342688",
   "createdAt": "2018-05-29T02:34:48.100Z",
   "title": "Node.js  how to use sequelize transaction with async / await?  ",

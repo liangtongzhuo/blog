@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-04-14T02:52:11.507Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "Error 是经常碰见，却又不是很了解的一个对象；接下来我会总结一些 Error 的一些用法，还有 Node 对其的一些做法。\n\n1.创建异常错误\n\n```\nnew Error('exception'); //创建一个错误对象。\nthrow new Error('exception');//创建一个对象并抛出错误，如果不捕获则 node 崩溃。\n//在堆栈里会显示：message：\"exception\"，node 并推出进程。\n```\n2.try catch 捕获异常对象\n```\n try {\n   throw new Error('exception')\n} catch (e) {\n    console.log(e);\n}\n//node 崩溃， 并在控制台打印异常信息\nError: exception\n at Object.<anonymous> (c:\\Users\\Administrator\\Desktop\\test\\app.js:4:10)\n at Module._compile (module.js:556:32)\n at Object.Module._extensions..js (module.js:565:10)\n at Module.load (module.js:473:32)\n at tryModuleLoad (module.js:432:12)\n at Function.Module._load (module.js:424:3)\n at Timeout.Module.runMain [as _onTimeout] (module.js:590:10)\n at tryOnTimeout (timers.js:232:11)\n at Timer.listOnTimeout (timers.js:202:5)\n```\n由上可知，error 创建的时候可以携带一些信息，并且在 error 被捕获的时候显示出来。\n\n3.关于异步函数触发异常错误，是不能被try catch 捕获的。\n\n```\ntry {  \n     setTimeout(function () {\n        throw new Error('async error'); // 抛出一个异常错误，这是因为异步函数执行上下文不同，所以捕获不到。\n    }, 1000);\n} catch (e) {\n    console.log(e);\n}\n```\n所以 callback 异步风格第一个参数都是 error，不抛出错误，error 传送出去。\n\n4.为了捕获异步产生的异常错误，可以用 domain 模块\n\n```\nvar domain = require('domain');\nvar d = domain.create();\nd.run(function () {\n    setTimeout(function () {\n        throw new Error('async error'); // 抛出一个异步异常\n    }, 1000);\n});\n\nd.on('error', function (err) {\n    console.log(err); // 这里可以捕获异步异常\n});\n``` \n这个模块线上我没用过，也就是包裹异步的函数，可以相当于try catch 包裹一样。\n\n5.还有 express 挂载接受 error 的函数\n\n```\napp.use(function (err,req,res,next){\n   //前面的中间件的错误next(err),都在这里接收。\n});\n```\n\n6.还有一个全局捕获异常错误的方法，不过在这里捕获已经失去上下文了，但是可以防止node 崩溃。\n\n```\nprocess.on('uncaughtException', function (err) {\n  \n});\n```\n我查找关于error的文章： \n1.Node 出现 uncaughtException 之后的优雅退出方案:\nhttp://www.infoq.com/cn/articles/quit-scheme-of-node-uncaughtexception-emergence/\n2.避免uncaughtException错误引起node.js进程崩溃:\nhttp://yijiebuyi.com/blog/cacbcf0838469a377054f6fab5836252.html\n3.node.js 使用domain模块捕获异步回调中的异常:\nhttp://yijiebuyi.com/blog/6172e8bc535a75469beaf4cf85e9435f.html\n4.拿什么守护你的Node.JS进程：\nNode出错崩溃了怎么办？:http://www.oschina.net/question/433035_171960\n\n",
   "createdAt": "2017-06-10T14:30:21.321Z",
   "title": "Node.js 关于 Error 一些信息与总结",

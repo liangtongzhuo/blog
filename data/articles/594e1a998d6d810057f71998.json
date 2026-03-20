@@ -1,13 +1,5 @@
 {
   "updatedAt": "2022-12-17T11:01:25.114Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "### **「投递 Node.js 方向 」**\n\n 姓名：|梁亚宾 | 学校：|[郑州大学 ](http://baike.baidu.com/link?url=6PWimGbSkqDVyAlNQju2f137VFHgcBKMsuEtnB53yVlVseQthL-87kgeupp5hXVB2c7F8G08hz-taEIrz6VOM4YKEE283RuMncQc096UtcSICZEeHEOGaYvKIgA6F4bf)\n:----:|:------:|:----:|:----:\n出生日期： | 1995/3/12  |毕业时间：|2017-6-15\n学历： | 本科  | 专业：|计算机科学与技术\nCET：| 4  | 籍贯：|河南洛阳市\n\n电子邮件：liangtongzhuo@gmail.com \nGitHub：https://github.com/liangtongzhuo\n个人博客：http://liangtongzhuo.com\n\n### **Node.js 技能**\n- 熟练掌握 javascript，熟悉 ES6 语法。\n- 熟练掌握后端 Node.js ,实现 restful API 实现。\n- 熟练掌握 mongoDB 数据库。\n- 运维方面：阿里云部署、 forever、pm2；管理 Node.js 崩溃自动重启、记录日志，查看内存与CPU利用率。\n- 熟练 LeanCloud 数据与移动端数据交互，并且设计整体架构。\n- LeanCloud 云两年的使用经验，有 LeanCloud 迁移出经验。\n- 一年 Node.js 工作经验。\n\n\n### **Web 技能**\n- 熟悉掌握 Web 前端 HTML与CSS。\n- 熟悉 Canvas 小游戏制作且有实战。\n- 独立开发网页。\n\n### **iOS 技能**\n- 独立熟练使用 Swift 开发 App。\n- 了解苹果商店上架规则，包括开发者账号一系列流程。\n- 两年 iOS 独立开发经验。\n\n### **公司保密** 「16年6月-保密」\n- 项目是一个小众音乐平台，这个平台是我大三上学课余时间做的，而后拿到种子轮投资合伙创业。\n- 担任项目负责人与合伙人，Node 后端整体架构设计，数据库关系设计，并且协同 Android 、Web 和 iOS 共同开发。我也负责一部分 iOS 模块封装与 Web 一些 H5 界面开发。\n- 大量音乐文件存储问题：我们把文件全部储存在七牛云存储上，我们的 mongodb 只存相应的 url 链接；这样可以减轻服务器宽带压力。\n- 登陆模块：用 crypto 加密存储密码，用 jwt 模块产生一个记录登录状态的 token ，前端保存 token 。\n- Node.js 服务器做到无状态，这样可以平滑的扩展多台服务器。\n- 利用 PM2，服务器的守护进程，挂掉自动重启；并且查看崩溃错误堆栈。\n- 利用 redis 缓存，缓存了主页和一些查询。把 url 当作 Key 。\n- 设计了一个类似微博的功能，只有关注他，才能看见他的微博。利用了两张表来存储之间的关系。\n- @ 人的一个功能，利用正则把 “@名字”，把用户名字提取出来，然后发送消息。\n- 使用Node实现了支付宝支付的接口。\n\n### **实习，公司保密** 「16年3月-16年6月」\n- 我负责和前端人员一起开发Web，利用 Node.js 承担起一部分活动页面，实践前后端分离。\n\n### **博客与论坛搭建经历** \n有 WordPress 博客与 Discourse 论坛搭建经验，有多个网站备案经历。\n\n\n### **个人项目与个人开源项目（非公司项目）** \n- 开源：Node.js 一个[「 ltz-rest 」](https://github.com/liangtongzhuo/ltz-rest)自动生成的 Api 中间件且发布到 NPM。\n- 独立开发 iOS 项目，「 同人音声 」音乐播放器项目，目前没有开源。\n- 独立开发 [「 个人Web博客 」](http://liangtongzhuo.com)，支持 MarkDown 语法，支持实时预览 MarkDown 文章。\n\n### **在校荣誉证书** \n- 郑州大学十佳毕业生（院级）。\n- 全国 App 高校移动互联创新大赛 16 年，进入总决赛，在清华大学获国家级：「 优胜奖 」且奖励 3 部 ipad 128G 。（奖励最丰厚的一次 😊）\n- App 创新创青春大赛，省赛两次入选，一次获省赛二等奖，一次获省赛三等奖。\n- 郑州大学「 校赛 ACM 」，16 年获得二等奖、15 年三等奖。\n\n### **额外技能、自媒体** \n- 额外技能：画漫画、PS UI设计，AE 视频制作.\n- 自媒体：梁同桌技术博客与 [「 bilibili 」](http://space.bilibili.com/3591966) 5W 粉丝号。\n\n### 以上有保密的信息，只有我向贵公司发送简历是会显示出来的。 \n\n在此记录一下我 2017.6 的简历。",
   "createdAt": "2017-06-24T07:54:01.498Z",
   "title": "2017-6 简历",

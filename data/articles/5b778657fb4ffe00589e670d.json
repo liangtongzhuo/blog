@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:09:29.991Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "## __前言__\n最近突然总结出来一套方案，有意识的按照这种方式去写：\n1. 参数预期判断。\n2. 必返回参数，即使出错根据业务返回相应参数，如果参数预期不一样则返回 null。\n3. try catch 打印函数名称。\n\ncode\n```\n'use strict';\nconst Express = require('express');\nconst app = new Express();\napp.use(async (req, res, next) => {\n  const data = await SQL('SELECT * FROM Persons');\n  res.send(data);\n});\n// 主要讲课下面这个 SQL 函数注意的几个点\nasync function SQL(sql) {\n  return await DBQuery(sql);\n}\napp.listen(3000, error => {\n  console.log('server 3000 start');\n});\n// 制造错误查询\nfunction DBQuery() {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => reject('DB Query error'), 3000);\n  });\n}\n```\n这时 DBQuery 查询 Promise 调用 reject 方法时，堆栈信息为：\n```\n(node:80220) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): DB Query error\n(node:80220) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.\n```\n堆栈信息完全不可定位。\n\nSQL 函数修改成下面，预期不一致函数名字打印出来，并返回 null\n\n```\nasync function SQL(sql) {\n  try {\n    return await DBQuery(sql);\n  } catch (error) {\n    console.log('SQL_ERROR:', error);\n    return null;\n  }\n}\n```\n堆栈如下，这样就可以知道 SQL 函数出错了，以后统一用 FUNNAME_ERROR 来标示\n```\nSQL_ERROR: DB Query error\n```\n函数预期参数处理，预期不一致返回 null\n```\nasync function SQL(sql) {\n  if (!sql) {\n    console.log('SQL_ARGUMENT_ERROR');\n    return null;\n  }\n  try {\n    return await DBQuery(sql);\n  } catch (error) {\n    console.log('SQL_ERROR:', error);\n    return null;\n  }\n}\n```\n\nforEach and for of\n```\nconst arr = [1,2,3];\n// 并发操作不会阻塞，任何 async 函数都要 try catch await 要不然错误无法定位。\narr.forEach(async (i) => {\n  try {\n  await DBQuery('SELECT * FROM Persons');\n  } catch (error) {\n    console.log('forEach_ERROR:', error);\n  }\n});\nconsole.log('瞬间就打印，不会因为上面阻塞');\n\n//下面循环会阻塞\nfor i of arr {\n  await DBQuery('SELECT * FROM Persons');\n}\n\n```\n\n## 结尾\n由于现在 Promise 返回的错误由 await 接住抛出，堆栈信息不如 throw new Error ()上面的信息明显，如果不及时定位，很难排查。\n\n",
   "createdAt": "2018-08-18T02:37:11.357Z",
   "title": "Node.js 实践健壮性异步函数  ",

@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-03-31T01:53:23.851Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "<img src=\"data/files/9750aef97fa9503dd42d.jpeg\" style=\"width:150px\">\n--------------------------------------------------------------------------------\n<img src=\"data/files/6f7b9d9063c9fe410a4a.gif\" style=\"width:200px\">\n<img src=\"data/files/798c93e263c467419526.gif\" style=\"width:350px\">\n\n\n\n\n- 其实我的做法比较奇葩， 只是写一个demo 来理解加速传感器和指南的的使用。\n这个文章讲解加速器传感器： http://www.hangge.com/blog/cache/detail_545.html\n\n\n- 先屡屡思路， 如何在手机旋转的时候，图片位置定位到现实场景。\n\n```\n1. 图片定位：X，Y，也就把一张图片定位到屏幕上。\n2. 我们先说：定位X，我们从指南针api里可以获取当前指向南方的参数，然后根据一些数值变化，就可以把当前X坐标算出来。\n3. 那我们怎么把Y值算出来呢？  也就是根据加速器判断当前手机的摆放位置来获取一些参数，转化成Y值。\n4. X，Y都知道了， 图片的位置也就相应的知道了。 \n5. 还集成了百度地图的SDK，定制了一下地图的颜色，把地图的文字都去掉了。\n```\n\n\n\n我的代码写的很烂，想看代码：https://github.com/liangtongzhuo/pokemongo-VR<br>\n给个Star吧， 我会很高兴😊，有觉得奇怪的可以问我 ，我这是临时起意写的",
   "createdAt": "2017-03-15T14:38:26.892Z",
   "title": "iOS Swift3.0 口袋妖怪 pokemongo-VR 带github地址",

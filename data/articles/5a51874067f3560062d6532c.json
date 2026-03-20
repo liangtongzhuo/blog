@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-03-31T01:46:52.778Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "# __前言__\n本程序仅仅学习，顺便回忆小学玩的游戏。项目初心为了验证一些对 Canvas 想法，大量运用 ES6，无 \";\" 写法。\n\n<img src=\"data/files/6ad02577c3d0b0d6978b.gif\">\n\n\n# __目录__\n- 文件介绍\n- 职责分类\n- 缺点\n\n## __文件__\n- img\n  - jxk（剑侠客图片）\n  - background（地图图片）\n- js\n  - base\n    - runloop.js（循环）\n  - view\n    - jxk.js（剑侠客）\n    - map_one.js（地图）\n  - game.js \n  - index.js \n- index.html\n\n## __职责分类__\n```\n    <script type=\"text/javascript\" src=\"js/base/runloop.js\"></script>\n    <script type=\"text/javascript\" src=\"js/view/map_one.js\"></script>\n    <script type=\"text/javascript\" src=\"js/view/jxk.js\"></script>\n    <script type=\"text/javascript\" src=\"js/game.js\"></script>\n    <script type=\"text/javascript\" src=\"js/index.js\"></script>\n```\n1. js/base/runloop.js：主要负责 window.requestAnimationFrame 循环\n2. js/view/map_one.js：地图渲染\n3. js/view/jxk.js：剑侠客渲染\n4. js/game.js：初始化 Canvas ，处理击事件\n5. js/index.js：项目入口\n\n## __缺点__\n1. 人物走在地图边界没有站立状态，这都怪我没有拆分地图与人物之间x，y关系。最近看到微信小程序打飞机源码，发现值得学习。\n2. Canvas 对点击事件支持弱，获取不到绘制在上面的状态，我也没有找到完美的解决方法。\n\n# __结尾__\nGitHub: https://github.com/liangtongzhuo/game_web\n本想做成联网，大家一起在上面走，想了想，为了代码的干净，还是以后另外开项目再加把。\n\n体验地址：https://liangtongzhuo.github.io/game_web/\n__（在GitHub 打开速度非常慢，加载了50张以上的图，另外记得打开手机调试，并没有适配 PC，获取不到点击事件） __\n",
   "createdAt": "2018-01-07T02:34:40.024Z",
   "title": "Web 游戏 「梦幻西游」地图 Demo ，纯 Canvas 画 ",

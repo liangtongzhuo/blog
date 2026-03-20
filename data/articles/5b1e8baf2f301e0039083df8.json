@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:09:27.056Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "# Node\n\n1. install\n```\nnpm init \nnpm install -g typescript\ntsc -init\n```\n2. Add outDir and include to the file tsconfig.json file\n```\n{\n  \"compilerOptions\": {\n   .....\n   \"outDir\": \"./dist\",\n  },\n  \"include\": [\n    \"src/**/*\",\n  ]\n}\n```\n3. Create a new index.ts the src directory, and write the\n```\nconsole.log(666);\n```\n4.Directory to execute tsc to generate dist files, and then execute node ./dist/index.js\n```\ntsc\nnode ./dist/index.js\n```\nexport 666, stage comletion \n5. Configure automatic restart\n```\nnpm install --save nodemon\n```\nCreate a new nodemon.json in the root directory，copy the content\n```\n{\n    \"ignore\": [\n        \"**/*.test.ts\",\n        \"**/*.spec.ts\",\n        \".git\",\n        \"node_modules\"\n    ],\n    \"watch\": [\n        \"src\",\n    ],\n    \"exec\": \"npm start\",\n    \"ext\": \"ts\"\n}\n```\n\n6. package.json, Add start two lines of command\n```\n\"scripts\": {\n    \"start\": \"tsc && NODE_ENV=development node ./dist/index.js \",\n    \"dev\": \"./node_modules/nodemon/bin/nodemon.js\"\n  },\n```\n7. Start, complete full configuration\n```\nnpm run dev\n```\n\n# Web\n\n- Configuring your own webpack is very troblesome ,With react cli。\n```\ncreate-react-app my-app --scripts-version=react-scripts-ts\ncd my-app\nnpm run start  \n```\n\n# Ending\nthe environment configuration for TypeScript write games is complete。\n\n\n\n\n",
   "createdAt": "2018-06-11T14:48:15.946Z",
   "title": "Web and Node environment configuration TypeScript ",

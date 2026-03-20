@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-03-31T01:52:39.882Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "<img src=\"data/files/3724ec8d268313c9eba6.gif\" width=\"300\" >\n\n---\n\n## 这是一个由 canvas 绘制的一个游戏\n\n- 主要业务逻辑\n\t- 利用二次贝塞尔曲线绘制海葵\n\t- 海葵的根部产生果实\n\t- 大鱼与果实的碰撞\n\t- 小鱼与大鱼的碰撞\n\t- 大鱼和小鱼的针动画\n\t- 生命值判断\n\t- 分数判断\n\t- 绘制碰撞圆圈\n\t- 绘制果实移动\n\n游戏地址：https://liangtongzhuo.github.io/fish_game  \nGitHub：https://github.com/liangtongzhuo/fish_game \n教程地址： http://www.imooc.com/learn/516 \n",
   "createdAt": "2017-04-25T00:09:18.964Z",
   "title": "Canvas 绘制 HTML 小鱼游戏",

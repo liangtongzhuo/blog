@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-04-01T01:45:24.600Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "\n话说我还是不建议 Node 服务器来储存文件，我计算过阿里云 ECS 宽带流量比七牛云存储还贵，所以我们还是用七牛，前端把文件存到七牛后，然后把 url 发送到我们服务器存到数据库。这样解耦，费用也不高。\n\napp.js\n\n```\nvar fs = require('fs');\nvar express = require('express');\nvar multer = require('multer')\n\nvar app = express();\nconst upload = multer({\n  storage: multer.diskStorage({\n    destination: function(req, file, cb) {\n      cb(null, 'upload');\n    },\n    filename: function(req, file, cb) {\n      cb(null, `${Date.now()}_${file.originalname}`);\n    },\n  }),\n});\n\n// 单图上传\n//multer有single()中的名称必须是表单上传字段的name名称。\napp.post('/upload', upload.single('logo'), function(req, res, next) {\n    \n    var file = req.file;\n    console.log('文件类型：%s', file.mimetype);\n    console.log('原始文件名：%s', file.originalname);\n    console.log('文件大小：%s', file.size);\n    console.log('文件保存路径：%s', file.path);\n\n    res.send({\n        ret_code: '0'\n    });\n});\n\napp.get('/form', function(req, res, next) {\n    var form = fs.readFileSync('./form.html', {\n        encoding: 'utf8'\n    });\n    res.send(form);\n});\n\napp.listen(3000);\n```\nform.html\n\n```\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"utf-8\">\n\t<title>上传图片</title>\n\n</head>\n\n<body>\n\t<form action=\"/upload\" method=\"post\" enctype=\"multipart/form-data\">\n\t\t<h2>单图上传</h2>\n\t\t<input type=\"file\" name=\"logo\">\n\t\t<input type=\"submit\" value=\"提交\">\n\t</form>\n</body>\n\n</html>\n\n```\n\n- 运行服务。\n- node app.js\n- 访问 http://127.0.0.1:3000/form ，选择图片，点击“提交”，done。然后，你就会看到 upload 目录下多了个图片。\n\n项目地址：https://github.com/liangtongzhuo/upFile\n\n- 详情：http://www.cnblogs.com/chyingp/p/express-multer-file-upload.html\n- 详情：https://cnodejs.org/topic/564f32631986c7df7e92b0db\n\n\n\n\n",
   "createdAt": "2017-06-09T04:06:14.848Z",
   "title": "Node 文件上传 multer  ",

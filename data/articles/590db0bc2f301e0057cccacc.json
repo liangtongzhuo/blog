@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-08T09:45:32.678Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "SwitchHosts 是一个用于快速切换 hosts 文件的小程序，基于 Electron 开发，同时使用了 React 以及 CodeMirror 等框架/库。\n\n----------------------------------------------------------------\n<img src=\"https://oldj.github.io/SwitchHosts/images/capture.png\">\n\n安装 SwitchHosts \n下载地址：https://oldj.github.io/SwitchHosts/ \n\nHosts 地址：\nhttps://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts \n\n设置方法主要有以下几个步骤:\n打开 SwitchHosts\n点击左下角 ＋ 号按钮\n弹出的窗口中选择 remote\nHost title 中填写一个 title\nURL 中填写在线的 Hosts 地址\nAuto refresh 中推荐选择 24 hours 后点击旋转按钮获取hosts\n点击 OK\nSwitchHosts 面板左侧选中之前设置的 Host title\n点击 Host title 右侧的开关\n在授权弹窗的输入框中填写电脑的 root 权限的秘密(更改 Hosts 是需要系统权限的)\n当看到刚才的开关变为绿色，完成了\n\n有的 host 会修改本地 localhost ，导致你的数据库 locahost:27017 访问不了，127.0.0.1:27017 这样就可以访问。这个工具我不常用，还是老实用**「 蓝灯 」**了",
   "createdAt": "2017-05-06T11:17:16.676Z",
   "title": "SwitchHosts 自动修改 Hosts ",

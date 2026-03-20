@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-04-01T01:02:06.120Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "English version: http://liangtongzhuo.com/atricle.html?5ab72f239f54541cd83f84f5\n\n# 前言\n\n处理一个任务，需要根据数据生成 Excel 并发送电子邮件。\n\n# 生成 Excel\n使用的库 \"exceljs\" 。\n\n这个库非常强大，我只是用了一小部分。\n\n代码如下：\n```\n'use strict'\nconst Excel = require('exceljs');\nvar workbook = new Excel.Workbook();\n// 创建页面\nvar ws1 = workbook.addWorksheet('名字');\nws1.addRow([\"订单号\", \"商品\"]);\n\n// 标题颜色\n['A1', 'B1', 'C1'].forEach((name, index) => {\n    ws1.getCell(name).fill = {\n        type: \"pattern\",\n        pattern: \"solid\",\n        fgColor: { argb: \"4682B4FF\" }\n    };\n\n    ws1.getCell(name).font = {\n        color: { argb: 'FFFFFFFF' },\n        bold: true\n    };\n\n});\n\n// 每一个标题的宽度\nws1.getColumn(1).width = 20;\nws1.getColumn(2).width = 15;\n\nws1.addRow(['11111', '22222']);\nworkbook.xlsx.writeFile('文件名字')\n   .then(()=>{\n   });\n```\n# 发送 Email\n使用的库 \"nodemailer\" \n\n我们只是调用接口让邮件服务提供商帮我们发送到指定邮箱。\n[支持的邮箱服务提供商](https://www.jianshu.com/p/610d9bf0ae8b)\n\n代码如下.\n```\nconst nodemailer = require('nodemailer');\nconst sendController = nodemailer.createTransport({\n    service: 'qq', // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/\n    port: 465, // SMTP 端口\n    secureConnection: true, // 使用了 SSL\n    auth: {\n        user: '账号',\n        pass: '不是 qq 密码，设置的 smtp 授权码'\n    }\n});\n\n   const mailOptions = {\n        from: `\"系统自动发送\" <'发送邮箱地址'>`,\n        to: '收件人的邮箱，“,” 隔开可以发送多人 ',\n        subject: `子标题`,\n        html: `<b>内容</b>`\n        // 附件路径\n        attachments: [{\n            filename:  '文件名字',\n            path: '发送的文件路径'\n        }]\n    };\n\n sendController.sendMail(mailOptions, (error, info) => {\n          \n });\n```\n\n\n\n",
   "createdAt": "2018-04-01T00:50:34.063Z",
   "title": "尝试用 Node.js 生成 Excel 与发送邮件",

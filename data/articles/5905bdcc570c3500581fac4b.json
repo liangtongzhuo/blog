@@ -1,13 +1,5 @@
 {
   "updatedAt": "2018-02-19T03:59:12.550Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "个人对归并排序的理解\n1.也是分治法\n2.先拆分，拆分总序列， （先不考虑奇数）\n第一次拆分为N个子序列,   每个子序列元素有1个，俩俩合并子序列\n第二次拆分为N/2子序列，每个子序列元素有2个， 俩俩合并子序列\n第三次拆分为N/4子序列，每个子序列元素有4个，俩俩合并子序列<\n----------n/2^n   ------------------  2^n  \n...最后拆分为2个子序列，每个子序列元素有N/2个，俩俩合并子序列，成为新的有序序列\n3.因为拆分的子序列都是有序的，合并速度非常快。归并效率很高\n\n时间复杂度\n平均速度 O(N*logN)\n稳定排序\n            #include <iostream>\n            using namespace std;\n\n            void print(int a[], int n){\n                for(int j= 0; j<n; j++){\n                    cout<<a[j] <<\"  \";\n                }\n                cout<<endl;\n            }\n\n            //将r[i…m]和r[m +1 …n]归并到辅助数组rf[i…n]\n            void Merge(int *r,int *rf, int i, int m, int n)\n            {\n                int j,k;\n                for(k=i,j=m+1; i<=m && j <=n ; ++k){\n                    if(r[j] < r[i]) rf[k] = r[j++];\n                    else rf[k] = r[i++];\n                }\n                while(i <= m)  rf[k++] = r[i++];\n                while(j <= n)  rf[k++] = r[j++];\n            //    print(rf,n+1);\n                \n\n            }\n\n            void MergeSort(int *r, int *rf, int lenght)\n            {\n                int len = 1;\n                int *q = r ;\n                int *tmp ;\n                while(len < lenght) {\n\n                    len = 2 * len ;\n                    int i = 0;\n                    while(i+ len <lenght) {\n                        Merge(q, rf,  i, i+ len/2 -1, i+ len-1 ); //对等长的两个子表合并\n                        i = i+ len;\n                    }\n                    if(i + len/2 < lenght+1){ // 这里要+1\n                        Merge(q, rf,  i, i+ len/2 -1, lenght -1); //对不等长的两个子表合并\n                    }\n                    tmp = q; q = rf; rf = tmp; //交换q,rf，以保证下一趟归并时，仍从q 归并到rf\n                }\n            }\n\n\n            int main(){\n                int a[19] = {3,1,5,7,2,4,9,6,8,0,20,3,5,6,7,-1,-1,-2,0};\n                int b[19];\n                MergeSort(a, b,19);\n                cout<<\"结果：\";\n                print(b,19);\n                \n            }\n\n\n- ######看我那么可爱n(*≧▽≦*)n \n- 关注我的微薄 (梁同桌)：http://weibo.com/tongrenyinsheng\n- 个人博客： http://www.liangtongzhuo.com\n- ios 个人写的app （同人音声）ASMR音乐",
   "createdAt": "2016-07-22T01:11:00.000Z",
   "title": "数据结构 归并排序 C++",

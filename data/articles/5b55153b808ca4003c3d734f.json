@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:10:31.109Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "# 前沿\nWeb 代码是由腾讯小游戏改版成纯浏览器支持，稍微修改也可换成小游戏。\n后端代码由 Node.js 支持，WebSocket 同步其它玩家的状态。\n\n# 暂未写完\n\nGitHub\n前端：https://github.com/liangtongzhuo/game_planes\n后端：https://github.com/liangtongzhuo/server_planes\n\n试玩地址\nhttp://planes.liangtongzhuo.com/",
   "createdAt": "2018-07-22T23:37:31.692Z",
   "title": "Web Canvas 多人在线飞机小游戏",

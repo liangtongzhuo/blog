@@ -1,13 +1,5 @@
 {
   "updatedAt": "2022-08-01T21:41:04.626Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": " 这是博客的第一篇文章。原来都在简书写博客：http://www.jianshu.com/u/b9e84b0af9c5 ，再早在 CSDN 。\n\n这个博客，前后端分离、前端静态托管 GitHub、后端基于 Leancloud 、适配手机、并且支持 Markdown 实时预览，后续还会增加更多好玩的东西，也在 GitHub 开源了：https://github.com/liangtongzhuo/blog\n\n\n## 最后我的希望:\n这个博客能写一些自己人生观点，少一些技术文章。 __希望不懂技术的同学也能阅读我的博客。__",
   "createdAt": "2015-12-20T00:30:57.000Z",
   "title": "Hello World ",

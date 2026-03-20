@@ -1,13 +1,5 @@
 {
   "updatedAt": "2021-07-05T13:11:01.375Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "# __预览__\n<img src=\"data/files/bf5c4f9e268264800e99.gif\">\n\n（上图展示文章编辑）\n                                                                                                                              \n\n<img src=\"data/files/114e78b1130fd13f2d5d.png\">\n（上图展示 pc 与 mobile ）\n\n\n#  __前言__ \n「梁同桌 Blog」 是一款追求「极致简约」的产品，用极简的方法展现文字的美感。\n   __「地址： http://www.liangtongzhuo.com 」__\n\n# __功能__\n- 在线实抒写 Markdowm\n- 代码块高亮\n- 自适应布局\n\n# __技术依赖__\n- 原生 JavaScript ，ES6 语法\n- 第三方框架\n - LeanCloud 储存框架\n - marked 转换 Markdown\n - highlight 代码块高亮\n\n\n# __技术原理__\n静态页面托管到 GitHub 并生成 Pages ，然后通过 LeanCloud 封装好的 REST 接口访问访问数据库，一般博客访问量不大，30,000 / 天 API 免费额度够用。\n原来创业重度使用 LeanCloud，非常推荐有大家使用 LeanCloud，REST API 简洁易懂。 \n我的一款模仿 LeanCloud REST 的框架 https://github.com/liangtongzhuo/ltz-rest\n\n# __如何使用？__\n## __1.先fork 再克隆到本地__\nhttps://github.com/liangtongzhuo/blog 进去点击 Fork ，然后再自己仓库 clone 本地。\n```\ngit clone 仓库地址\n```\n## __2.注册 LeanCloud __\n - 地址：https://leancloud.cn/\n - 注册成功后，创建应用- > 点击设置 -> 点击应用 Key -> 把 App ID 与 App Key 填写到刚刚克隆的 blog文件 内 js/config.js 。\n```\nconst APP_ID = '2MY9AH1hE38iVn6cfSMeVXW8-gzGzoHsz';\nconst APP_KEY = 'rhmGmvC4cz4qohsQlpmP0KV0';\nwindow.AV.init({\n    appId: APP_ID,\n    appKey: APP_KEY\n});\n//标签\nconst tagStr = '首页,非技术文章,Node,Web,iOS,GitHub,动漫,工具,编程疑问,游戏,翻译,算法,Swift,MongoDB,Vue,HTML,JavaScript,书,我';\n```\n- 进入 GitHub 仓库 -> Settings -> GitHub Page  生成 Page\n\n- 这时你完成了配置。\n\n## __3.写文章__\n- 打开 index.html，为了界面的简洁没有按钮，点击唯一的标题会跳转登陆界面。\n- 第一次进来，仅需要输入密码后点击注册，这时会跳转主页。\n- 再一次点击标题就会进入抒写文章界面。\n- 修改文章，点击进入预览文章界面，然后点击文章标题就可修改当文章。\n\n\n\n# __结尾__\n好了，确实有稍微麻烦。\nGitHub 地址：https://github.com/liangtongzhuo/blog\n",
   "createdAt": "2017-10-14T10:40:04.908Z",
   "title": "梁同桌 Blog 开源，基于 LeanCloud 与 GitHub 实现动态页面 ",

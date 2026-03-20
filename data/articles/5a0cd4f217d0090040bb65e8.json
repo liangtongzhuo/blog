@@ -1,13 +1,5 @@
 {
   "updatedAt": "2017-11-27T07:46:11.379Z",
-  "ACL": {
-    "*": {
-      "read": true
-    },
-    "5902984044d904006912043d": {
-      "write": true
-    }
-  },
   "content": "# 常见问题\n- Apple 开发者到期 App 是会下架，但是已经安装 App 的用户，手机仍能使用 App ，App Store 里面搜索不到。\n- 续费 Apple 开发者后，App 会在当天上线 App Store。\n- Apple 开发者到期是不能转让 App 。 \n",
   "createdAt": "2017-11-15T23:59:46.609Z",
   "title": "当 Apple 开发者到期之后 App 是否下架？开发者续费是否上架？",
