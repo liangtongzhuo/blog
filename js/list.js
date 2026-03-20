@@ -25,44 +25,38 @@ function filterArticles() {
         filteredArticles = articles.filter(article => {
             return article.tag && article.tag.includes(decodeURI(tag));
         });
-    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    
+    }
+
     // 按创建时间降序排序
     filteredArticles.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    
+
     return filteredArticles;
 }
 
 // 更新数据
 function update() {
-const filteredArticles = filterArticles();
+    const filteredArticles = filterArticles();
     let html = '';
-    
-// 检查缓存
-    const cachedHtml = localStorage.getItem(tag);
-    if (cachedHtml) {
-        document.getElementById('content').innerHTML = cachedHtml;
-        return;
-    }
-    
+
+
+
     for (let i = 0; i < filteredArticles.length; i++) {
-    const article = filteredArticles[i];
+        const article = filteredArticles[i];
         const title = article.title.length < 70 ? article.title : article.title.substring(0, 70) + '......';
         const time = new Date(article.createdAt).toLocaleString();
         html += atricleHTML(article.id, title, time);
     }
-    
+
     document.getElementById('content').innerHTML = html;
 
-    // 缓存数据
-    localStorage.setItem(tag, html);
+
 }
 
 // 拼接 html
 function atricleHTML(id, title, time) {
-return '<div class="item" >' +
+    return '<div class="item" >' +
         '<a class="title" href="atricle.html?' + id + '">' + title + '</a>' +
-    '<div class="time">' + time + '</div></div>';
+        '<div class="time">' + time + '</div></div>';
 }
 
 // 发布文章
@@ -92,5 +86,3 @@ const click = e => {
         tagElement.style.visibility = 'hidden';
     }
 };
-
-// 初始化 - 数据加载完成后会自动调用 update()
