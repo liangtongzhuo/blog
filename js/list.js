@@ -161,7 +161,6 @@ update();
                         id: id,
                         get: function(key) {
                             if (key === 'title') return article.title;
-                            if (key === 'time') return article.time;
                             return null;
                         },
                         createdAt: new Date(article.createdAt)
@@ -206,7 +205,7 @@ function update(results) {
         const id = results[i].id
         let title = results[i].get('title')
         title = title.length < 70 ? title : title.substring(0, 70) + '......'
-        const time = results[i].get('time') ? results[i].get('time').toLocaleString() : results[i].createdAt.toLocaleString()
+        const time = results[i].createdAt.toLocaleString()
         html += atricleHTML(id, title, time)
     }
     document.getElementById('content').innerHTML = html
