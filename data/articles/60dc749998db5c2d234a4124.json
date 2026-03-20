@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T12:53:33.655Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# 前言\n我在公司内部分享科普 PPT，现在改成文章啦！\n内容主要以非技术人员科普，所以很多技术细节解释的不全对，但是对于非技术人员便与理解。\n\n<img src=\"data/files/5XXyq0b1Ic1EAyhRuGdK3tdsyzRX4tA5/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.001.jpeg\" >\n大家好，这期给大家比特币与区块链。\n\n<img src=\"data/files/iIkgGRu0lreSFs0qNLDKlLkbEa7CNGAv/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.002.jpeg\" >\n以上是比特币的主要特点。\n\n<img src=\"data/files/1Y03atPYireJRHqXGNpfAuBQqVscYAcQ/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.003.jpeg\" >\n到目前为止，我们也只知道网名叫中本聪的人创建了比特币， 没有人知道中本聪的真实身份、年龄、国籍。\n本身比特币就神秘，现在更像是诈骗了。 \n这样一位神秘人物08年发表比特币白皮书，09年发行比特币程序。\n\n<img src=\"data/files/D84MYdDx7aKNhnTujwtW84l3gp5PTyxP/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.004.jpeg\" >\n什么是去中心化，我们看右边的图\n\n中心化的场景：张三给李四转账需要通过央行，央行存储了每个人的账号钱币。\n去中心化场景：任何一个节点都知道每个账户的钱，但是不知道这个账户是谁的。\n\n去中心化技术优点：中心化只要中央服务挂了，整个服务就停止了。去中心，只要有一台可以整体就可以运行。抗风险能力大大提高。\n\n<img src=\"data/files/ILcQ24RuaMr5eWV4dGBk1WdODsrlWiVX/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.005.jpeg\" >\n比特币匿名交易但是账单是公开的，我们可以看到这些地址上最多的有 29万个比特币。 现在一个比特币大概20万人民币，有29万个比特币多少钱呢？580亿。\n\n<img src=\"data/files/Lz13YM28A4pNnHInYUr1VPkiOYCx7R7P/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.006.jpeg\" >\n比特币最高位的时候 21 年 4月 14 日达到了 6.4 万美元一个。现在大概稳定到 3 万美元左右。现在国家不鼓励炒币啊，炒炒基金就可以了。\n\n\n<img src=\"data/files/4pCS22QPAtW9TMhHKuQp4jyceVERLuXQ/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.007.jpeg\" >\n挖矿也是记账成功会被奖励比特币，所以大家就叫挖矿。 因为挖矿赚钱，所以很多人挖矿加入，增加了节点，比特币网络也就更安全了。  \n维护数据统一，解决了典型的双花问题。\n\n<img src=\"data/files/Dw62lmFT9AHPkQV2gDiVYJNu4gbqWVkP/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.008.jpeg\" >\n为了挖矿建立的矿池。\n大部分都是建立到温度低的地方和电费便宜的地方。当然现在政府不鼓励挖矿了，有一段时间扶贫的时候还鼓励大山里面挖矿， 现在就不鼓励了。\n\n<img src=\"data/files/nBxwbm5mWBvb403QB6uT6X2Dxe0Wsb02/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.009.jpeg\" >\n比特币的核心技术是区块链，国家大力推广的也是区块链技术。  \n1. 区块链的主要功能就是存储数据，是一个数据库。\n2. 利用密码学内容防止内容篡改。\n3. 大家会误以为区块链只支持去中心化，中心化应用也可以使用。\n\n<img src=\"data/files/1cMVNn4jG7ENpUWxNR6WTLhecVI12M6X/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.010.jpeg\" >\n数字人民币不是支付宝、微信、手机银行。\n可能有人疑问我们用支付宝微信移动支付，已经很好了为什么还要数字人民币呢？\n数字人民币发行是用于替换纸钞和硬币的，替代纸钞用的，纸钞发行的制作，回收，都消耗大量成本。\n央行公布数字人民币特性，匿名、离线支付都是纸质现金的特性。\n\n<img src=\"data/files/BCYjBwqnNQwa61SUIIXYbv0q1boijzxO/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.011.jpeg\" >\n以太坊可能大家经常听说过，升级版本的比特币，是一个平台，建立智能合约。\n以太坊的创始人V神，生于俄罗斯，6岁移居加拿大，在 14年大学的时候被 Facebook 早期投资人彼得·蒂尔鼓励辍学创立以太坊。\nNFT在线艺术平台，让线上虚拟的信息变成有价值的艺术品。\nLibr 受于美国和欧洲金融体系困难重重，至今未上线。\n\n<img src=\"data/files/2duVWWP5aTjeWhjbUDcWKfY892PLwloA/%E6%AF%94%E7%89%B9%E5%B8%81%E8%AE%B2%E8%A7%A3.012.jpeg\" >\n\n我的同事听完，对数字人民币的双离线非常感兴趣，激烈讨论了。根据现在央行公布的特性不知道具体的实现方法，等以后普及了我要体验一下。\n\n最后立flag，用 Node.js 实现一个单节点简易版本比特币，再和大家分享。\n\n\n\n\n\n\n\n",
+  "createdAt": "2021-06-30T13:41:45.843Z",
+  "title": "数字人民币/比特币/区块链(科普)  ",
+  "tag": "算法,编程疑问"
+}

@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:09:56.051Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# 前言\n我们的目的是，Master 合并代码后发送一个请求到部署服务器，之后部署代码。\n\n# 实现\n如果你使用 GitHub 托管代码，可以通过配置 Action 实现在 master 分支 push 了新的提交时自动部署该提交到生产环境。\n\n首先在 GitHub 项目的 Settings > Secrets > Actions 页面点击 New repository secret 一个名为 DEPLOY_TOKEN 的 repository secret，值为123 \n\n然后点击 Actions -> New workflows 填写\n\n```\non:\n  push:\n    branches: [ master ]\n\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Deploy to LeanEngine\n      uses: enflo/curl-action@v1.2\n      with:\n        curl: -X POST https://baidu.com?gitTag=${{ github.sha }}&token=${{ secrets.DEPLOY_TOKEN }}\n\n```\nhttps://baidu.com 换成自动部署服务器地址。\n\n# 测试\n每一次Master 有新的变动，如下图自动部署\n![](data/files/H6PfqPxR4QzbpdnD0KJn48hM80RmI3dm/1619169813012.jpg)\n",
+  "createdAt": "2021-04-23T09:14:16.912Z",
+  "title": "GitHub workflows 自动部署  ",
+  "tag": "GitHub,自动部署"
+}

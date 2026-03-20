@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:42:10.577Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "记录 iOS 开发日常的错误集合，不再单独写错误文章，除非有必要。\n一部分是在简书，所以链接过来。\n\n## __日常上架打回__\n-  [iOS 上架报错  This bundle is invalid. 或 Invalid Image Path](http://www.jianshu.com/p/6d395118fda1)\n-  [iOS 特殊功能 This app attempts to access privacy-sensitive data without a usage description](http://www.jianshu.com/p/e185a1f30bfb)\n-  [iOS 支付 3. 1.1 BUSINESS: PAYMENTS - IN-APP PURCHASE Business - 3.1.1](http://www.jianshu.com/p/e185a1f30bfb)\n- [iOS 文件位置错误 Swift 2.2 拒绝2.23 - Apps must follow the iOS Data Storage Guidelines or they will be rejected](http://www.jianshu.com/p/fad87e487ac0)\n\n## __日常错误__\n- 注意 shareSDK，不支持 iOS8 模拟器，所以注销就 OK\n\n\n-  [iOS 适配iOS8 arc4random() 崩溃 Swift3.0](http://www.jianshu.com/p/2e66853fd326)\n-  [iOS is missing from working copy Xcode8 Swift 3.0](http://www.jianshu.com/p/cac66878198c)\n-  [iOS：warning: (armv7) unable to open object file: No such file or directory](http://www.jianshu.com/p/3341989c7004)\n-  [CocoaPods 错误解决--Attempt to read non existent folder](http://www.jianshu.com/p/784748a2b261)\n-  [iOS 多版本X [!] Unable to add a source with url \\`https://github.com/CocoaPods/Specs.git\\` named \\`master-1\\`](http://www.jianshu.com/p/a226813d4f5d)\n-  [ShareSDK code：207 报错， 还有plist设置iOS 9 坑](http://www.jianshu.com/p/e46959f1f185)\n- [Apple 账号wen t Please sign in with an app-specific password. You can create one at appleid.apple.com](http://www.jianshu.com/p/8140311f0263)\n- [pod - 报错 The dependency `xxx` is not used in any concrete target](http://www.jianshu.com/p/2f9184b5b46c)\n- [swiftc failed with exit code 1](http://www.jianshu.com/p/930978f92ca4)\n- [Performance - 2.3.7](http://www.jianshu.com/p/40ec89b8260b)\n- [If your contracts are not in effect at this time 收费问题：协议、税务和银行业务](http://www.jianshu.com/p/c1018cbad507)\n\n## __Apple 开发者到期__\n-  [当 Apple 开发者到期之后 App 是否下架？开发者续费是否上架？](http://liangtongzhuo.com/atricle.html?5a0cd4f217d0090040bb65e8)\n\n",
+  "createdAt": "2017-10-14T09:57:27.465Z",
+  "title": "iOS 原生错误贴集合",
+  "tag": "iOS,日常踩坑"
+}

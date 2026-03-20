@@ -1,0 +1,7 @@
+#filetype:JSON-streaming {"type":"Class","class":"Loves"}
+{"content":"希望一觉醒来，儿子的病都好了呀！","ACL":{"*":{"read":true,"write":true}},"createdAt":"2019-03-25T16:55:23.075Z","updatedAt":"2019-03-25T16:55:23.075Z","objectId":"5c9907fbfe88c2006f6e1480"}
+{"content":"我想要一盒夏天穿的袜子，快买给我哦～","ACL":{"*":{"read":true,"write":true}},"createdAt":"2019-04-02T05:26:17.997Z","updatedAt":"2019-04-02T05:26:17.997Z","objectId":"5ca2f279a91c93007249641c"}
+{"content":"兑换","ACL":{"*":{"read":true,"write":true}},"createdAt":"2019-04-21T00:46:24.689Z","updatedAt":"2019-04-21T00:46:24.689Z","objectId":"5cbbbd60c8959c007505b57b"}
+{"content":"宝宝好久没给我写过信啦～","ACL":{"*":{"read":true,"write":true}},"createdAt":"2019-06-11T10:22:29.523Z","updatedAt":"2019-06-11T10:22:29.523Z","objectId":"5cff80e5c8959c0069afabb6"}
+{"content":"我的水杯坏了哦，给我买一个好不好","ACL":{"*":{"read":true,"write":true}},"createdAt":"2019-11-14T05:37:07.957Z","updatedAt":"2019-11-14T05:37:07.957Z","objectId":"5dcce803d4b56c0074a8c441"}
+{"content":"test","ACL":{"*":{"read":true,"write":true}},"createdAt":"2020-10-14T07:27:29.359Z","updatedAt":"2020-10-14T07:27:29.359Z","objectId":"5f86a861c2dda434e0dbfe4d"}

@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:10:44.129Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# Preface\nIn order to practice English, try to write articles in English. Syntax error, please correct me Email: liangtongzhuo@gmail.com\n\nOnion Model realization method.\nTo simplify a part of the code.\n```\n'use strict'\n\nfunction compose(middleware) {\n  return function (context, next) {\n    let index = -1\n    return dispatch(0)\n    function dispatch(i) {\n      if (i <= index) return Promise.reject(new Error('next() called multiple times'))\n      index = i\n      let fn = middleware[i]\n      if (!fn) return Promise.resolve()\n      try {\n        return Promise.resolve(fn(context, function next () {\n          return dispatch(i + 1)\n        }))\n      } catch (err) {\n        return Promise.reject(err)\n      }\n    }\n  }\n}\n\nconst getTestMiddWare = (loggerA, loggerB) => async (ctx, next) => {\n  console.log(loggerA);\n  await next();\n  console.log(loggerB);\n};\n\nconst mid1 = getTestMiddWare(1, 4);\nconst mid2 = getTestMiddWare(2, 3);\nconst mid3 = async (context, next) => {\n  const data = await new Promise((resolve, reject) => {\n    setTimeout(() => resolve('数据已经取出'), 1000);\n  });\n  await next();\n  console.log(data);  \n};\n\nconst middlewares = [];\nmiddlewares.push(mid1, mid2, mid3);\n\nconst context = {};\ncompose(middlewares)(context);\n```\n\nreference documentation \nhttps://github.com/koajs/koa\nhttps://cnodejs.org/topic/58fd8ec7523b9d0956dad945\nhttps://github.com/koajs/compose\n",
+  "createdAt": "2018-04-08T12:39:16.804Z",
+  "title": "Koa  compose source code",
+  "tag": "Node.js"
+}

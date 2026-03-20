@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:41:33.351Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "大概实现思路：封装一个app对象，创建由（http创建）server属性，然后创建一个stack的数组，用来储存use上挂载的方法。 来了来请求，判断路径且循环调用stack里的方法。\n\n代码如下\n```\nvar http = require('http');\nvar url = require('url');\nvar proto = {\n    stack: []\n};\n\nfunction createServer() {\n    var app = {\n        task: function(req, res) {\n            app.handle(req, res);\n        }\n    }\n    //把proto中的属性拷贝到app对象里\n    Object.assign(app, proto);\n    return app;\n}\n//装载函数\nproto.use = function(route, fn) {\n    var path = route;\n    var handle = fn;\n    if (typeof route != 'string') {\n        handle = route;\n        path = \"/\";\n    }\n    this.stack.push({\n        handle: handle,\n        path: path\n    });\n}\n//循环调用函数\nproto.handle = function(req, res) {\n    var stack = this.stack;\n    var index = 0;\n\n    function next(err) {\n        var layer = stack[index++];\n        var route = layer.path;\n        var handle = layer.handle;\n\n        var path = url.parse(req.url).pathname;\n        //是否匹配路径,是否匹配开头\n        if (path.startsWith(route)) {\n            if (err) {\n                if (handle.length == 4) {\n                    handle(err, req, res, next);\n                } else {\n                    next(err);\n                }\n            } else {\n                handle(req, res, next);\n            }\n        } else {\n            next();\n        }\n\n    }\n    next();\n}\n\nproto.listen = function(port) {\n    var server = http.createServer(this.task);\n    server.listen(port);\n}\n\nmodule.exports = createServer;\n\n```\ngit地址：https://github.com/hi363138911/express",
+  "createdAt": "2017-03-24T08:43:35.083Z",
+  "title": "用原生http 实现简单 Express 框架",
+  "tag": "Node.js,http,Express"
+}

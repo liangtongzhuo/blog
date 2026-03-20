@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T12:53:23.702Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# __前言__\n本文尽量使用图形工具介绍如何向开源项目提交 Pull Request，一次亲身经历提交 PR\n\n### __1.fork 项目__\n<img src=\"data/files/2420326cc3d1895eb1a5.jpg\">\n\n### __2.克隆本地__\n<img src=\"data/files/18d96309bc3e30852c54.jpg\">\n```\ngit clone https://github.com/liangtongzhuo/taro-ui.git\n```\n\n### __3.根据文档创建分支__\n拖进 SourceTree，基于 dev 创建分支\n<img src=\"data/files/fbf6c0b6634c43ecc8ad.jpg\">\n\n\n### __4.提交到自己仓库__\n```\ngit add . && git commit -m\"fix(dos):修正文字 \" && git push\n\n```\n\n### __5.提交 Pull Request__\n第四步提交成功后，进入原来的仓库，点击 compare\n<img src=\"data/files/473f40e08899362bd2fc.jpg\">\n\n提交你的说明，选择合并的分支即可，剩下等待合并。\n<img src=\"data/files/19ff6b1aa223bb6457ba.jpg\">\n\n# __结尾__\n我向 taro-ui 提交的 pr 已经被合并，开源的魅力在于你可以看任何代码。\n<img src=\"data/files/95f5b86ddf302951993a.jpg\">\n",
+  "createdAt": "2018-12-10T02:13:19.512Z",
+  "title": "GitHub 提交PR（Pull Request），为开源项目贡献力量 ",
+  "tag": "GitHub,React,开源,JavaScript,Web"
+}

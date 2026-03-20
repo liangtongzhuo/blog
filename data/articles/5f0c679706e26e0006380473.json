@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:09:06.397Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "## 前沿\n我一直希望，一个浏览器把我本地、代码、环境、数据库都包括了。\n现在有了 code-server，一切成为了可能\n\n运行\n```\ndocker run -it -d -p 8080:8080 \\\n  -v \"$PWD:/home/coder/project\" \\\n  -e PASSWORD='123456' \\\n  -u \"$(id -u):$(id -g)\" \\\n  codercom/code-server:latest\n```\n\n在腾讯云 2 核 1G 1M 带宽的服务器上，从监控上来看瓶颈在网速。",
+  "createdAt": "2020-07-13T13:54:31.262Z",
+  "title": "Server VSCode ",
+  "tag": "Docker,"
+}

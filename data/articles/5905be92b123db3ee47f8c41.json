@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-19T04:02:10.740Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "## 个人对MSD基数排序的理解\n- 大多数排序算法是比较两个数的大小，而基数排序是分割一个数字比较。学习她会非常有价值的。\n- 提取待排序的数字 的最高位，按从小到大0-9，分别放入10个木桶里装入。\n- 然后分别再对10个木桶操作 上一步，直到木桶里只有一个数字或者数字相等。\n### 时间复杂度与自己想法\n- 基数排序的时间复杂度 o(d(n+r)) ，r为基数，d为位数，并且她是稳定排序\n-  多线程奇思妙想：（猜想）\n利用此思想，如果排序的数字比较多和大， 我们可以先用 基数排序思想分段 ，现在cpu都是多线程，然后可以在每段上开启线程，同时开启快速排序，最后合并分段的序列。 速度是否会提升，待确定。\n\n######c++版本\n```\n#include <iostream>\n#include <malloc.h>\nusing namespace std;\n\nint getdigit(int x,int d)\n{\n    int a[] = {1,1,10};\n    return ((x/a[d]) % 10);\n}\n\nvoid PrintArr(int ar[],int n)///打印数组\n{\n    for(int i = 0; i < n; i++)\n        cout<<ar[i]<<\" \";\n    cout<<endl;\n}\n\nvoid msdradixSort(int arr[],int begin, int end, int d){\n    \n    int i, j;\n    int count[10] = {0};\n    \n    //分配木桶\n    int *bucket = (int *) malloc((end-begin+1) * sizeof(int));\n    //统计各木桶的需要装 元素的个数\n    for (i = begin; i <= end; i++) {\n        count[getdigit(arr[i], d)]++;\n    }\n    //统计 每一个木桶存放的位置  末位置\n    for (i = 1; i < 10; i++){\n        count[i] = count[i] + count[i - 1];\n    }\n    ///这里从右向左扫，保证稳定性\n    for (i = end; i >= begin; i--){\n        j = getdigit(arr[i], d); //求出关键字 12 。 就是j 就是1\n        bucket[count[j]-1] = arr[i] ;//   放入木桶\n        count[j]--; //木桶 减少一个位置\n    }\n    \n    //收集木桶数据\n    for (i = begin,j = 0; i <= end; i++ ,j++){\n        arr[i] = bucket[j];\n    }\n    \n    free(bucket);\n    \n    for (i = 0; i < 10; i++) {\n        int p1 = begin + count[i]; //第i个桶的左边界\n        int p2 = begin + count[i+1]-1; //第i个马桶的右边界\n        \n        if (p2>p1 && d>1){ //木桶里有俩参数以上，且d>1\n            msdradixSort(arr, p1, p2, d-1);\n        }\n        \n    }\n\n}\n\nint main(){\n    int a[] = {12,14,54,5,6,3,9,8,47,89,89};\n    int len = sizeof(a)/sizeof(int);\n    msdradixSort(a, 0, len-1, 2);\n    PrintArr(a, len);\n    return 0;\n}\n```\n\n\n\n- ######看我那么可爱n(*≧▽≦*)n \n- 关注我的微薄 (梁同桌)：http://weibo.com/tongrenyinsheng\n- 个人博客： http://www.liangtongzhuo.com\n- ios 个人写的app （同人音声）ASMR音乐",
+  "createdAt": "2016-06-23T02:29:00.000Z",
+  "title": "数据结构 桶排序/基数排序MSD C++ swift 版本",
+  "tag": "算法,Swift"
+}

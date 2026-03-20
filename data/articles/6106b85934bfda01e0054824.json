@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2022-12-04T12:17:39.451Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# 前言\n毕业以来一直有统计账单的习惯，最开始用「会记账」App 并且一直更新到[微博](https://weibo.com/u/2038777590)，目前 App 已经停止运行了，后来也因为个人问题也就没再统计。\n![会记账App页面](data/files/hOQGfKf8XjnVsFPJW8aAM8GzD3P8k15k/798546f6ly1galj9e3nosj20v9384tgz.jpeg)\n一直想用一个账单软件，从支付宝和微信账单拉取信息统计，又怕第三方的不太安全。索性自己就写了一个，[GitHub](https://github.com/liangtongzhuo/bill_statistics)\n\n# 目录\n- 数据来源\n- 数据读取\n- 数据汇总保存\n- 数据页面保存\n- 项目 GitHub 地址\n\n## 1. 数据来源\n微信数据：我-支付-钱包-账单-常见问题-下载账单-输入到邮箱即可\n微信账单如图：\n![](data/files/BK151yuBuvWhXhAG44BqK9NNeMlSxpaa/1627831235949.jpg)\n\n支付宝数据：打开Web页面登录-交易记录-选择时间-下载excel\n支付宝账单如图：\n![](data/files/8AJ62X2HW3zmmLwYrf7NskWrwu2Jvd2q/1627831444935.jpg)\n\n## 2. 数据读取\n```\nconst csv = require('csv-parser')\nconst fs = require('fs')\n\n\n/**\n * csv 解析封装\n * @param {*} path csv路径\n */\nmodule.exports.readcsv = (path) => {\n  return new Promise((resolve, rejects) => {\n    const results = [];\n    fs.createReadStream(path)\n      .pipe(csv())\n      .on('data', (data) => results.push(data))\n      .on('end', () => {\n        resolve(results)\n      }).on('error', (error) => {\n        rejects(error)\n      })\n  })\n}\n\n```\n\n## 3. 数据汇总保存\nJSON 格式保存本地\n```\n/**\n * 保存数据到本地\n */\nmodule.exports.dbSave = (name) => {\n  fs.writeFileSync(`${dbPath}_${name}`, JSON.stringify(db));\n}\n```\n\n## 4. 数据页面保存\n根据数据生成HTML静态页面\n![](data/files/kB6pRfa3ulM1VEso3wHyNzQmMYj9oej2/1627831695208.jpg)\n\n## 5.GitHub [地址](https://github.com/liangtongzhuo/bill_statistics)\n\n### 文件目录\n- db：存放从微信和支付宝账单读取账单的文件\n- in_html: 默认模版，可用浏览器打开\n- order：原始支付宝和微信账单位置\n- statistics：根据数据生成 HTML 的逻辑\n- out_html：根据数据生成后的HTML，可用浏览器打开\n- util：工具\n- index：执行入口\n- config：配置文件，统计分类\n\n\n",
+  "createdAt": "2021-08-01T15:06:01.216Z",
+  "title": "支付宝和微信账单统计",
+  "tag": "Node.js,GitHub"
+}

@@ -7,19 +7,64 @@ if (decodeURI(tag) == '首页') {
 // 先从缓存里面取
 update();
 
-// 开始查询
+// 开始从本地数据文件获取数据
 (() => {
-    const query = new AV.Query('Atricle')
-    query.select(['title','time'])
-    query.limit(1000)
-    query.addDescending('createdAt')
-    query.notEqualTo('hidden', 1) //hidden 不为 1 ，也就是不隐藏的。
-    query.contains('tag', decodeURI(tag)) //注意转码
-    query.find().then(function (results) {
-        update(results)
-    }, function (error) {
-        console.error(error)
-    })
+    // 从 data/articles 目录获取所有文章文件
+    fetch('data/articles/')
+        .then(response => response.text())
+        .then(html => {
+            // 从 HTML 中提取文件名
+            const fileNames = html.match(/href="([^"]+\.json)"/g)
+                .map(match => match.match(/href="([^"]+)"/)[1])
+                .filter(name => name.endsWith('.json'));
+            
+            // 读取每个文章文件
+            const promises = fileNames.map(fileName => {
+                return fetch(`data/articles/${fileName}`)
+                    .then(response => response.json())
+                    .then(article => {
+                        // 提取 ID 从文件名
+                        const id = fileName.replace('.json', '');
+                        // 过滤条件：tag 包含当前标签
+                        if (!tag || article.tag.includes(decodeURI(tag))) {
+                            // 转换为与 AV.Query 返回结果类似的结构
+                            return {
+                                id: id,
+                                get: function(key) {
+                                    if (key === 'title') return article.title
+                                    if (key === 'time') return null // 不再有 time 字段
+                                    return null
+                                },
+                                createdAt: new Date(article.createdAt)
+                            };
+                        }
+                        return null;
+                    })
+                    .catch(error => {
+                        console.error(`读取文章文件 ${fileName} 出错:`, error);
+                        return null;
+                    });
+            });
+            
+            // 等待所有文件读取完成
+            Promise.all(promises)
+                .then(articles => {
+                    // 过滤掉 null 值
+                    const results = articles.filter(article => article !== null);
+                    
+                    // 按 createdAt 降序排序
+                    results.sort((a, b) => b.createdAt - a.createdAt);
+                    
+                    // 更新数据
+                    update(results);
+                })
+                .catch(error => {
+                    console.error('获取文章列表出错:', error);
+                });
+        })
+        .catch(error => {
+            console.error('获取文章文件列表出错:', error);
+        });
 })()
 
 // 更新数据
@@ -54,11 +99,8 @@ function atricleHTML(id, title, time) {
 
 // 发布文章
 document.getElementById('title').addEventListener('click', function () {
-    if (AV.User.current()) {
-        window.location.href = "updata.html"
-    } else {
-        window.location.href = "admin.html"
-    }
+    // 由于不再使用 LeanCloud，直接跳转到 admin.html
+    window.location.href = "admin.html"
 
 }, false)
 

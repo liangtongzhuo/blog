@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-03-31T01:50:56.181Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "项目使用 Meteor 1.5 ，写的一个记账的小 Demo，目的是为了让新手入门 Meteor 的一个小项目，包含一些基本使用功能。\n\n                                                                 \n<img src=\"data/files//953f3ac6eb5c84924cfc.png\" style=\"width:200px\">\n\n\n## 主要内容\n\n### 模块\n\n- template\n  - 生命周期\n  - 嵌套\n  - 渲染\n  - 事件\n- 路由\n- 账号系统\n  - 登陆\n  - 登出\n  - 注册 \n- 数据库增删改查\n- 前后端交互\n  - API 调用\n  - 数据验证\n  - 数据权限\n\n### 安装与运行\n\nOSX / LINUX 安装\n\n```\ncurl https://install.meteor.com/ | sh\n```\n运行，途中如果你缺少插件，终端会提示语句，按照做就好\n\n```\nmeteor run \n```\n\n### 文件目录\n- .meteor 里面是 Meteor 框架的东西\n- client 前端\n - View\n     - js\n     - CSS\n     - HTML \t\n- model 模型\n- node_modules\n- public 放图片\n- router 路由\n- server 服务器 API\n\n### 细节问题\n文件 .meteor 里的 local 会生成缓存文件，占硬盘，可以删除。\n\n### 链接\nGitHub 地址：https://github.com/liangtongzhuo/tkzd\n\n### 结束语\n本身公司用 Meteor 所以写了这个项目来加速熟悉公司项目，如有疑问不懂可以 issues \n\n",
+  "createdAt": "2017-09-03T14:15:41.055Z",
+  "title": "Meteor 项目完整 Demo ，涉及到大部分知识。 一款 Meteor 的  入门 Web App ，GitHub 开源",
+  "tag": "开源,GitHub,JavaScript"
+}

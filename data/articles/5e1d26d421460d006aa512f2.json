@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:10:14.567Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "- Import Cost：显示引入的包的大小\n- npm：使用package.json来验证已经安装的模块，确保已经安装的模块版本号正确，标记那些安装了但是没有在package.json列出来的包，以及那些还没有安装的包。\n- Path IntelliSense：虽然并不是真的和Node相关，这个插件可以自动补全文件名，可以在输入时对本地文件进行智能提示。\n- Node.js Modules IntelliSense：为JavaScript和TypeScript模块自动补全import语句。\n- Prettier Code Formatter：安装量超过150万，支持JavaScript、TypeScript和CSS的格式化，使用Prettier(一个深受大家喜爱的格式化插件)\n- Vetur：为Vue框架提供语法高亮、代码片段、Emmet、格式化、代码风格检查、智能提示、调试帮助等。有非常详细的文档: vetur。",
+  "createdAt": "2020-01-14T02:26:28.090Z",
+  "title": "个人， VS-Code 插件  ",
+  "tag": ""
+}

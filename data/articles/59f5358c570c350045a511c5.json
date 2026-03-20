@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-06-10T04:10:45.357Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# __前言__\n模块划分，为了解耦，所以才出了这些规定。\n我在学习这些模块化的时候，思考到如果你的代码规范，项目复杂度不高。完全不用这些语法，并且你可以自由的定义全局变量，非常的自由高效快速。\n在 Node.js 上就有模块化，我另外一篇文章具体分析 [CommonJS 模块底层如何实现\n](http://liangtongzhuo.com/atricle.html?58da6eb01b69e6006bc7c1da)\n\n# __忧虑__\n1. 现在我还没有体会到把一个文件里的代码写到不可维护的程度，大概我一个文件能写到 3000 - 5000 行，但是让别人去看代码就很痛苦了。代码要是可读，顺便让机器执行一下。\n2. 很多人没有接触到一个文件写到不可维护就学习拆分，这样其实有点拔苗助长，另外 ES6 module 没有达到我心目中的模块划分极致简约语法。\n3. 模块化的出现是为了妥协，向大型项目妥协，向多人开发妥协。\n4. 现在的项目越来越大，新语法新规定越来越多。这无疑加重了复杂度。技术过于快速变动不见得好，也经常抽象分层）最终我的目的是创造好的项目，进而改变世界 。\n\n\n\n# 我心目中的 import 与 export \n```\nconst a = import('路径');\nexport = a;\n```\n\n\n# 总结现在 ES6 的 module 语法规范\n## 导出，导入\n```\nexport const animal = {\n  bird: 'bird',\n  pig: 'pig'\n}\nimport {bird as duck, pig} from 'animal'; //导出修改名字\n```\n## 变量提升\n```\nconsole.log(pig); \nimport {bird as duck, pig} from 'animal';\n```\n## 静态执行\n```\nimport { 'p' + 'ig' } from 'animal';//报错\n```\n```\nif (x === 1) {\n  import { pig } from 'animal';//报错\n}\n```\n## 整体导入\n```\nimport * as animal from 'animal';\n//animal.bird;\n//animal.pig;\n```\n## default\n```\nexport default {\n  bird: 'bird',\n  pig: 'pig'\n}\nimport xxx from 'animal';\n```\n\n## 输入输出结合\n```\nexport * from 'animal'; //这样的语法有必要存在吗？也许有少许场景把\nexport {bird as duck, pig} from 'animal';\n```\n\n\n\n\n",
+  "createdAt": "2017-10-29T01:57:32.250Z",
+  "title": "关于 ES6 的 import 与 export 的感想",
+  "tag": "JavaScript,ES6,Node.js,ReactNative"
+}

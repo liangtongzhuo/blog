@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2022-11-15T10:28:01.206Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# Introduce\nShare ClickHouse within the company,very simple. I share PPT.\n\n\n<img src=\"data/files/mdJ7IIeXfPVvTv7R7UnJheoR6EJ3y2nN/clickHouse%E5%88%86%E4%BA%AB.001.jpeg\" >\n\n<img src=\"data/files/dpv26BQRnWu5PNTgyeLAPnWxipmQoQMk/clickHouse%E5%88%86%E4%BA%AB.002.jpeg\" >\n\n<img src=\"data/files/qHMzhYcNwPC2rO1ipFDq9Ndo0j8kcE74/clickHouse%E5%88%86%E4%BA%AB.003.jpeg\" >\n\n<img src=\"data/files/71dDV3BT54F5HEBkqQr4dEmmh1nNh1Gv/clickHouse%E5%88%86%E4%BA%AB.004.jpeg\" >\n\n<img src=\"data/files/dvXtDs9atK2ymmdDhTz4RDQlXxzPokFw/clickHouse%E5%88%86%E4%BA%AB.005.jpeg\" >\n\n<img src=\"data/files/veTg22vPH3FsqtXFTazzaQUH9WJyEMxR/clickHouse%E5%88%86%E4%BA%AB.006.jpeg\" >\n\n<img src=\"data/files/8ltD54r8v6qhWsTx8Hv2HpelXrrWLe1l/clickHouse%E5%88%86%E4%BA%AB.007.jpeg\" >\n\n<img src=\"data/files/jG6POi2YYf9rXgO9Py4Uep9NVPWVHJMA/clickHouse%E5%88%86%E4%BA%AB.008.jpeg\" >\n\n<img src=\"data/files/jG6POi2YYf9rXgO9Py4Uep9NVPWVHJMA/clickHouse%E5%88%86%E4%BA%AB.008.jpeg\" >",
+  "createdAt": "2022-05-22T23:02:21.323Z",
+  "title": "ClickHouse share",
+  "tag": "GitHub,MySql"
+}

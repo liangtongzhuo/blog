@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2019-05-30T10:08:50.472Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# 前言\njs 对于基础类型判断非常弱，网上方法很乱且不好记，又不愿意用库。\n\n\n### __ js 类型__\n```\nNaN \nnull undefined \nObject String Number Boolean \nArray Function Symbol\n```\n\n### __ 一行判断方法:__\n```\nisNaN(NaN) //true ,特殊\n\nObject.prototype.toString.call(null) ;           // [object Null]\nObject.prototype.toString.call(undefined) ;      // [object Undefined]\n\nObject.prototype.toString.call({}) ;             // [object Object]\nObject.prototype.toString.call('') ;             // [object String]\nObject.prototype.toString.call(1) ;              // [object Number]\nObject.prototype.toString.call(true) ;           // [object Boolean]\n   \nObject.prototype.toString.call([]) ;             // [object Array]\nObject.prototype.toString.call(new Function()) ; // [object Function]\nObject.prototype.toString.call(Symbol());        // [object Symbol]\n```",
+  "createdAt": "2019-05-28T07:32:26.742Z",
+  "title": "JavaScript 基础类型判断",
+  "tag": "JavaScript Web"
+}

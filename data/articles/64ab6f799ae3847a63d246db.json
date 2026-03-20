@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2023-07-26T13:13:22.179Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "我买 NUC 主机建 SMB 文件系统，内网访问速度一直在 2 MB/s，这也太奇怪了。我一步一步找寻最低速的问题，学到了一些关于网速、带宽、Wi-Fi、MIMO 的问题。\n\n我的配置如下，括号内是官方标记读写速度与自己测试读写速度\n- NUC 主机\n - 硬盘固态（自测：读写 400 MB/s）\n - 硬盘机械（自测：读写 130 MB/s）\n - 联通外接硬盘底座 USB 3.0（官方：读写 450 MB/s）\n - NUC 无线网卡 （官方：54.125 MB/s） \n - NUC 插线网卡（官方：125 MB/s）\n- 小米路由器 AX1800（ 2 组 MIMO ，与之匹配对应的设备也要支持）\n - Wi-Fi 2.4G （协议理论值：35.75×2 MB/s = 71 MB/s）\n - Wi-Fi 5G （协议理论值：75×2 MB/s = 150 MB/s）\n - 网线接口 （官方：1000 Mb/s = 125 MB/s）\n- 小米中继路由器 WiFi 放大器 Pro\n - Wi-Fi 2.4G （官网 37.5 MB/s）\n- Mac Book Pro 18 款 15 寸\n - 无线网卡（官网：162.5 MB/s，竟然在那个年代支持 3 组 MIMO）\n - 固态硬盘（网友测试：读写 2600 MB/s）\n- 千兆网线 （125 MB/s）\n- SMB 协议\n - 1.0 协议支持（大约百兆=12.5 MB/s）\n - 2.0 协议支持（大约千兆=125 MB/s）\n - 3.0 协议支持（大约万兆=1250 MB/s）\n\n单位统一：1 Mb/s = 0.125 MB/s = 128 KB/s。\n我们使用迅雷下载速度通常用 MB/s，但是宽带、Wi-Fi、路由器通常用 Mb/s。\n千兆网口 = 1000 Mb/s = 最大下载速度 125 MB/s。\n\n根据以上参数木桶原理，最低速小米放大器 37.5 MB/s，但现实往往复杂且离谱。\n\n### __第一次拓扑图：__\n<img src=\"data/files/zVb4LtOkGEaJvRy1QNGe9Gsiluo65SHk/1.png\">\n平常在家没感受到 Wi-Fi 5G 与 2.4G 区别，第一次下载 smb 内文件速度为 2 MB/s - 3 MB/s，很惨。这比我从外网下载还慢。\n\n### __第二次，我凭直觉不可能，绝对不可能，把小米放大器去掉：__\n\n<img src=\"data/files/W0aqbFh67apQCp2FJhI5Bft35XT87zCV/2.png\">\n果然速度提升了，但是效果不明显。速度来到 5 MB/s，还是很慢。\n\n### __第三次，发现 NUC 主机也是连接放大器。__\n<img src=\"data/files/6eWj4lEXn28Ddpwcab7ll5iLUfTWg1WF/3.png\">\n这次速度来到 15 MB/s，和我的设想还有差距。\n\n### __第四次，Mac 与 NUC 都切换到 Wi-Fi 5G。__\n<img src=\"data/files/BMjHmwfJA6PGnOPIad21qYhhfeKOivwY/4.png\">\n20 - 30 MB/s，哎呦不错呦，我把 Mac 和 NUC 都搬到路由器旁边速度就到 40 MB/s，隔了两堵墙确实影响速度。\n\n### __第五次，NUC 与路由器网线直连__\n<img src=\"data/files/dzJ8FUBoSvPCWEN1QubmdFcyfBfEz8x0/1.png\">\n速度来到 80 MB/s 左右，根据我在房间的位置会掉到 60 MB/s。\n<img src=\"data/files/ViOPtQdI7G6MPcU2SPM4HrNYnIQ87kC6/1690056939159.jpg\" style=\"width:100%\">\n\niPhone 14 Pro 测试速度 70+ MB/s \n<img src=\"data/files/68qrYEqqBScRfWLbjikCX6GBApQKlONK/IMG_9719.jpg\">\n\nRedmi Pad 测试速度 38+ MB/s，这可能就和不支持 MIMO 有关系了。\n<img src=\"data/files/R6QsKuMbbf1z6Py8dQQu3NwgPKEaEv74/WX20230723-043022%402x.png\">\n\n目前达到了可用水平，我把所有手机和电脑 Wi-Fi 都改为了 5G 并且遗忘 2.4G。准备把小米中继扔掉，组 mech。家里的 2.4G 就留给智能家居吧，咱们也就别用了。\n\n最后晒一下我的 NUC 主机。\n<img src=\"data/files/LADDBfWtGDQiJy5iR7Du36tEAutA12CR/IMG_9713.JPG\">\n\n\n> 硬件参数来源以下链接：\nhttps://support.apple.com/zh-cn/guide/deployment/dep2ac3e3b51/web\nhttps://zhuanlan.zhihu.com/p/44617449\nhttps://www.intel.cn/content/www/cn/zh/products/sku/125192/intel-wirelessac-9462/specifications.html\nhttps://item.jd.com/100059950377.html\nhttps://www.bilibili.com/read/cv13781140\n\n\n\n\n",
+  "createdAt": "2023-07-10T02:39:53.343Z",
+  "title": "家庭文件存储中心「传输速度」",
+  "tag": " "
+}

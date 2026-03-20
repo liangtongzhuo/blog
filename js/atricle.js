@@ -17,17 +17,26 @@ marked.setOptions({
 const url = location.search
 const id = url.split('?')[1].split('=')[0]
 
-const query = new AV.Query('Atricle')
-query.get(id).then(function (result) {
-    const title = result.get('title')
-    const content = marked(result.get('content'))
-    const time = result.get('time') ? result.get('time').toLocaleString() : result.createdAt.toLocaleString()
-    const tag = result.get('tag')
+// 从本地数据文件获取文章数据
+fetch(`data/articles/${id}.json`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`未找到ID为 ${id} 的文章`)
+        }
+        return response.json()
+    })
+    .then(article => {
+        // 渲染内容
+        const title = article.title
+        const content = marked(article.content)
+        const time = new Date(article.createdAt).toLocaleString()
+        const tag = article.tag
 
-    atricleContentHTML(title, content, time, tag)
-}, function (error) {
-    console.error(error)
-})
+        atricleContentHTML(title, content, time, tag)
+    })
+    .catch(error => {
+        console.error('获取本地数据出错:', error)
+    })
 
 function atricleContentHTML(title, content, time, tag) {
     document.title = title
@@ -45,7 +54,6 @@ function atricleContentHTML(title, content, time, tag) {
 
 //跳转编辑网页
 document.getElementById('title').addEventListener("click", function () {
-    if (AV.User.current()) {
-        window.location.href = 'updata.html?' + id
-    }
+    // 由于不再使用 LeanCloud，直接跳转到编辑页面
+    window.location.href = 'updata.html?' + id
 }, false)

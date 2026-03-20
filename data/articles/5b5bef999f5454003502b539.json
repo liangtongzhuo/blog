@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2024-02-06T01:29:00.308Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": " Name|age| University|Master|\n:----:|:------:|:----:|:----:|:----:\n Tongzhuo | 1995  |[郑州大学](http://baike.baidu.com/link?url=6PWimGbSkqDVyAlNQju2f137VFHgcBKMsuEtnB53yVlVseQthL-87kgeupp5hXVB2c7F8G08hz-taEIrz6VOM4YKEE283RuMncQc096UtcSICZEeHEOGaYvKIgA6F4bf)|[URJC](https://www.urjc.es/)\n\n### Technology stack：\n- JavaScript：精通\n- Node.js：精通\n- TypeScript：掌握了解\n- MySql, MongoDB：熟练掌握\n- Vue, React, Electron：独立开发\n- Swift iOS：独立开发\n- Game：前端绘制与 Node.js 同步状态实践\n\n### World view\n- 有想法即改变\n- 相信世界会越来越好\n- 宏观考虑问题，但也不愿意牺牲个体维护整体\n\n### Hobby\n- 二次元爱好者（现在应该不算是重度了）\n- 超级喜欢爱玩游戏，可惜现在上班没有时间了\n- 滑板（滑的一般）\n- 数字货币\n\n### Work\n- 目前就职于“中科院计算所大数据研究院”\n\n### Link\n- 电子邮件：liangtongzhuo@gmail.com \n- GitHub：[梁同桌](https://github.com/liangtongzhuo)\n- 知乎：[梁同桌专栏](https://www.zhihu.com/people/liangtongzhuo/activities)\n- 个人博客： [梁同桌的博客](http://liangtongzhuo.com)\n- 简书: [简书日常技术](https://www.jianshu.com/u/b9e84b0af9c5)\n- 微博: [梁同桌日记账单](https://weibo.com/tongrenyinsheng)\n- 维护社区: [VSCode中文社区](https://vscode.liangtongzhuo.com)，没有维护起来\n- 多人同步小游戏: [Web体验地址](http://planes.liangtongzhuo.com/)\n\n### Tag：\n16 年大三创业「同人音声 ASMR」，拿七位数投资失败了，现在留下 http://www.my-asmr.com 同人音声域名与http://space.bilibili.com/3591966/#/ 4W 多的一个粉丝号\n",
+  "createdAt": "2018-07-28T04:22:49.538Z",
+  "title": "个人背景梁同桌",
+  "tag": " "
+}

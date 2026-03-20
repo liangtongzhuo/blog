@@ -18,28 +18,34 @@ const input_tag = document.getElementById('input_tag')
 const input_content = document.getElementById('input_content')
 
 
-//如果有id，发送请求获取id
+//如果有id，从本地数据文件获取文章
 const id = location.search.split('?')[1]
-let atricleObject
 if (id) {
-    const query = new AV.Query('Atricle')
-    query.get(id).then(function(atricle) {
-        atricleObject = atricle
-        input_title.value = atricle.get('title')
-        input_tag.value = atricle.get('tag')
-        input_content.value = atricle.get('content')
+    // 从本地数据文件获取文章数据
+    fetch(`data/articles/${id}.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`未找到ID为 ${id} 的文章`)
+            }
+            return response.json()
+        })
+        .then(article => {
+            // 填充内容
+            input_title.value = article.title
+            input_tag.value = article.tag
+            input_content.value = article.content
 
-        //调用更新界面
-        updataTitle.apply(input_title)
-        updataTag.apply(input_tag)
-        updataContent.apply(input_content)
-
-    }, function(error) {
-        console.log('失败')
-    })
+            //调用更新界面
+            updataTitle.apply(input_title)
+            updataTag.apply(input_tag)
+            updataContent.apply(input_content)
+        })
+        .catch(error => {
+            console.error('获取本地数据出错:', error)
+        })
 }
 
-//标题
+//标题
 input_title.oninput = updataTitle
 
 function updataTitle() {
@@ -100,50 +106,8 @@ setInterval(function() {
    
 },200)
 
+// 由于不再使用 LeanCloud，移除自动保存功能
+// 通知用户保存功能已不可用
+document.getElementById('notification').innerText = '由于系统更新，保存功能暂时不可用'
+document.getElementById('notification').style.opacity = '1'
 
-//记录当前标题和内容
-let titleCount = 0
-let tagCount = 0
-let contentCount = 0
-
-//更新内容
-function updataAricle() {
-
-    if (input_title.value.length == titleCount &&
-        input_content.value.length == contentCount &&
-        input_tag.value.length == tagCount)
-        return
-
-    document.getElementById('notification').style.opacity = '1'
-
-    //发送到服务器
-    if (!atricleObject) {
-        const Atricle = AV.Object.extend('Atricle')
-        atricleObject = new Atricle()
-        // 新建一个 ACL 实例
-        var acl = new AV.ACL()
-        acl.setPublicReadAccess(true)
-        acl.setWriteAccess(AV.User.current(), true)
-        // 将 ACL 实例赋予对象
-        atricleObject.setACL(acl)
-    }
-
-    atricleObject.set('title', input_title.value)
-    atricleObject.set('tag', input_tag.value)
-    atricleObject.set('content', input_content.value)
-
-    atricleObject.save().then(function(atricle) {
-        titleCount = input_title.value.length
-        tagCount = input_tag.value.length
-        contentCount = input_content.value.length
-
-    }, function(error) {
-        console.log('有错误：',error)
-    })
-
-    setTimeout(function() {
-        document.getElementById('notification').style.opacity = '0'
-    }, 3000)
-}
-//10秒保存一次
-setInterval(updataAricle, 10000)

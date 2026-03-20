@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:46:00.483Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "写一份短暂的工作报告，可以反馈我初入公司项目的一些不成熟想法。\n\n1.有不少__变量没有声明__，这样会很奇怪。\n\n```\n a = 10;//会给人感觉，这个变量以前声明过。\n```\n\n2.摒弃 var ，由于 var 有变量提上。应使用 ES6 的 let 可变与 const 不可变来声明变量。\n\n3.在 Meteor 中，不声明变量可以让变量为全局变量。\n```\nVenues = new Mongo.Collection('venues'); 　\n//所有文件内都可以使用 Venues 来查询数据库。\n//这样会有一个问题，如果别的地方也使用了 Venues 这个变量，就会冲突。\n//解决方法我们约定全局变量使用 G_前缀 （G_Venues），我们看见G_ 前缀不再赋值。\n```\n4.方法内 this 的问题 , 修改后可少一行代码（少一行代码就可能少一个bug 😊）\n```\nTemplate.train.onCreated(function(){\n\tvar self = this;\n\tself.itemData = new ReactiveVar();\n\tTracker.autorun(function(){\n\t\tMeteor.apply('train/getlist',function(err,res){\n\t\t\tif(!err) self.itemData.set(res);\n\t\t});\n\t});\n});\n//修改后----------------------------------------------------------------------\nTemplate.train.onCreated(function(){\n\tthis.itemData = new ReactiveVar();\n\tTracker.autorun(() => {\n\t\tMeteor.apply('train/getlist',(err,res) => {\n\t\t\tif(!err) this.itemData.set(res);\n\t\t});\n\t});\n});\n```\n5.注释问题，我现在大多数时间在看原代码，注释好少😢，导致阅读代码进度稍许慢（也可能是我阅读代码能力太差 😫），我希望在一些逻辑较多的地方给予一定的注释。尤其是函数或 API 😊😊。\n\n\n\n**收尾：**<br>\n感谢我的三位同事 金龙、全新、智强，在我初入公司帮助我了解项目之间的困惑，以及技术上的指导。另感谢刘总给我宏观讲解项目架构和业务，另外给于我充分的时间融入项目和团队。\n\n\n\n\n",
+  "createdAt": "2017-07-11T00:01:28.610Z",
+  "title": "初入公司项目总结 ",
+  "tag": " "
+}

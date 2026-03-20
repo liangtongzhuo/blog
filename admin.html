@@ -15,36 +15,15 @@
         <input id="zhuce" type="submit" value="注册" />
     </div>
     <!-- /大盒子 -->
-    <script src="lib/av.js"></script>
-    <script src="js/config.js"></script>
     <script>
         var password = document.getElementById('password');
         document.getElementById('login').addEventListener('click', function() {
-            if (AV.User.current()) {
-                window.location.href = "index.html";
-                return;
-            }
-            //注册过登陆
-            AV.User.logIn('admin', password.value).then(function(loginedUser) {
-                window.location.href = "index.html";
-            }, function(error) {
-                alert('登陆失败');
-            });
+            // 由于不再使用 LeanCloud，直接跳转到首页
+            window.location.href = "index.html";
         }, false);
         document.getElementById('zhuce').addEventListener('click', function() {
-            if (AV.User.current()) {
-                window.location.href = "index.html";
-                return;
-            }
-            var user = new AV.User();
-            // 设置用户名
-            user.setUsername('admin');
-            user.setPassword(password.value);
-            user.signUp().then(function(loginedUser) {
-                window.location.href = "index.html";
-            }, function(error) {
-                alert('注册失败');
-            });
+            // 由于不再使用 LeanCloud，直接跳转到首页
+            window.location.href = "index.html";
         }, false);
     </script>
 

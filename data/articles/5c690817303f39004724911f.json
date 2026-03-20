@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:10:19.675Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "## 前言\nIM 聊天软件需要截图功能。我们找到了一个方法，微信 dll，包装一下生成 exe 文件，我用 Node.js 去调用完成截图。\n\n1. 第一步先用 Node 执行微信封装的 exe，然后会把截图复制到剪切板\n2. 然后调用浏览把剪切板的内容复制出来\n```\n    var screen_window = execFile(__dirname + '/screen/PrintScr.exe')\n    screen_window.on('exit', function (code) {\n      // 执行成功返回 1，返回 0 没有截图\n      if (code) mainWindow.webContents.paste()\n    })\n```\n\n截图软件 Git 地址: https://github.com/liangtongzhuo/electron_screenshot\n",
+  "createdAt": "2019-02-17T07:07:03.339Z",
+  "title": "Electron 调取微信截图  ",
+  "tag": "Electron,Web,JavaScript"
+}

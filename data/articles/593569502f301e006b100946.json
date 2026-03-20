@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:42:00.239Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "只有 Web 才有跨域 CORS，移动端 iOS 与 Android 就没有，谁让 Web 能看源代码呢，沙盒机制也不如移动端健全。\n- 同源策略的限制：XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。\n- 相反就是跨域：如果想让XmlHttpRequest 按照自己意愿（域名、协议、端口）请求数据，那就需要跨域\n\n那为什么有同源策略限制？\n没有同源策略的话，资源（如HTTP头、Cookie、DOM、localStorage等）就能相互随意访问，那就没有安全了。同源策略就是把每个网站都关在一个笼子里，每个网站互相访问不到数据，只有用户和网站开发者可以访问数据，这样就安全了。\n\n\n __下面是 Node 如何跨域的两种方法，均是在服务器设置，并不是JSOP这样不优雅的方式。__\n\n__ 方法一:  __\n\n```\napp.use('*',function (req, res, next) {\n  res.header('Access-Control-Allow-Origin', '*'); //这个表示任意域名都可以访问，这样写不能携带cookie了。\n//res.header('Access-Control-Allow-Origin', 'http://www.baidu.com'); //这样写，只有www.baidu.com 可以访问。\n  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');\n  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');//设置方法\n  if (req.method == 'OPTIONS') {\n    res.send(200); // 意思是，在正常的请求之前，会发送一个验证，是否可以请求。\n  }\n  else {\n    next();\n  }\n});\n```\n__ 方法二：__\n\n```\n$ npm install cors\n```\n\n```\nvar express = require('express')\nvar cors = require('cors')\nvar app = express()\n\nvar corsOptions = {\n  origin: 'http://www.baidu.com', //只有百度可以访问\n  optionsSuccessStatus: 200 \n}\n\napp.get('/products/:id', cors(corsOptions), function (req, res, next) {\n  res.json({msg: '只有百度可以访问'})\n})\n\napp.listen(80, function () {\n  console.log('CORS-enabled web server listening on port 80')\n})\n```\n个人网页http://liangtongzhuo.com",
+  "createdAt": "2017-06-05T14:23:12.390Z",
+  "title": "Node 跨域 CORS 模块",
+  "tag": "Node.js,Web,HTML"
+}

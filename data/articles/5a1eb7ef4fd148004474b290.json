@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:10:46.772Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "# 前言  \n记录我__一天物质与软件生活轨迹__，11月29日、星期三 、温度 -2-7度\n\n# 时间轴\n6.30 自然醒，用 iPhone 6 Plus 玩即可 App 10 分钟。\n\n6.40 起床，用妮维雅、佳洁与吉利完成洗漱。 \n\n7:00 出门去公司，坐 1 元公交车，百词斩 App 背 50 单词，早餐 4 元。\n\n7:50 到办公室，开机、项目运行、查看 Git，下来逛论坛 Cnode、简书、掘金，抒写自己博客。\n\n8:30 正式上班写代码，上班用到的工具微信、Git、SSR、Chrom、Visual Studio Code，Atom，用到网页 Google、NPM、百度、GitHub。\n\n12:00 午休，用自己微信公众号随机选一个饭馆，天气太冷吃了一份鸡蛋面条 9 元。（可以关注我的公众号，搜索：梁同桌）\n\n13.20 下午开始写代码。\n\n17:30 下班，一般情况下会抓紧完善这个功能 10 分钟左右。然后捣鼓博客与新技术。\n\n19:00 和同事一起打卡下班，俩人吃晚饭 80 元。\n\n20:30 公交车回到住的地方 1 元，继续捣鼓自己东西与博客抒写。\n\n22:30 出去跑步，操场跑五圈。\n\n23:30 睡觉。\n\n\n\n今日灵感：\n想写一个基于地图吆喝的聊天 Web 应用。\n\n今日记录的代码：\n```\n匹配图片地址的正则表达式\n/http.*?(gif|GIF|png|PNG|jpg|JPG|jpeg|JPEG)/gi\n\n// 判断是否是移动端\nif (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {\n  click(e)\n}\n//剧中\n.inner{\nposition : absolute;\ntop: 50%;\nleft:50%;\ntransform: translate(-50%, -50%);\n}\n```\n",
+  "createdAt": "2017-11-29T13:36:47.914Z",
+  "title": "梁同桌的一天物质与软件生活 ",
+  "tag": "我,非技术文章"
+}

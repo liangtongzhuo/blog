@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-19T04:01:14.788Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "## 个人对堆排序的理解\n- 第一步：是创建length堆，根节点要比子结点大。\n- 第二步：把最父结点与最后一个叶子节点交换。这样堆被破坏。\n- 第三步：创建 length-1 的堆。跳转到第一步，一直循环到，length=0 停止。 \n- 堆排序快就快在，在创建的堆里找最大值相当于折半查找的速度非常乐观。不用不全部扫一遍。\n\n### 时间复杂度\n-  平均速度 o(n*logn)\n- 不稳定排序\n\n\nC版本\n```\n#include <stdio.h>\n/*\n s: 待比较 的节点\n 分三步走\n 1.比较s节点下左右子节点的哪一个大\n 2.其中大的一个节点 与 s节点 比较大小。\n 3.如果 子节点没有s大 则结束， 比s节点大就交换他们的数值，然后继续向子节点\n*/\nvoid HeapAdjust(int H[],int s, int length)\n{\n    int temp = H[s];\n    int child = 2 * s + 1; //这里child是左孩子的位置，child+1代表右孩子\n    while (child < length) { //防止 越界。\n        if (child+1 < length && H[child]<H[child+1]){//防止越界 且，找到左右孩子哪一个比较大。\n            child++;//右孩子大\n        }\n        if (H[child] > H[s]){//比父节点的数值大\n            H[s] = H[child];//复制给 s 节点\n            \n            s = child; //调整 s，下一个节点\n            child = 2 * s + 1;\n            \n            H[s] = temp;// 交换\n        }else{\n            break; //子节点没有比父节点大\n        }\n    }\n}\n///初始化 堆\nvoid BuildingHeap(int H[], int length)\n{\n    ///i 等于 最后一个有孩子的结点位置， 一直从堆底走到堆顶。\n    for(int i = (length - 1) / 2; i >= 0; i--)\n        HeapAdjust(H,i,length);\n    \n}\n///堆排序\nvoid HeapSprt(int H[],int length)\n{\n    BuildingHeap(H, length);//创建初始化堆\n    ///这里是  从堆里选择最大的跟节点与跟最后节点交换，后堆排序\n    //然后堆次大的与倒数第二的节点交换，后堆排序\n    // 节点与根节点重合结束，从小到大排序结束\n    for (int i = length - 1; i > 0; i--)\n    {\n        int temp = H[0]; H[0] = H[i]; H[i] = temp; ///把 栈顶交换了。\n        HeapAdjust(H, 0, i);\n    }\n}\n\nint main(){\n    \n    int a[10] = {8,9,7,0,3,4,5,2,1,6};\n    HeapSprt(a, 10);\n\n    \n    for (int j = 0; j<10; j++) {\n        printf(\"%d \",a[j]);\n    }\n    printf(\"\\n\");\n}\n```\n- ######看我那么可爱n(*≧▽≦*)n \n- 关注我的微薄 (梁同桌)：http://weibo.com/tongrenyinsheng\n- 个人博客： http://www.liangtongzhuo.com\n- ios 个人写的app （同人音声）ASMR音乐",
+  "createdAt": "2016-06-24T02:21:00.000Z",
+  "title": "数据结构 堆排序 C ",
+  "tag": "算法"
+}

@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-19T04:02:30.620Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "## 个人对希尔排序的理解\n- 是将待排序 分成若干的子系列排序（是由相隔的个参数，分割而成）。\n- 每次 排序子序列（相隔的参数减少一半）\n- 最终 会对全体元素进行一次直接插入排序， 因为在 （元素大部分有序的情况下，直接插入排序效率很高），所以希尔排序时间效率就快\n\n## 算法 时间复杂度 与 自己想法\n- 由于 希尔排序 基于 插入排序的一种算法，当相隔的参数为1，过程就为插入排序。\n- 所以 希尔排序 优化点可以根据 实际的情况 和 待排序的元素有序程度。 来单独设计 相隔的参数\n- 在 待排序列 有序的情况下 速度很快， 当然在最差的情况下 也比 直接插入排序快。\n- 希尔排序的时间复杂度是：O（n^1.2） \n- 算法 不稳定\n\n```\n#include <stdio.h>\n\nvoid shellsort(int a[], int n)\n{\n    int j, gap;\n    for (gap = n / 2; gap > 0; gap /= 2) //空开几个\n        for(j = gap; j < n; j++) //扫一遍\n            if (a[j] < a[j-gap])  //比较 俩\n            {\n                int temp = a[j];\n                int k = j - gap;                \n                while (k >= 0 && a[k] > temp) ///让最小的 移动到最前面\n                {\n                    a[k + gap] = a[k];\n                    k -= gap;\n                }\n                ///最小的复制过来\n                a[k + gap] = temp;\n            }\n}\n\nint main(){   \n    int a[10] = {2,5,6,7,8,9,0,1,3,4};    \n    shellsort(a, 10);    \n    int i ;    \n    for (i = 0; i < 10; i++) {        \n        printf(\"%d\",a[i]);        \n    }\n    printf(\"\\n\");\n    return 0;\n}\n\n```\n- swift\n\n```\nimport UIKit\nfunc shellsort(inout a : [Int]){\n    let n = a.count-1\n    for(var gap = n / 2; gap > 0; gap /= 2){\n        for j in gap...n {\n            if a[j] < a[j-gap]{\n                let tmep = a[j]\n                var k = j - gap\n                while k >= 0 && a[k] > tmep {//扫一遍 好填最小值\n                    a[k + gap] = a[k]\n                    k -= gap\n                }\n                a[k + gap] = tmep\n            }\n        }\n    }\n}\n\nvar a = [2,5,6,7,8,9,0,1,3,4]\n\nshellsort(&a)\n```\n\n- ######看我那么可爱n(*≧▽≦*)n \n- 关注我的微薄 (梁同桌)：http://weibo.com/tongrenyinsheng\n- 个人博客： http://www.liangtongzhuo.com\n- ios 个人写的app （同人音声）ASMR音乐",
+  "createdAt": "2016-06-22T09:13:00.000Z",
+  "title": "数据结构 希尔排序  C  Swift 版本",
+  "tag": "算法,Swift"
+}

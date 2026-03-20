@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:45:47.491Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "### __前言__\n珑凌科技确实是一家不错的互联网公司[「官网地址」](http://www.lonlife.cn/)，另外 HR 确实能体现一个公司整体水平。起初收到珑凌公司的 HR 打来的电话，HR 非常细心问了我最近一年工作上的问题，还详细了介绍了珑凌科技公司的文化与公司产品，我们大概聊了 30 分钟左右，少有 HR 会这样。\n\n公司技术也很扎实，多次支持我校 ACM 比赛；我的室友（多次省赛 ACM 金奖和亚洲区赛），他说这家公司是有抱负的，想干大事的公司。今天我去面试体验非常好，面试题也很有水准，下面我总结一下面试题纠正我的错误。\n\n\n\n- __第一题__ 我做对了😊\n\n```\nvar a ={ x: 1} ;\nvar b = a;\na.x = a = { x: 2 };\nconsole.log(a.x);\n//这里应该输出 2\n//这里牵扯的一个问题，一般是由右向左，但是因为有 a.x 中间带 “.” 所以先运算 a.x =a\n//然后在运行 a = { x: 2 }; 这样最后输出的就是 2 了。\n//想一下 console.log(b.x); 是什么结果？\n```\n- __第二题__ 我答错了😢\n\n```\nconsole.log(String('hello') instanceof String);\n//问题是输出的是什么?\n//正确答案 false \n//我看错了以为是 new String('hello');\n// String('hello'); 返回的是字符串，基本类型\n// new String('hello'); 返回的 String 对象，引用类型\n```\n- __第三题__ 对了\n\n```\nfunction fn(a, b){\n  arguments[1] = 1;\n  console.log(b);\n}\nfn(1)\n// 输出什么？\n// 正确答案：undefinde\n```\n- __第四题__ 这道题最给力\n\n```\nadd(1,3); //输出 4\nadd(1)(3);//输出 4\n//请实现这个函数\n\n//下面是这个函数的实现\nvar add = function() {\n    var sum = 0;\n    for(var i = 0; i < arguments.length; i++)\n        sum += arguments[i];\n    var addMore = function(b) {\n        for(var j = 0; j < arguments.length; j++)\n            sum += arguments[j];\n        return addMore;\n    };//知识点是下面这一句\n    addMore.toString = function() {\n        return sum;\n    };\n    return addMore;\n};\nconsole.log(add(1,3));\nconsole.log(add(1)(3));\n//其实链式写法很好实现，重点的是重写 toString\n//addMore.toString = function(){return sum;}\n//用 console.log(add(1)); 打印的时候会调用 toString 这个方法\n//本身 toString 是把函数转换成字符串输出到控制台，而我们重写了方法本身要打印函数本身的，这样就会输出 sum 。\n```\n以上是我仅凭记忆记下的一些题目，大多数题目都给忘记了。😢\n\n珑凌科技官网网址:http://www.lonlife.cn/ 如果你是打算在郑州工作可以去试一试。\n好啦这次面试告一段落了，明天还要 4.30 起。\n\n\n",
+  "createdAt": "2017-06-17T13:17:00.927Z",
+  "title": "珑凌科技公司的一次友好的面试，另记录一些面试题。",
+  "tag": "JavaScript,Web"
+}

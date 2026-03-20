@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2021-07-05T13:10:56.377Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "<img width=\"250\" src=\"data/files//67f1d9f290276e9aab2d.png\">\n\n# react-native 就下面四种 flex 属性控制布局\n\n```\nconst styles = StyleSheet.create({\n  container: {\n    backgroundColor: '#fff',\n  },\n  item: {\n    backgroundColor: '#4385f5',\n    color: 'white',\n    textAlign: 'center',\n    fontSize: 50,\n    lineHeight: 100,\n    width: 100,\n    height: 100,\n    margin: 5,\n  },\n  //flexDirection（主轴）\n  //column（默认 从上向下）| column-reverse |  row | row-reverse \n  box_flexDirection: {\n    flexDirection: 'column'\n  },\n  //justifyContent（描述子盒子之间的距离）\n  //flex-start（默认 从右边开始）| flex-end | center | space-between（两端靠边，项目之间间距相等）| space-around（每个项目两侧的间隔相等）\n  //需要 item 宽高调整小一些，才可以看见效果\n  box_justifyContent: {\n    justifyContent: 'flex-start',\n    flexDirection: 'row',    \n  },\n  //flexWrap （描述一行排满是否换行） \n  //nowrap（默认 不换行）| wrap \n  box_flexWrap: {\n    flexWrap: 'wrap',\n    flexDirection: 'row',\n  },\n  //alignItems（用于描述交叉轴（又名 侧轴））\n  //flex-start（默认）| flex-end | center | baseline（第一行字体对齐）| stretch（侧轴方向撑满）\n  box_alignItems: {\n    alignItems: 'flex-start'\n  },\n});\n  ```\n\nGitHub: https://github.com/liangtongzhuo/react_native_flex",
+  "createdAt": "2017-10-22T09:47:40.064Z",
+  "title": "ReactNative flex 布局 ",
+  "tag": "ReactNative,JavaScript,GitHub"
+}

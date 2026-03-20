@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2018-02-08T09:41:41.572Z",
+  "ACL": {
+    "*": {
+      "read": true
+    },
+    "5902984044d904006912043d": {
+      "write": true
+    }
+  },
+  "content": "以前在做支付宝支付中遇见，我们一般情况下把 url  UrlEncode  一下，并不需要 base64 。由此写一遍文章，解决一下心中的疑惑。\n\n知乎的上的解答：https://www.zhihu.com/question/19711134\n\n- ###  base64 是什么鬼？\n   由于 ASCII 码称为了国际标准，所以我们要把其它字符转成 ASCII 就要用到 base64。\n   utf-8 -> base64(编码) -> ASCII \n   ASCII -> base64(解码) -> utf-8 \n  这样就可以让只支持 ASCII 的计算机支持 utf-8 了。\n    \n  具体的算法转换方法：[廖雪峰老师的博客](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001399413803339f4bbda5c01fc479cbea98b1387390748000)\n\n  -----\n\n- ### UrlEncode \n  例子：www.baidu.com?a=nihao \n 上面的例子可以看出 a 的值是你好 \n  如果要把 a 的值换成 “=” 字符呢？这样吗：www.baidu.com?a==  ，肯定不行啦，“=” 是特殊字符 \n  所以把   “=” UrlEncode后 “%3d” \n  www.baidu.com?a=%3d \n\n  服务器拿到 a 解码得到 “=” \n  所以说 url 是限制性编码 \n\n---\n\n- 回过头看看，支付宝为什么要 base64，猜测如下\n 为了减轻服务器压力，加密与解密都需要 base64 转码，放在支付宝服务器上 base64 不如分发给各个用户的服务器。 减少了 cpu  的运算。\n\n\n\n\n\n\n\n",
+  "createdAt": "2017-04-30T03:17:26.348Z",
+  "title": "base64 编码和 UrlEncode 见解",
+  "tag": "Node.js,编程疑问,Web"
+}
