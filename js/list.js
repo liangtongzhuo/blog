@@ -59,12 +59,6 @@ function atricleHTML(id, title, time) {
         '<div class="time">' + time + '</div></div>';
 }
 
-// 发布文章
-document.getElementById('title').addEventListener('click', function () {
-    // 由于不再使用 LeanCloud，直接跳转到 admin.html
-    window.location.href = "admin.html"
-
-}, false);
 
 // 标签按钮
 const btn = document.getElementById('btn');
