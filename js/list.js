@@ -80,3 +80,4 @@ const click = e => {
         tagElement.style.visibility = 'hidden';
     }
 };
+
