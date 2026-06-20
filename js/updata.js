@@ -108,6 +108,6 @@ setInterval(function() {
 
 // 由于不再使用 LeanCloud，移除自动保存功能
 // 通知用户保存功能已不可用
-document.getElementById('notification').innerText = '由于系统更新，保存功能暂时不可用'
-document.getElementById('notification').style.opacity = '1'
+// document.getElementById('notification').innerText = '由于系统更新，保存功能暂时不可用'
+// document.getElementById('notification').style.opacity = '1'
 
